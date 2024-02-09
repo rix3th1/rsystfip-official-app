@@ -1,0 +1,20 @@
+@import "react-toastify/scss/variables";
+@import "react-toastify/scss/toastContainer";
+@import "react-toastify/scss/toast";
+@import "react-toastify/scss/theme";
+@import "react-toastify/scss/closeButton";
+@import "react-toastify/scss/progressBar";
+@import "react-toastify/scss/animations/flip";
+
+@media (max-width: 768px) {
+  .schg-sm {
+    width: 1100px;
+  }
+}
+
+.load-events {
+  display: none;
+  position: absolute;
+  top: 95px;
+  right: 40px;
+}

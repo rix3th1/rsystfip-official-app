@@ -1,6 +1,7 @@
 {
   "name": "itfip.rsystfip",
-  "version": "0.1.0",
+  "version": "1.0.0",
+  "description": "Sistema de agendamiento de citas para la rectoría del INSTITUTO TOLIMENSE DE FORMACIÓN TÉCNICA PROFESIONAL (ITFIP).",
   "private": true,
   "scripts": {
     "dev": "next dev",
@@ -8,17 +9,65 @@
     "start": "next start",
     "lint": "next lint"
   },
+  "author": {
+    "name": "Ricardo Andrés Rojas Rico",
+    "email": "rojasricor@gmail.com"
+  },
+  "contributors": [
+    {
+      "name": "José Manuel Mendoza Vásquez",
+      "email": "unknow69007@gmail.com"
+    }
+  ],
   "dependencies": {
-    "react": "^18",
-    "react-dom": "^18",
-    "next": "14.1.0"
+    "@emotion/react": "^11.11.3",
+    "@emotion/styled": "^11.11.0",
+    "@fullcalendar/core": "^6.1.10",
+    "@fullcalendar/daygrid": "^6.1.10",
+    "@fullcalendar/interaction": "^6.1.10",
+    "@fullcalendar/list": "^6.1.10",
+    "@fullcalendar/react": "^6.1.10",
+    "@fullcalendar/timegrid": "^6.1.10",
+    "@mui/icons-material": "^5.15.9",
+    "@mui/lab": "5.0.0-alpha.165",
+    "@mui/material": "^5.15.9",
+    "@mui/x-data-grid": "^6.19.3",
+    "@mui/x-date-pickers": "^6.19.3",
+    "@reduxjs/toolkit": "^2.1.0",
+    "@sendgrid/mail": "^8.1.0",
+    "axios": "^1.6.7",
+    "bcryptjs": "^2.4.3",
+    "chart.js": "^4.4.1",
+    "chartjs-plugin-datalabels": "^2.2.0",
+    "date-fns": "^2.30.0",
+    "joi": "^17.12.1",
+    "jsonwebtoken": "^9.0.2",
+    "mysql2": "^3.9.1",
+    "next": "14.1.0",
+    "next-auth": "^4.24.5",
+    "next-nprogress-bar": "^2.1.2",
+    "next-themes": "^0.2.1",
+    "pdfmake": "^0.2.9",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-query": "^3.39.3",
+    "react-redux": "^9.1.0",
+    "react-router-dom": "^6.22.0",
+    "react-toastify": "^10.0.4",
+    "uuid": "^9.0.1"
   },
   "devDependencies": {
-    "typescript": "^5",
-    "@types/node": "^20",
-    "@types/react": "^18",
-    "@types/react-dom": "^18",
-    "eslint": "^8",
-    "eslint-config-next": "14.1.0"
+    "@types/bcryptjs": "^2.4.6",
+    "@types/jsonwebtoken": "^9.0.5",
+    "@types/mysql2": "github:types/mysql2",
+    "@types/node": "^20.11.17",
+    "@types/pdfmake": "^0.2.9",
+    "@types/react": "^18.2.55",
+    "@types/react-dom": "^18.2.19",
+    "@types/uuid": "^9.0.8",
+    "eslint": "^8.56.0",
+    "eslint-config-next": "14.1.0",
+    "sass": "^1.70.0",
+    "typescript": "^5.3.3"
   }
 }

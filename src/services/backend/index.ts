@@ -1,0 +1,10 @@
+export * as CancellationService from "./Cancellation.service";
+export * as CategoryService from "./Category.service";
+export * as DeanService from "./Dean.service";
+export * as DocumentService from "./Document.service";
+export * as FacultyService from "./Faculty.service";
+export * as PeopleService from "./People.service";
+export * as ReportService from "./Report.service";
+export * as ScheduleService from "./Schedule.service";
+export * as StatisticService from "./Statistic.service";
+export * as UserService from "./User.service";
