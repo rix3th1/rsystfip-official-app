@@ -10,7 +10,8 @@ export async function GET(
 
   const { error, value } = statisticfilterSchema.validate({
     ...params,
-    ...searchParams,
+    start_time: searchParams.get("start_time"),
+    end_time: searchParams.get("end_time"),
   });
   if (error) {
     return NextResponse.json({ error: error.message }, { status: 400 });

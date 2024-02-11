@@ -92,6 +92,8 @@ function FormCancellPerson({
         mutationSchedule.isLoading ||
         mutationSendEmail.isLoading
     );
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [
     mutationCancellation.isLoading,
     mutationSchedule.isLoading,

@@ -17,7 +17,7 @@ import {
   Select,
   type SelectChangeEvent,
 } from "@mui/material";
-import { useEffect } from "react";
+import { useEffect, type DependencyList } from "react";
 import { useQueries, type UseQueryResult } from "react-query";
 import { v4 } from "uuid";
 import { actionFormSchedule } from ".";
@@ -47,26 +47,25 @@ function SelectPerson({
     { queryKey: "categories", queryFn: categoryService.getCategories },
   ]);
 
-  useEffect(
-    () => {
-      for (let i = 0; i < queries.length; i++) {
-        const { data, error } = queries[i] as UseQueryResult<any, any>;
+  useEffect(() => {
+    for (let i = 0; i < queries.length; i++) {
+      const { data, error } = queries[i] as UseQueryResult<any, any>;
 
-        if (data) {
-          if (i === 0) {
-            dispatch(setDeans(data));
-          } else if (i === 1) {
-            dispatch(setCategories(data));
-          }
-        }
-
-        if (error) {
-          notify(error.response.data.error, { type: "error" });
+      if (data) {
+        if (i === 0) {
+          dispatch(setDeans(data));
+        } else if (i === 1) {
+          dispatch(setCategories(data));
         }
       }
-    },
-    queries.flatMap(({ data, error }) => [data, error])
-  );
+
+      if (error) {
+        notify(error.response.data.error, { type: "error" });
+      }
+    }
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, queries.flatMap(({ data, error }) => [data, error]) as DependencyList);
 
   const inputsInteraction = async () => {
     if (!formDataState.category_id) return;
@@ -96,6 +95,7 @@ function SelectPerson({
 
   useEffect(() => {
     inputsInteraction();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [formDataState.category_id]);
 
   return (

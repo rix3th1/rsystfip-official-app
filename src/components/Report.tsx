@@ -24,7 +24,7 @@ import { AdapterDateFns } from "@mui/x-date-pickers/AdapterDateFns";
 import { DatePicker } from "@mui/x-date-pickers/DatePicker";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { format, parse } from "date-fns";
-import { useEffect } from "react";
+import { useEffect, type DependencyList } from "react";
 import { useQueries, type UseQueryResult } from "react-query";
 import { v4 } from "uuid";
 import FetcherReports from "./FetcherReports";
@@ -85,31 +85,31 @@ function Report(): React.ReactNode {
     );
   };
 
-  useEffect(
-    () => {
-      for (let i = 0; i < queries.length; i++) {
-        const { data, error } = queries[i] as UseQueryResult<any, any>;
+  useEffect(() => {
+    for (let i = 0; i < queries.length; i++) {
+      const { data, error } = queries[i] as UseQueryResult<any, any>;
 
-        if (data) {
-          if (i === 0) {
-            dispatch(setCategories(data));
-          }
-          if (i === 1) {
-            filterReports(data);
-            dispatch(setReportsOrigen(data));
-          }
+      if (data) {
+        if (i === 0) {
+          dispatch(setCategories(data));
         }
-
-        if (error) {
-          notify(error.response.data.error, { type: "error" });
+        if (i === 1) {
+          filterReports(data);
+          dispatch(setReportsOrigen(data));
         }
       }
-    },
-    queries.flatMap(({ data, error }) => [data, error])
-  );
+
+      if (error) {
+        notify(error.response.data.error, { type: "error" });
+      }
+    }
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, queries.flatMap(({ data, error }) => [data, error]) as DependencyList);
 
   useEffect(() => {
     filterReports();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [queryDataState.category_id]);
 
   return (

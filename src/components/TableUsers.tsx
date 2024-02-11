@@ -30,10 +30,10 @@ function TableUsers(): React.ReactNode {
   const handleClick = async (roleId: IUserBase["id"]) => {
     if (!confirm("Seguro(a) de eliminar ese usuario?")) return;
 
-    setLoadingButtons((prevSet) => new Set(prevSet).add(roleId));
+    setLoadingButtons((prevSet) => new Set(prevSet).add(+roleId));
 
     try {
-      const data = await mutationDeleteUser.mutateAsync(roleId);
+      const data = await mutationDeleteUser.mutateAsync(+roleId);
 
       const updatedRows = usersState.filter((row) => row.id !== roleId);
 
@@ -62,7 +62,7 @@ function TableUsers(): React.ReactNode {
         <>
           <IconButton
             component={NextLink}
-            href={`/users/change-password/${id}`}
+            href={`/ITFIP-Rectory/users/change-password/${id}`}
             title={`Change password for user ${email}`}
           >
             <KeyIcon />
@@ -93,6 +93,8 @@ function TableUsers(): React.ReactNode {
   useEffect(() => {
     if (data) dispatch(setUsers(data));
     if (error) notify(error.response.data.error, { type: "error" });
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [data, error]);
 
   return (

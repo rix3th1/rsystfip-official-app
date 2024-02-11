@@ -82,15 +82,19 @@ function NavBar({ permissions }: IProps): React.ReactNode {
   };
 
   const handleClickLogout = async () => {
+    // Reset the Redux context
     handleCloseUserMenu();
     dispatch(resetFormDataAdmin());
     dispatch(resetQueryDataReports());
     dispatch(resetQueryDataStatistics());
     dispatch(resetAllFormDataProgramming());
     dispatch(destroyTemporals());
+
+    // Close the session
     await signOut({ redirect: false });
 
-    router.push("/");
+    // Redirect to the sign in page
+    router.push("/signin");
     router.refresh();
   };
 
@@ -130,7 +134,7 @@ function NavBar({ permissions }: IProps): React.ReactNode {
           >
             <MenuItem
               component={NextLink}
-              href="/home"
+              href="/ITFIP-Rectory/home"
               onClick={handleCloseNavMenu}
             >
               <Typography textAlign="center">Inicio</Typography>
@@ -138,7 +142,7 @@ function NavBar({ permissions }: IProps): React.ReactNode {
 
             <MenuItem
               component={NextLink}
-              href="/users"
+              href="/ITFIP-Rectory/users"
               onClick={handleCloseNavMenu}
             >
               <Typography textAlign="center">Usuarios</Typography>
@@ -148,7 +152,7 @@ function NavBar({ permissions }: IProps): React.ReactNode {
             </MenuItem>
             <MenuItem
               component={NextLink}
-              href="/appointments"
+              href="/ITFIP-Rectory/appointments"
               onClick={handleCloseNavMenu}
             >
               <Typography textAlign="center">Agendamientos</Typography>
@@ -158,7 +162,7 @@ function NavBar({ permissions }: IProps): React.ReactNode {
             </MenuItem>
             <MenuItem
               component={NextLink}
-              href="/reports"
+              href="/ITFIP-Rectory/reports"
               onClick={handleCloseNavMenu}
             >
               <Typography textAlign="center">Reportes</Typography>
@@ -168,7 +172,7 @@ function NavBar({ permissions }: IProps): React.ReactNode {
             </MenuItem>
             <MenuItem
               component={NextLink}
-              href="/faqs"
+              href="/ITFIP-Rectory/faqs"
               onClick={handleCloseNavMenu}
             >
               <Typography textAlign="center">Faqs</Typography>
@@ -179,7 +183,7 @@ function NavBar({ permissions }: IProps): React.ReactNode {
         <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
           <Button
             component={NextLink}
-            href="/home"
+            href="/ITFIP-Rectory/home"
             onClick={handleCloseNavMenu}
             sx={{ my: 2, color: "white" }}
           >
@@ -189,7 +193,7 @@ function NavBar({ permissions }: IProps): React.ReactNode {
           <ProtectedElement isAllowed={permissions.includes("admin")}>
             <Button
               component={NextLink}
-              href="/users"
+              href="/ITFIP-Rectory/users"
               onClick={handleCloseNavMenu}
               sx={{ my: 2, color: "white" }}
             >
@@ -216,7 +220,7 @@ function NavBar({ permissions }: IProps): React.ReactNode {
             <ProtectedElement isAllowed={permissions.includes("add")}>
               <MenuItem
                 component={NextLink}
-                href="/people/create"
+                href="/ITFIP-Rectory/people/create"
                 onClick={handleCloseMenu1}
               >
                 <Typography textAlign="center">Diario</Typography>
@@ -226,7 +230,7 @@ function NavBar({ permissions }: IProps): React.ReactNode {
             <ProtectedElement isAllowed={permissions.includes("schedule")}>
               <MenuItem
                 component={NextLink}
-                href="/people/create-schedule"
+                href="/ITFIP-Rectory/people/create-schedule"
                 onClick={handleCloseMenu1}
               >
                 <Typography textAlign="center">Programado</Typography>
@@ -237,7 +241,7 @@ function NavBar({ permissions }: IProps): React.ReactNode {
           <ProtectedElement isAllowed={permissions.includes("schedule")}>
             <Button
               component={NextLink}
-              href="/appointments"
+              href="/ITFIP-Rectory/appointments"
               onClick={handleCloseNavMenu}
               sx={{ my: 2, color: "white" }}
             >
@@ -264,7 +268,7 @@ function NavBar({ permissions }: IProps): React.ReactNode {
           >
             <MenuItem
               component={NextLink}
-              href="/statistics/daily"
+              href="/ITFIP-Rectory/statistics/daily"
               onClick={handleCloseMenu2}
             >
               <Typography textAlign="center">Diario</Typography>
@@ -272,7 +276,7 @@ function NavBar({ permissions }: IProps): React.ReactNode {
 
             <MenuItem
               component={NextLink}
-              href="/statistics/scheduled"
+              href="/ITFIP-Rectory/statistics/scheduled"
               onClick={handleCloseMenu2}
             >
               <Typography textAlign="center">Programado</Typography>
@@ -282,7 +286,7 @@ function NavBar({ permissions }: IProps): React.ReactNode {
           <ProtectedElement isAllowed={permissions.includes("reports")}>
             <Button
               component={NextLink}
-              href="/reports"
+              href="/ITFIP-Rectory/reports"
               onClick={handleCloseNavMenu}
               sx={{ my: 2, color: "white" }}
             >
@@ -307,7 +311,7 @@ function NavBar({ permissions }: IProps): React.ReactNode {
           >
             <MenuItem
               component={NextLink}
-              href="/history/general"
+              href="/ITFIP-Rectory/history/general"
               onClick={handleCloseMenu3}
             >
               <Typography textAlign="center">General</Typography>
@@ -315,7 +319,7 @@ function NavBar({ permissions }: IProps): React.ReactNode {
 
             <MenuItem
               component={NextLink}
-              href="/history/cancelled"
+              href="/ITFIP-Rectory/history/cancelled"
               onClick={handleCloseMenu3}
             >
               <Typography textAlign="center">Cancelamientos</Typography>
@@ -324,7 +328,7 @@ function NavBar({ permissions }: IProps): React.ReactNode {
 
           <Button
             component={NextLink}
-            href="/faqs"
+            href="/ITFIP-Rectory/faqs"
             onClick={handleCloseNavMenu}
             sx={{ my: 2, color: "white" }}
           >
@@ -360,7 +364,7 @@ function NavBar({ permissions }: IProps): React.ReactNode {
           >
             <MenuItem
               component={NextLink}
-              href="/faqs"
+              href="/ITFIP-Rectory/faqs"
               onClick={handleCloseUserMenu}
             >
               <Typography textAlign="center">Ayuda</Typography>
@@ -368,7 +372,7 @@ function NavBar({ permissions }: IProps): React.ReactNode {
 
             <MenuItem
               component={NextLink}
-              href={`/users/change-password/${session?.user.id}`}
+              href={`/ITFIP-Rectory/users/change-password/${session?.user.id}`}
               onClick={handleCloseUserMenu}
             >
               <Typography textAlign="center">Cambiar contraseña</Typography>

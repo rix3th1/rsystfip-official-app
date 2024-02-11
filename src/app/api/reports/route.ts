@@ -5,7 +5,10 @@ import { NextResponse, type NextRequest } from "next/server";
 export async function GET(request: NextRequest) {
   const searchParams = request.nextUrl.searchParams;
 
-  const { error, value } = filterSchema.validate(searchParams);
+  const { error, value } = filterSchema.validate({
+    start_time: searchParams.get("start_time"),
+    end_time: searchParams.get("end_time"),
+  });
   if (error) {
     return NextResponse.json({ error: error.message }, { status: 400 });
   }

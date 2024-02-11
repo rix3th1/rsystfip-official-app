@@ -11,22 +11,17 @@ import { registerAChange } from "@/redux/features/calendar/calendarSlice";
 import { useAppDispatch, useAppSelector } from "@/redux/hooks";
 import { deanService, peopleService, scheduleService } from "@/services";
 import type { THandleChangeITS, THandleSubmit } from "@/types";
+import { propsAction } from "@/types/propsAction";
 import { Box, Grid, TextField, type SelectChangeEvent } from "@mui/material";
 import { isAxiosError } from "axios";
+import { useParams } from "next/navigation";
 import { useEffect, useRef } from "react";
 import { useMutation, useQuery } from "react-query";
-import { useParams } from "react-router-dom";
 import FooterFormPeople from "./FooterFormPeople";
 import SelectDocument from "./SelectDocument";
 import SelectFaculties from "./SelectFaculties";
 import SelectPerson from "./SelectPerson";
 import { ProtectedElement } from "./ui";
-
-export enum propsAction {
-  add = "add",
-  edit = "edit",
-  schedule = "schedule",
-}
 
 interface IProps {
   action: propsAction;
@@ -41,7 +36,7 @@ function FormSchedulePeople({
   closeModalScheduling,
   changeIsLoadingScheduleAction,
 }: IProps): React.ReactNode {
-  const { id } = useParams<{ id: string }>();
+  const params = useParams<{ id: string }>();
 
   const facultieSelectRef = useRef<HTMLSelectElement>(null);
 
@@ -74,7 +69,7 @@ function FormSchedulePeople({
 
   const editPerson = () => {
     const payload = {
-      id,
+      id: params.id,
       category_id: formDataState.category_id,
       first_name: formDataState.first_name,
       last_name: formDataState.last_name,
@@ -183,9 +178,9 @@ function FormSchedulePeople({
   };
 
   const personData = useQuery<any, any>(
-    ["personData", id],
-    () => peopleService.getData(id!),
-    { enabled: Boolean(id) }
+    ["personData", params.id],
+    () => peopleService.getData(params.id),
+    { enabled: Boolean(params.id) }
   );
 
   const handleChange = (e: THandleChangeITS | SelectChangeEvent) => {
@@ -240,6 +235,7 @@ function FormSchedulePeople({
 
   useEffect(() => {
     autocompleteDeansData();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [formDataState.document_number]);
 
   useEffect(() => {
@@ -262,6 +258,8 @@ function FormSchedulePeople({
         ])
       );
     if (error) notify(error.response.data.error, { type: "error" });
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [personData.data, personData.error]);
 
   useEffect(() => {
@@ -273,6 +271,8 @@ function FormSchedulePeople({
           mutationSaveDean.isLoading
       );
     }
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [
     mutationEditPerson.isLoading,
     mutationSavePeople.isLoading,

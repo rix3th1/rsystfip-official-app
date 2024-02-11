@@ -1,16 +1,16 @@
 "use client";
 
 import dayGridPlugin from "@fullcalendar/daygrid";
-import listPlugin from "@fullcalendar/list";
+import timeGridPlugin from "@fullcalendar/timegrid";
 import { FullCalendarScheduling } from ".";
 
 function Fcs() {
-  const plugins = [dayGridPlugin, listPlugin];
+  const plugins = [dayGridPlugin, timeGridPlugin];
 
   return (
     <FullCalendarScheduling
-      right="listMonth,dayGridMonth"
-      initialView="listMonth"
+      right="timeGridDay,timeGridWeek"
+      initialView="timeGridDay"
       plugins={plugins}
     />
   );

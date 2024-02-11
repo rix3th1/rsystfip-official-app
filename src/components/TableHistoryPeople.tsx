@@ -41,7 +41,7 @@ const columns: GridColDef[] = [
     renderCell: (params) => (
       <IconButton
         component={NextLink}
-        href={`/history/general/update/${params.row.id}`}
+        href={`/ITFIP-Rectory/history/general/update/${params.row.id}`}
         title={`Edit data for ${params.row.full_name}`}
       >
         <EditIcon />
@@ -65,6 +65,8 @@ function TableHistoryPeople(): React.ReactNode {
   useEffect(() => {
     if (data) dispatch(setPeople(data));
     if (error) notify(error.response.data.error, { type: "error" });
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [data, error]);
 
   return (

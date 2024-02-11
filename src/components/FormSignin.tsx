@@ -36,7 +36,7 @@ function FormSignin() {
 
   const { mutate, isLoading } = useMutation(authService.auth, {
     onSuccess() {
-      router.push("/home");
+      router.push("/ITFIP-Rectory/home");
       router.refresh();
     },
     onError(error: any) {

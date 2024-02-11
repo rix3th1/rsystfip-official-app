@@ -62,7 +62,7 @@ const authOptions: NextAuthOptions = {
       },
     }),
   ],
-  pages: { signIn: "/" },
+  pages: { signIn: "/signin" },
   session: { strategy: "jwt" },
   callbacks: {
     jwt({ token, user }) {

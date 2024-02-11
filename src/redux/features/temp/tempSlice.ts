@@ -7,7 +7,7 @@ export interface TempState {
 
 const initialState: TempState = {
   tempDataForChangePsw: {
-    id: 0,
+    id: "",
     email: "",
   },
 };

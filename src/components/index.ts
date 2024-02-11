@@ -9,7 +9,6 @@ export { default as FormChangePswForget } from "./FormChangePswForget";
 export { default as FormRecoveryPsw } from "./FormRecoveryPsw";
 export {
   default as FormSchedulePeople,
-  propsAction,
   type actionFormSchedule,
 } from "./FormSchedulePeople";
 export { default as FormSignin } from "./FormSignin";

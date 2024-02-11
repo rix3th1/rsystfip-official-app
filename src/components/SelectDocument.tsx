@@ -41,6 +41,8 @@ function SelectDocument({ action, handleChange }: IProps): React.ReactNode {
   useEffect(() => {
     if (data) dispatch(setDocuments(data));
     if (error) notify(error.response.data.error, { type: "error" });
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [data, error]);
 
   return (

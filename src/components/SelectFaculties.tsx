@@ -46,6 +46,8 @@ function SelectFaculties({
   useEffect(() => {
     if (data) dispatch(setFaculties(data));
     if (error) notify(error.response.data.error, { type: "error" });
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [data, error]);
 
   return (

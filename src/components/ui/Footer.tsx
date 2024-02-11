@@ -51,7 +51,7 @@ async function Footer(): Promise<React.ReactElement> {
           <Grid item xs={12} md={4}>
             <nav>
               <Link
-                href={!isAllowed ? "/" : "/home"}
+                href={!isAllowed ? "/" : "/ITFIP-Rectory/home"}
                 component={NextLink}
                 variant="body2"
                 color="textSecondary"
@@ -61,7 +61,7 @@ async function Footer(): Promise<React.ReactElement> {
               </Link>
 
               <Link
-                href="/faqs"
+                href="/ITFIP-Rectory/faqs"
                 component={NextLink}
                 variant="body2"
                 color="textSecondary"

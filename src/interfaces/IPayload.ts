@@ -1,5 +1,5 @@
 export interface IPayload {
-  userId: number;
+  userId: string;
   email: string;
   role_name: string;
   permissions: Array<string>;

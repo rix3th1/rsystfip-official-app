@@ -1,16 +1,16 @@
 "use client";
 
+import { notify } from "@/libs/notify";
+import { accountService } from "@/services";
+import type { THandleChangeI, THandleSubmit } from "@/types";
 import KeyIcon from "@mui/icons-material/Key";
 import VisibilityIcon from "@mui/icons-material/Visibility";
 import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
 import LoadingButton from "@mui/lab/LoadingButton";
 import { Box, IconButton, InputAdornment, TextField } from "@mui/material";
+import { useParams } from "next/navigation";
 import { useState } from "react";
 import { useMutation } from "react-query";
-import { useParams } from "react-router-dom";
-import { notify } from "@/libs/notify";
-import { accountService } from "@/services";
-import type { THandleChangeI, THandleSubmit } from "@/types";
 import { PasswordMeter } from "./ui";
 
 function FormChangePswForget(): React.ReactNode {
@@ -20,7 +20,7 @@ function FormChangePswForget(): React.ReactNode {
     passwordVisible: false,
   };
   const [formData, setFormData] = useState(formDataInitialState);
-  const { resetToken } = useParams<{ resetToken: string }>();
+  const params = useParams<{ resetToken: string }>();
 
   const { mutate, isLoading } = useMutation(
     accountService.changePasswordWithJwt,
@@ -43,7 +43,7 @@ function FormChangePswForget(): React.ReactNode {
     e.preventDefault();
 
     const payload = {
-      resetToken,
+      resetToken: params.resetToken,
       password: formData.password,
       password2: formData.password2,
     };

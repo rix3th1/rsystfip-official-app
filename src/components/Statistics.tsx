@@ -27,7 +27,7 @@ import {
   Tooltip,
 } from "chart.js";
 import ChartDataLabels, { type Context } from "chartjs-plugin-datalabels";
-import { memo, useEffect, useRef, useState } from "react";
+import { memo, useEffect, useRef, useState, type DependencyList } from "react";
 import { useQueries, type UseQueryResult } from "react-query";
 import DaterStatistics from "./DaterStatistics";
 import StatisticsData from "./StatisticsData";
@@ -176,37 +176,36 @@ function Statistics({ appointment_status }: IProps): React.ReactNode {
     },
   ]);
 
-  useEffect(
-    () => {
-      for (let i = 0; i < queries.length; i++) {
-        const { data, error } = queries[i] as UseQueryResult<any, any>;
+  useEffect(() => {
+    for (let i = 0; i < queries.length; i++) {
+      const { data, error } = queries[i] as UseQueryResult<any, any>;
 
-        if (data) {
-          if (i === 0) {
-            const labels: Array<string> = data.map(
-              ({ category_name }: { category_name: string }) => category_name
-            );
-            const dataset: Array<string> = data.map(
-              ({ scheduling_count }: { scheduling_count: string }) =>
-                scheduling_count
-            );
-            refreshChart(labels, dataset);
-          }
-          if (i === 1) {
-            dispatch(setMostAgendatedOnRange([appointment_status, data]));
-          }
-          if (i === 2) {
-            dispatch(setMostAgendatedAllTime([appointment_status, data]));
-          }
+      if (data) {
+        if (i === 0) {
+          const labels: Array<string> = data.map(
+            ({ category_name }: { category_name: string }) => category_name
+          );
+          const dataset: Array<string> = data.map(
+            ({ scheduling_count }: { scheduling_count: string }) =>
+              scheduling_count
+          );
+          refreshChart(labels, dataset);
         }
-
-        if (error) {
-          notify(error.response.data.error, { type: "error" });
+        if (i === 1) {
+          dispatch(setMostAgendatedOnRange([appointment_status, data]));
+        }
+        if (i === 2) {
+          dispatch(setMostAgendatedAllTime([appointment_status, data]));
         }
       }
-    },
-    queries.flatMap(({ data, error }) => [data, error])
-  );
+
+      if (error) {
+        notify(error.response.data.error, { type: "error" });
+      }
+    }
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, queries.flatMap(({ data, error }) => [data, error]) as DependencyList);
 
   return (
     <>

@@ -6,13 +6,13 @@ import { setTempDataForChangePsw } from "@/redux/features/temp/tempSlice";
 import { useAppDispatch, useAppSelector } from "@/redux/hooks";
 import { userService } from "@/services";
 import { Paper, Typography } from "@mui/material";
+import { useParams } from "next/navigation";
 import { useEffect } from "react";
 import { useQuery } from "react-query";
-import { useParams } from "react-router-dom";
 import FormChangePsw from "./FormChangePsw";
 
 function FetcherDataForChangePsw(): React.ReactNode {
-  const { role } = useParams<{ role: string }>();
+  const params = useParams<{ role: string }>();
 
   const dispatch = useAppDispatch();
 
@@ -20,25 +20,25 @@ function FetcherDataForChangePsw(): React.ReactNode {
     ({ temp }) => temp.tempDataForChangePsw
   );
 
-  const { data, error } = useQuery<any, any>(["userData", role], () =>
-    userService.getData(role!)
+  const { data, error } = useQuery<any, any>(["userData", params.role], () =>
+    userService.getData(params.role)
   );
 
   useEffect(() => {
     if (data) dispatch(setTempDataForChangePsw(data));
     if (error) notify(error.response.data.error, { type: "error" });
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [data, error]);
 
   return (
-    <>
-      <Paper sx={{ my: { xs: 3, md: 6 }, p: { xs: 2, md: 3 } }} elevation={6}>
-        <Typography component="h1" variant="h5" gutterBottom align="center">
-          {tempDataStateForChangePsw.email}
-        </Typography>
+    <Paper sx={{ my: { xs: 3, md: 6 }, p: { xs: 2, md: 3 } }} elevation={6}>
+      <Typography component="h1" variant="h5" gutterBottom align="center">
+        {tempDataStateForChangePsw.email}
+      </Typography>
 
-        <FormChangePsw userId={tempDataStateForChangePsw.id} />
-      </Paper>
-    </>
+      <FormChangePsw userId={tempDataStateForChangePsw.id} />
+    </Paper>
   );
 }
 

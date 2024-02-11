@@ -10,7 +10,7 @@ import {
 } from "@/redux/features/reports/reportsSlice";
 import { useAppDispatch, useAppSelector } from "@/redux/hooks";
 import { peopleService, reportService, resService } from "@/services";
-import { useEffect } from "react";
+import { useEffect, type DependencyList } from "react";
 import { useQueries, type UseQueryResult } from "react-query";
 import PdfCreator from "./PdfCreator";
 
@@ -48,40 +48,39 @@ function FetcherReports(): React.ReactNode {
     },
   ]);
 
-  useEffect(
-    () => {
-      for (let i = 0; i < queries.length; i++) {
-        const { data, error } = queries[i] as UseQueryResult<any, any>;
+  useEffect(() => {
+    for (let i = 0; i < queries.length; i++) {
+      const { data, error } = queries[i] as UseQueryResult<any, any>;
 
-        if (data) {
-          if (i === 0) {
-            dispatch(setPeople(data));
-          } else if (i === 1) {
-            dispatch(setReportsCountAllTime(data));
-          } else if (i === 2) {
-            dispatch(setReportsCountOnRange(data));
-          } else if (i === 3) {
-            const reader = new FileReader();
-            reader.readAsDataURL(data);
-            reader.addEventListener("load", () => {
-              if (
-                reader.result &&
-                typeof reader.result === "string" &&
-                reader.result.length > 0
-              ) {
-                dispatch(setPngBase64(reader.result));
-              }
-            });
-          }
-        }
-
-        if (error) {
-          notify(error.response.data.error, { type: "error" });
+      if (data) {
+        if (i === 0) {
+          dispatch(setPeople(data));
+        } else if (i === 1) {
+          dispatch(setReportsCountAllTime(data));
+        } else if (i === 2) {
+          dispatch(setReportsCountOnRange(data));
+        } else if (i === 3) {
+          const reader = new FileReader();
+          reader.readAsDataURL(data);
+          reader.addEventListener("load", () => {
+            if (
+              reader.result &&
+              typeof reader.result === "string" &&
+              reader.result.length > 0
+            ) {
+              dispatch(setPngBase64(reader.result));
+            }
+          });
         }
       }
-    },
-    queries.flatMap(({ data, error }) => [data, error])
-  );
+
+      if (error) {
+        notify(error.response.data.error, { type: "error" });
+      }
+    }
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, queries.flatMap(({ data, error }) => [data, error]) as DependencyList);
 
   return <PdfCreator />;
 }

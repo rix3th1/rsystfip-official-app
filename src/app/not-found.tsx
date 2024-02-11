@@ -27,11 +27,11 @@ function PageNotFound(): React.ReactNode {
         />
 
         <Typography component="h1" variant="h3" gutterBottom>
-          Error 404
+          {"Error 404"}
         </Typography>
 
         <Typography variant="body1" gutterBottom>
-          Oops! The page you're looking for doesn't exist.
+          {"Oops! The page you're looking for doesn't exist."}
         </Typography>
 
         <GoHome />

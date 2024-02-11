@@ -21,10 +21,13 @@ export async function POST(request: Request) {
     return NextResponse.json({ error: error.message }, { status: 400 });
   }
 
-  const userExists = await UserService.getUser(+value.role_id - 1, value.email);
+  const userExists = await UserService.getUser(
+    `${+value.role_id - 1}`,
+    value.email
+  );
   if (!userExists) {
     const newUser: Partial<IUser> = {
-      id: +value.role_id - 1,
+      id: `${+value.role_id - 1}`,
       document_id: value.document_id,
       document_number: value.document_number,
       first_name: value.first_name,

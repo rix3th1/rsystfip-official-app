@@ -37,7 +37,7 @@ export async function createUser(
   );
   await conn.end();
   delete user.password;
-  return result.affectedRows > 0 ? { ...user, id: result.insertId } : null;
+  return result.affectedRows > 0 ? { ...user, id: `${result.insertId}` } : null;
 }
 
 export async function deleteUser(id: IUser["id"]): Promise<boolean> {

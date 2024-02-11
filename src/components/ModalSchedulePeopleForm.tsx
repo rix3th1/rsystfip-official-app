@@ -1,5 +1,6 @@
 "use client";
 
+import { propsAction } from "@/types/propsAction";
 import LoadingButton from "@mui/lab/LoadingButton";
 import {
   Button,
@@ -9,7 +10,7 @@ import {
   DialogTitle,
 } from "@mui/material";
 import { useCallback, useState } from "react";
-import FormSchedulePeople, { propsAction } from "./FormSchedulePeople";
+import FormSchedulePeople from "./FormSchedulePeople";
 
 interface IProps {
   stateModalScheduling: boolean;

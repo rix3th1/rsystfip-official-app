@@ -12,19 +12,18 @@ import {
 } from "@/redux/features/calendar/calendarSlice";
 import { useAppDispatch, useAppSelector } from "@/redux/hooks";
 import { scheduleService } from "@/services";
+import { propsAction } from "@/types/propsAction";
 import type { EventSourceInput, PluginDef } from "@fullcalendar/core";
 import esLocale from "@fullcalendar/core/locales/es";
+import interactionPlugin from "@fullcalendar/interaction";
 import FullCalendar from "@fullcalendar/react";
 import { TableContainer } from "@mui/material";
 import { format } from "date-fns";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { useQuery } from "react-query";
-import { propsAction } from "./FormSchedulePeople";
 import ModalCancellPersonConfirmation from "./ModalCancellPersonConfirmation";
 import ModalSchedulePeopleForm from "./ModalSchedulePeopleForm";
 import { LoadCalendar } from "./ui";
-
-import interactionPlugin from "@fullcalendar/interaction";
 
 interface IProps {
   right: string;
@@ -70,6 +69,8 @@ function FullCalendarScheduling({
   useEffect(() => {
     if (data) dispatch(setCalendarEvents(data));
     if (error) notify(error.response.data.error, { type: "error" });
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [data, error]);
 
   return (
