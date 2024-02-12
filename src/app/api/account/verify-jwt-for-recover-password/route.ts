@@ -1,4 +1,3 @@
-import { SECRET_KEY } from "@/config";
 import type { IPayload } from "@/interfaces";
 import Jwt from "jsonwebtoken";
 import { headers } from "next/headers";
@@ -13,7 +12,10 @@ export async function GET() {
   }
 
   try {
-    const payload = Jwt.verify(jwt, SECRET_KEY || "secretkey") as IPayload;
+    const payload = Jwt.verify(
+      jwt,
+      process.env.SECRET_KEY || "secretkey"
+    ) as IPayload;
     return NextResponse.json({ tokenIsValid: true, email: payload.email });
   } catch (error: any) {
     return NextResponse.json({ error: error.message }, { status: 401 });

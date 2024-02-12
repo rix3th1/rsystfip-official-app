@@ -1,5 +1,6 @@
-import { EMAIL_SENDER, SENDGRID_API_KEY } from "@/config";
 import sgMail, { ResponseError, type MailDataRequired } from "@sendgrid/mail";
+
+const { EMAIL_SENDER, SENDGRID_API_KEY } = process.env;
 
 export async function sendEmail(to: string, subject: string, html: string) {
   sgMail.setApiKey(SENDGRID_API_KEY || "");

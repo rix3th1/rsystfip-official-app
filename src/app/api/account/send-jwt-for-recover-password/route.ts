@@ -1,4 +1,3 @@
-import { SECRET_KEY } from "@/config";
 import * as sgHelper from "@/helpers/sg.helper";
 import type { IPayload } from "@/interfaces";
 import { UserService } from "@/services/backend";
@@ -33,7 +32,7 @@ export async function POST(request: Request) {
     userId: userFound.id,
     email: userFound.email,
   };
-  const token = Jwt.sign(payload, SECRET_KEY || "secretkey", {
+  const token = Jwt.sign(payload, process.env.SECRET_KEY || "secretkey", {
     expiresIn: 3 * 60,
   });
 

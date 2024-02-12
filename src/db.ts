@@ -1,12 +1,13 @@
 import { createPool } from "mysql2/promise";
-import { DATABASE, DB_PORT, HOST, PASSWORD, USER } from "./config";
+
+const { DB_HOST, DB_PORT, DB_USER, DB_PSW, DB_NAME } = process.env;
 
 export function connect() {
   return createPool({
-    host: HOST,
+    host: DB_HOST,
     port: DB_PORT,
-    user: USER,
-    password: PASSWORD,
-    database: DATABASE,
+    user: DB_USER,
+    password: DB_PSW,
+    database: DB_NAME,
   });
 }

@@ -1,4 +1,3 @@
-import { SECRET_KEY } from "@/config";
 import * as bcryptHelper from "@/helpers/bcrypt.helper";
 import type { IPayload, IUser } from "@/interfaces";
 import { UserService } from "@/services/backend";
@@ -16,7 +15,7 @@ export async function PATCH(request: Request) {
   try {
     const payload = Jwt.verify(
       value.resetToken,
-      SECRET_KEY || "secretkey"
+      process.env.SECRET_KEY || "secretkey"
     ) as IPayload;
 
     const userFound = await UserService.getUser(payload.userId, payload.email);
