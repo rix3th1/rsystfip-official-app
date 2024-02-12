@@ -2,7 +2,7 @@
 
 import { notify } from "@/libs/notify";
 import { accountService } from "@/services";
-import { Paper, Typography } from "@mui/material";
+import { LinearProgress, Paper, Typography } from "@mui/material";
 import { useParams } from "next/navigation";
 import { useEffect, useState } from "react";
 import { useQuery } from "react-query";
@@ -32,7 +32,7 @@ function RecoveryLinkPassword(): React.ReactNode {
   return (
     <Paper sx={{ my: { xs: 3, md: 6 }, p: { xs: 2, md: 3 } }} elevation={6}>
       <Typography component="h1" variant="h5" gutterBottom align="center">
-        {dataUserVerified.email}
+        {isLoading ? <LinearProgress sx={{ mt: 1 }} /> : dataUserVerified.email}
       </Typography>
 
       {!isLoading ? (

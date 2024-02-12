@@ -20,9 +20,8 @@ function FetcherDataForChangePsw(): React.ReactNode {
     ({ temp }) => temp.tempDataForChangePsw
   );
 
-  const { data, error, isLoading } = useQuery<any, any>(
-    ["userData", params.role],
-    () => userService.getData(params.role)
+  const { data, error } = useQuery<any, any>(["userData", params.role], () =>
+    userService.getData(params.role)
   );
 
   useEffect(() => {
@@ -35,11 +34,7 @@ function FetcherDataForChangePsw(): React.ReactNode {
   return (
     <Paper sx={{ my: { xs: 3, md: 6 }, p: { xs: 2, md: 3 } }} elevation={6}>
       <Typography component="h1" variant="h5" gutterBottom align="center">
-        {isLoading ? (
-          <CircularProgress size={20} />
-        ) : (
-          tempDataStateForChangePsw.email
-        )}
+        {tempDataStateForChangePsw.email || <CircularProgress size={20} />}
       </Typography>
 
       <FormChangePsw userId={tempDataStateForChangePsw.id} />
