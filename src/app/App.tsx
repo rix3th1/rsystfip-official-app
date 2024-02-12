@@ -35,8 +35,6 @@ async function App({
 
               {children}
 
-              {/* <AppRoutes /> */}
-
               <ProtectedElement isAllowed={isAllowed}>
                 <Footer />
               </ProtectedElement>

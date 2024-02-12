@@ -1,4 +1,5 @@
 const PORT = process.env.APP_PORT;
+const DB_PORT = process.env.DB_PORT;
 const HOST = process.env.DB_HOST;
 const USER = process.env.DB_USER;
 const PASSWORD = process.env.DB_PSW;
@@ -17,6 +18,7 @@ if (
     USER ||
     PASSWORD ||
     DATABASE ||
+    DB_PORT ||
     NEXTAUTH_SECRET ||
     NEXTAUTH_URL ||
     SENDGRID_API_KEY ||
@@ -32,6 +34,7 @@ if (
 
 export {
   DATABASE,
+  DB_PORT,
   EMAIL_SENDER,
   HOST,
   NAME_SENDER,
