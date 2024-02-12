@@ -39,8 +39,10 @@ function FormSignin() {
       router.push("/ITFIP-Rectory/home");
       router.refresh();
     },
-    onError(error: any) {
-      notify(error.response.data.error, { type: "error" });
+    onError(error) {
+      if (error instanceof Error) {
+        notify(error.message, { type: "error" });
+      }
     },
   });
 
@@ -85,7 +87,7 @@ function FormSignin() {
         InputProps={{
           endAdornment: (
             <InputAdornment position="end">
-              <Typography>@itfip.edu.co</Typography>
+              <Typography>{"@itfip.edu.co"}</Typography>
             </InputAdornment>
           ),
         }}

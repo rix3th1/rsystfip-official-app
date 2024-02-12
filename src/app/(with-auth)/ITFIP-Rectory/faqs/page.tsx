@@ -15,7 +15,7 @@ function PageFaqs(): React.ReactNode {
         gutterBottom
         marginTop={{ xs: "1rem", sm: "2rem", md: "3rem" }}
       >
-        Preguntas más frecuentes
+        {"Preguntas más frecuentes"}
       </Typography>
 
       <Faqs />

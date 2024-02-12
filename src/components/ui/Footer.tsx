@@ -19,7 +19,7 @@ async function Footer(): Promise<React.ReactElement> {
         >
           <Grid item xs={12} md={4}>
             <Typography variant="body2" color="textSecondary">
-              © 2023 Tecnología en gestión informática{" "}
+              {"© 2023 Tecnología en gestión informática "}
               <CodeIcon fontSize="small" sx={{ my: -0.5 }} />
             </Typography>
           </Grid>

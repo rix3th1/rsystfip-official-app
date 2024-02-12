@@ -17,7 +17,7 @@ function PageUsers(): React.ReactNode {
         gutterBottom
         marginY={{ xs: "1rem", sm: "2rem", md: "3rem" }}
       >
-        Administrar usuarios
+        {"Administrar usuarios"}
       </Typography>
 
       <Fab

@@ -1,16 +1,24 @@
 "use client";
 
+import type { IUserBase } from "@/interfaces";
+import { notify } from "@/libs/notify";
+import { accountService } from "@/services";
+import type { THandleChangeI, THandleClick, THandleSubmit } from "@/types";
 import KeyIcon from "@mui/icons-material/Key";
 import VisibilityIcon from "@mui/icons-material/Visibility";
 import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
 import LoadingButton from "@mui/lab/LoadingButton";
-import { Box, IconButton, InputAdornment, TextField } from "@mui/material";
+import {
+  Box,
+  Button,
+  IconButton,
+  InputAdornment,
+  TextField,
+} from "@mui/material";
+import { isAxiosError } from "axios";
+import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { useMutation } from "react-query";
-import type { IUserBase } from "@/interfaces";
-import { notify } from "@/libs/notify";
-import { accountService } from "@/services";
-import type { THandleChangeI, THandleSubmit } from "@/types";
 import { PasswordMeter } from "./ui";
 
 interface IProps {
@@ -26,6 +34,8 @@ function FormChangePsw({ userId }: IProps): React.ReactNode {
   };
   const [formData, setFormData] = useState(formDataInitialState);
 
+  const router = useRouter();
+
   const { mutate, isLoading } = useMutation(accountService.changePassword, {
     onSuccess(data) {
       notify(data.ok, {
@@ -35,8 +45,10 @@ function FormChangePsw({ userId }: IProps): React.ReactNode {
 
       setFormData(formDataInitialState);
     },
-    onError(error: any) {
-      notify(error.response.data.error, { type: "error" });
+    onError(error) {
+      if (isAxiosError(error)) {
+        notify(error.response?.data.error, { type: "error" });
+      }
     },
   });
 
@@ -58,6 +70,11 @@ function FormChangePsw({ userId }: IProps): React.ReactNode {
       ...formData,
       passwordVisible: !formData.passwordVisible,
     });
+  };
+
+  const handleClick = (e: THandleClick) => {
+    e.preventDefault();
+    router.back();
   };
 
   const handleChange = (e: THandleChangeI) => {
@@ -180,7 +197,11 @@ function FormChangePsw({ userId }: IProps): React.ReactNode {
         }}
       />
 
-      <Box sx={{ display: "flex", justifyContent: "flex-end" }}>
+      <Box sx={{ display: "flex", justifyContent: "space-between" }}>
+        <Button onClick={handleClick} sx={{ mt: 3, ml: 1 }}>
+          Back
+        </Button>
+
         <LoadingButton type="submit" loading={isLoading} sx={{ mt: 3, ml: 1 }}>
           Continue
         </LoadingButton>

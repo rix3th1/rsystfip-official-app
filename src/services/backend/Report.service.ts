@@ -1,4 +1,4 @@
-import { connect } from "@/db";
+import { connect } from "@/libs/db";
 import type { IAppointment, ICount, IReport } from "@/interfaces";
 import type { RowDataPacket } from "mysql2";
 

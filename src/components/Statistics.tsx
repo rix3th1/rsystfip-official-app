@@ -215,7 +215,7 @@ function Statistics({ appointment_status }: IProps): React.ReactNode {
         gutterBottom
         marginTop={{ xs: "1rem", sm: "2rem", md: "3rem" }}
       >
-        Estadísticas de agendamiento {labelText}
+        {`Estadísticas de agendamiento ${labelText}`}
       </Typography>
 
       <DaterStatistics appointment_status={appointment_status} />

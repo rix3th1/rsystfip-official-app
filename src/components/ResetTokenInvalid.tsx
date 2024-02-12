@@ -21,11 +21,11 @@ function ResetTokenInvalid(): React.ReactNode {
           sx={{ mb: 4 }}
         />
         <Typography component="h1" variant="h3" gutterBottom>
-          Invalid Link
+          {"Invalid Link"}
         </Typography>
 
         <Typography variant="body1" gutterBottom>
-          The link to change your password is invalid!
+          {"The link to change your password is invalid!"}
         </Typography>
 
         <GoHome />

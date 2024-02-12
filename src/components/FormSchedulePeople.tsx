@@ -59,8 +59,10 @@ function FormSchedulePeople({
 
       dispatch(setFormData([action]));
     },
-    onError(error: any) {
-      notify(error.response.data.error, { type: "error" });
+    onError(error) {
+      if (isAxiosError(error)) {
+        notify(error.response?.data.error, { type: "error" });
+      }
     },
   });
   const mutationSavePeople = useMutation(peopleService.savePeople);

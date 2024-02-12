@@ -15,7 +15,7 @@ function PageAppointments() {
         gutterBottom
         marginTop={{ xs: "1rem", sm: "2rem", md: "3rem" }}
       >
-        Ver agendamientos programados
+        {"Ver agendamientos programados"}
       </Typography>
 
       <Fca />

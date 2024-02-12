@@ -15,7 +15,7 @@ function PageHistoryCancelledPeople(): React.ReactNode {
         gutterBottom
         marginTop={{ xs: "1rem", sm: "2rem", md: "3rem" }}
       >
-        Citas canceladas
+        {"Citas canceladas"}
       </Typography>
 
       <TableHistoryCanceledPeople />

@@ -1,4 +1,4 @@
-import { connect } from "@/db";
+import { connect } from "@/libs/db";
 import type { IPeople } from "@/interfaces";
 import type { ResultSetHeader, RowDataPacket } from "mysql2";
 

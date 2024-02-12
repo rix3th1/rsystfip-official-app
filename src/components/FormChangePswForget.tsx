@@ -8,6 +8,7 @@ import VisibilityIcon from "@mui/icons-material/Visibility";
 import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
 import LoadingButton from "@mui/lab/LoadingButton";
 import { Box, IconButton, InputAdornment, TextField } from "@mui/material";
+import { isAxiosError } from "axios";
 import { useParams } from "next/navigation";
 import { useState } from "react";
 import { useMutation } from "react-query";
@@ -33,8 +34,10 @@ function FormChangePswForget(): React.ReactNode {
 
         setFormData(formDataInitialState);
       },
-      onError(error: any) {
-        notify(error.response.data.error, { type: "error" });
+      onError(error) {
+        if (isAxiosError(error)) {
+          notify(error.response?.data.error, { type: "error" });
+        }
       },
     }
   );

@@ -62,11 +62,11 @@ async function PageSignin(): Promise<React.ReactElement> {
           />
 
           <Typography component="h1" variant="h5">
-            Sign in
+            {"Sign in"}
           </Typography>
 
           <Typography component="h1" variant="subtitle1" align="center">
-            Agendamiento visitas Rectoría - ITFIP
+            {"Agendamiento visitas Rectoría - ITFIP"}
           </Typography>
 
           <FormSignin />

@@ -12,7 +12,7 @@ function PageDailyScheduling(): React.ReactNode {
     <Container component="main" maxWidth="md">
       <Paper sx={{ my: { xs: 3, md: 6 }, p: { xs: 2, md: 3 } }} elevation={6}>
         <Typography component="h1" variant="h5" gutterBottom align="center">
-          Agendamiento diario
+          {"Agendamiento diario"}
         </Typography>
 
         <FormSchedulePeople action={propsAction.add} />

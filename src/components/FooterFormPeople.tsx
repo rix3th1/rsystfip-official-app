@@ -4,7 +4,6 @@ import type { THandleClick } from "@/types";
 import LoadingButton from "@mui/lab/LoadingButton";
 import { Box, Button } from "@mui/material";
 import { useRouter } from "next-nprogress-bar";
-import { ProtectedElement } from "./ui";
 
 interface IProps {
   isEdit: boolean;
@@ -20,17 +19,10 @@ function FooterFormPeople({ isEdit, isLoading }: IProps): React.ReactNode {
   };
 
   return (
-    <Box
-      sx={{
-        display: "flex",
-        justifyContent: isEdit ? "space-between" : "flex-end",
-      }}
-    >
-      <ProtectedElement isAllowed={isEdit}>
-        <Button onClick={handleClick} sx={{ mt: 3, ml: 1 }}>
-          Back
-        </Button>
-      </ProtectedElement>
+    <Box sx={{ display: "flex", justifyContent: "space-between" }}>
+      <Button onClick={handleClick} sx={{ mt: 3, ml: 1 }}>
+        Back
+      </Button>
 
       <LoadingButton
         type="submit"

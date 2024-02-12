@@ -6,7 +6,7 @@ function RecoveryPassword(): React.ReactNode {
   return (
     <Paper sx={{ my: { xs: 3, md: 6 }, p: { xs: 2, md: 3 } }} elevation={6}>
       <Typography component="h1" variant="h5" gutterBottom align="center">
-        Recuperación de contraseña
+        {"Recuperación de contraseña"}
       </Typography>
 
       <FormRecoveryPsw />

@@ -1,5 +1,8 @@
 "use client";
 
+import { notify } from "@/libs/notify";
+import { accountService } from "@/services";
+import type { THandleChangeI, THandleSubmit } from "@/types";
 import CheckIcon from "@mui/icons-material/Check";
 import ErrorIcon from "@mui/icons-material/Error";
 import MailIcon from "@mui/icons-material/Mail";
@@ -11,11 +14,9 @@ import {
   TextField,
 } from "@mui/material";
 import { green } from "@mui/material/colors";
+import { isAxiosError } from "axios";
 import { useState } from "react";
 import { useMutation } from "react-query";
-import { notify } from "@/libs/notify";
-import { accountService } from "@/services";
-import type { THandleChangeI, THandleSubmit } from "@/types";
 
 function FormRecoveryPsw(): React.ReactNode {
   const formDataInitialState = { email: "" };
@@ -32,8 +33,10 @@ function FormRecoveryPsw(): React.ReactNode {
 
         setFormData(formDataInitialState);
       },
-      onError(error: any) {
-        notify(error.response.data.error, { type: "error" });
+      onError(error) {
+        if (isAxiosError(error)) {
+          notify(error.response?.data.error, { type: "error" });
+        }
       },
     }
   );

@@ -12,13 +12,14 @@ import {
 } from "@/redux/features/users/usersSlice";
 import { useAppDispatch, useAppSelector } from "@/redux/hooks";
 import { documentService, userService } from "@/services";
-import type { THandleChangeITS, THandleSubmit } from "@/types";
+import type { THandleChangeITS, THandleClick, THandleSubmit } from "@/types";
 import KeyIcon from "@mui/icons-material/Key";
 import VisibilityIcon from "@mui/icons-material/Visibility";
 import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
 import LoadingButton from "@mui/lab/LoadingButton";
 import {
   Box,
+  Button,
   FormControl,
   Grid,
   IconButton,
@@ -29,6 +30,8 @@ import {
   TextField,
   type SelectChangeEvent,
 } from "@mui/material";
+import { isAxiosError } from "axios";
+import { useRouter } from "next/navigation";
 import { useEffect } from "react";
 import { useMutation, useQuery } from "react-query";
 import { PasswordMeter } from "./ui";
@@ -41,6 +44,8 @@ function FormUserAdd(): React.ReactNode {
   );
 
   const dispatch = useAppDispatch();
+
+  const router = useRouter();
 
   const handleClickTogglePassword = () => {
     dispatch(
@@ -69,10 +74,17 @@ function FormUserAdd(): React.ReactNode {
 
       dispatch(resetFormDataAdmin());
     },
-    onError(error: any) {
-      notify(error.response.data.error, { type: "error" });
+    onError(error) {
+      if (isAxiosError(error)) {
+        notify(error.response?.data.error, { type: "error" });
+      }
     },
   });
+
+  const handleClick = (e: THandleClick) => {
+    e.preventDefault();
+    router.back();
+  };
 
   const handleSubmit = (e: THandleSubmit) => {
     e.preventDefault();
@@ -300,7 +312,11 @@ function FormUserAdd(): React.ReactNode {
         </Grid>
       </Grid>
 
-      <Box sx={{ display: "flex", justifyContent: "flex-end" }}>
+      <Box sx={{ display: "flex", justifyContent: "space-between" }}>
+        <Button onClick={handleClick} sx={{ mt: 3, ml: 1 }}>
+          Back
+        </Button>
+
         <LoadingButton type="submit" loading={isLoading} sx={{ mt: 3, ml: 1 }}>
           Registrar
         </LoadingButton>

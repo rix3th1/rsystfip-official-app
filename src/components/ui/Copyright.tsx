@@ -1,6 +1,6 @@
-import { Link, Typography } from "@mui/material";
+import { Link, Typography, type TypographyOwnProps } from "@mui/material";
 
-function Copyright(props: any): React.ReactNode {
+function Copyright(props: TypographyOwnProps): React.ReactNode {
   return (
     <Typography
       variant="body2"
@@ -10,7 +10,7 @@ function Copyright(props: any): React.ReactNode {
     >
       {"Copyright © "}
       <Link color="inherit" href="https://itfip.edu.co/">
-        RSystfip
+        {"RSystfip"}
       </Link>{" "}
       {new Date().getFullYear()}
       {"."}

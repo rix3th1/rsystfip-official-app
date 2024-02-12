@@ -1,5 +1,5 @@
-import { connect } from "@/db";
 import type { ICanceledAppointment } from "@/interfaces";
+import { connect } from "@/libs/db";
 import type { ResultSetHeader } from "mysql2";
 
 export async function createCancellation(
