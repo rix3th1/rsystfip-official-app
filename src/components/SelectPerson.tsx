@@ -19,7 +19,6 @@ import {
 } from "@mui/material";
 import { useEffect, type DependencyList } from "react";
 import { useQueries, type UseQueryResult } from "react-query";
-import { v4 } from "uuid";
 import { actionFormSchedule } from ".";
 
 interface IProps {
@@ -113,7 +112,7 @@ function SelectPerson({
           <em>No seleccionado</em>
         </MenuItem>
         {categoriesState.map(({ id, category_name }) => (
-          <MenuItem key={v4()} value={id.toString()}>
+          <MenuItem key={crypto.randomUUID()} value={id.toString()}>
             {category_name}
           </MenuItem>
         ))}

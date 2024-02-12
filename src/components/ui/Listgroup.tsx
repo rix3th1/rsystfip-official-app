@@ -10,7 +10,6 @@ import {
 import { format, parseISO } from "date-fns";
 import { es } from "date-fns/locale";
 import { memo } from "react";
-import { v4 } from "uuid";
 import ProtectedElement from "./ProtectedElement";
 
 interface IProps {
@@ -30,7 +29,7 @@ function Listgroup({ title, data, end_time }: IProps): React.ReactNode {
 
       {data.map(({ category_name, counts }) => (
         <ListItem
-          key={v4()}
+          key={crypto.randomUUID()}
           secondaryAction={<IconButton edge="end">{counts}</IconButton>}
         >
           <ListItemAvatar>

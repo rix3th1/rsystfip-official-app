@@ -26,7 +26,6 @@ import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { format, parse } from "date-fns";
 import { useEffect, type DependencyList } from "react";
 import { useQueries, type UseQueryResult } from "react-query";
-import { v4 } from "uuid";
 import FetcherReports from "./FetcherReports";
 import TableReports from "./TableReports";
 
@@ -159,7 +158,7 @@ function Report(): React.ReactNode {
               </MenuItem>
 
               {categoriesState.map(({ id, category_name }) => (
-                <MenuItem key={v4()} value={id}>
+                <MenuItem key={crypto.randomUUID()} value={id}>
                   {category_name}
                 </MenuItem>
               ))}

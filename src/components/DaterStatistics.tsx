@@ -19,7 +19,6 @@ import { DatePicker } from "@mui/x-date-pickers/DatePicker";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { format, parse } from "date-fns";
 import { memo } from "react";
-import { v4 } from "uuid";
 
 interface IProps {
   appointment_status: AppointmentStatus;
@@ -98,7 +97,7 @@ function DaterStatistics({ appointment_status }: IProps): React.ReactNode {
             onChange={handleChangeSelect}
           >
             {queryDataState.chart_types.map((chart_type) => (
-              <MenuItem key={v4()} value={chart_type}>
+              <MenuItem key={crypto.randomUUID()} value={chart_type}>
                 {chart_type[0].toUpperCase().concat(chart_type.slice(1))}
               </MenuItem>
             ))}

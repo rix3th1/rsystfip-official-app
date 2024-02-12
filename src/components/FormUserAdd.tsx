@@ -31,7 +31,6 @@ import {
 } from "@mui/material";
 import { useEffect } from "react";
 import { useMutation, useQuery } from "react-query";
-import { v4 } from "uuid";
 import { PasswordMeter } from "./ui";
 
 function FormUserAdd(): React.ReactNode {
@@ -162,7 +161,7 @@ function FormUserAdd(): React.ReactNode {
                 <em>No seleccionado</em>
               </MenuItem>
               {documentsState.map(({ id, document_description }) => (
-                <MenuItem key={v4()} value={id.toString()}>
+                <MenuItem key={crypto.randomUUID()} value={id.toString()}>
                   {document_description}
                 </MenuItem>
               ))}

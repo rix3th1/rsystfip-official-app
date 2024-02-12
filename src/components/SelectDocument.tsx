@@ -15,7 +15,6 @@ import {
 } from "@mui/material";
 import { useEffect } from "react";
 import { useQuery } from "react-query";
-import { v4 } from "uuid";
 import { actionFormSchedule } from ".";
 
 interface IProps {
@@ -63,7 +62,7 @@ function SelectDocument({ action, handleChange }: IProps): React.ReactNode {
           <em>No seleccionado</em>
         </MenuItem>
         {documentsState.map(({ id, document_description }) => (
-          <MenuItem key={v4()} value={id.toString()}>
+          <MenuItem key={crypto.randomUUID()} value={id.toString()}>
             {document_description}
           </MenuItem>
         ))}
