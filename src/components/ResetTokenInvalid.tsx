@@ -17,7 +17,7 @@ function ResetTokenInvalid(): React.ReactNode {
       >
         <Box sx={{ mb: 4 }}>
           <Image
-            src={"/rsystfip_logotype.svg"}
+            src="/rsystfip_logotype.svg"
             alt="RSystfip logotype"
             width={72}
             height={57}

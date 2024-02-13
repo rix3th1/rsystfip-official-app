@@ -117,7 +117,7 @@ function NavBar({ permissions }: IProps): React.ReactNode {
         <Box sx={{ display: { xs: "none", md: "flex" }, mr: 3 }}>
           <Image
             alt="RSystfip logotype"
-            src={"/rsystfip_logotype.svg"}
+            src="/rsystfip_logotype.svg"
             width={40}
             height={32}
             priority

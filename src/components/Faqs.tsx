@@ -35,10 +35,7 @@ function Faqs() {
           onChange={handleChangeSec1("panel1")}
         >
           <AccordionSummary expandIcon={<ExpandMoreIcon />}>
-            <Typography
-              alignSelf={"center"}
-              sx={{ width: "13%", flexShrink: 0 }}
-            >
+            <Typography alignSelf="center" sx={{ width: "13%", flexShrink: 0 }}>
               {"#1"}
             </Typography>
 
@@ -142,10 +139,7 @@ function Faqs() {
           onChange={handleChangeSec2("panel1")}
         >
           <AccordionSummary expandIcon={<ExpandMoreIcon />}>
-            <Typography
-              alignSelf={"center"}
-              sx={{ width: "13%", flexShrink: 0 }}
-            >
+            <Typography alignSelf="center" sx={{ width: "13%", flexShrink: 0 }}>
               {"#4"}
             </Typography>
 

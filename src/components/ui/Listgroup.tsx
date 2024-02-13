@@ -31,7 +31,7 @@ function Listgroup({ title, data, end_time }: IProps): React.ReactNode {
           secondaryAction={<IconButton edge="end">{counts}</IconButton>}
         >
           <ListItemAvatar>
-            <Avatar src={"/rsystfip_logotype.svg"} alt="RSystfip logotype" />
+            <Avatar src="/rsystfip_logotype.svg" alt="RSystfip logotype" />
           </ListItemAvatar>
 
           <ListItemText

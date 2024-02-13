@@ -59,7 +59,7 @@ async function PageSignin(): Promise<React.ReactElement> {
           <Box sx={{ m: 1 }}>
             <Image
               alt="RSystfip logotype"
-              src={"/rsystfip_logotype.svg"}
+              src="/rsystfip_logotype.svg"
               width={40}
               height={32}
               quality={100}
