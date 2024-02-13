@@ -38,6 +38,10 @@ function FormSignin() {
     onSuccess() {
       router.push("/ITFIP-Rectory/home");
       router.refresh();
+      notify("Welcome to ITFIP-Rectory", {
+        type: "success",
+        position: "top-center",
+      });
     },
     onError(error) {
       if (error instanceof Error) {

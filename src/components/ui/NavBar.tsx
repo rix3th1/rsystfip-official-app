@@ -1,5 +1,6 @@
 "use client";
 
+import { notify } from "@/libs/notify";
 import { resetAllFormDataProgramming } from "@/redux/features/appointments/appointmentsSlice";
 import { resetQueryDataReports } from "@/redux/features/reports/reportsSlice";
 import { resetQueryDataStatistics } from "@/redux/features/statistics/statisticsSlice";
@@ -81,7 +82,7 @@ function NavBar({ permissions }: IProps): React.ReactNode {
     setAnchorElUser(null);
   };
 
-  const handleClickLogout = async () => {
+  const handleClickSignOut = async () => {
     // Reset the Redux context
     handleCloseUserMenu();
     dispatch(resetFormDataAdmin());
@@ -96,6 +97,7 @@ function NavBar({ permissions }: IProps): React.ReactNode {
     // Redirect to the sign in page
     router.push("/signin");
     router.refresh();
+    notify("Sesión cerrada", { type: "success", position: "top-center" });
   };
 
   return (
@@ -378,7 +380,7 @@ function NavBar({ permissions }: IProps): React.ReactNode {
               <Typography textAlign="center">Cambiar contraseña</Typography>
             </MenuItem>
 
-            <MenuItem onClick={handleClickLogout}>
+            <MenuItem onClick={handleClickSignOut}>
               <Typography textAlign="center">Cerrar sesión</Typography>
             </MenuItem>
           </Menu>
