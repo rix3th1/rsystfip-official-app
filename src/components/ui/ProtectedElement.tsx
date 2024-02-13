@@ -2,7 +2,7 @@
 
 interface IProps {
   children?: React.ReactNode;
-  isAllowed: boolean;
+  isAllowed?: boolean;
 }
 
 function ProtectedElement({

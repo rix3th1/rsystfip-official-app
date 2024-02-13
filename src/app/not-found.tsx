@@ -1,5 +1,7 @@
 import { GoHome } from "@/components/ui";
-import { Box, Container, Typography } from "@mui/material";
+import Box from "@mui/material/Box";
+import Container from "@mui/material/Container";
+import Typography from "@mui/material/Typography";
 import { type Metadata } from "next";
 
 export const metadata: Metadata = {

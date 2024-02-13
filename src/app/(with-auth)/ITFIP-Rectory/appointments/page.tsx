@@ -1,5 +1,6 @@
 import Fca from "@/components/Fca";
-import { Container, Typography } from "@mui/material";
+import Container from "@mui/material/Container";
+import Typography from "@mui/material/Typography";
 import { type Metadata } from "next";
 
 export const metadata: Metadata = {

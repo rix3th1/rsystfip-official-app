@@ -1,13 +1,7 @@
 import pkg from "@/../package.json";
 import { type Metadata } from "next";
-import { Roboto } from "next/font/google";
 import App from "./App";
 import "./globals.scss";
-
-const roboto = Roboto({
-  subsets: ["latin"],
-  weight: ["300", "400", "500", "700"],
-});
 
 export const metadata: Metadata = {
   applicationName: pkg.name,
@@ -23,7 +17,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en">
       <head>
         <link
           rel="shortcut icon"
@@ -31,7 +25,7 @@ export default function RootLayout({
           type="image/x-icon"
         />
       </head>
-      <body className={roboto.className}>
+      <body>
         <App>{children}</App>
       </body>
     </html>

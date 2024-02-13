@@ -10,7 +10,8 @@ import QueryClientProvider from "@/providers/QueryClientProvider";
 import ReduxProvider from "@/providers/ReduxProvider";
 import SessionProviderContext from "@/providers/SessionProvider";
 import ThemeProvider from "@/providers/ThemeProvider";
-import { CssBaseline } from "@mui/material";
+import { AppRouterCacheProvider } from "@mui/material-nextjs/v14-appRouter";
+import CssBaseline from "@mui/material/CssBaseline";
 import { getServerSession } from "next-auth";
 
 async function App({
@@ -20,31 +21,34 @@ async function App({
 }): Promise<React.ReactElement> {
   const session = await getServerSession(authOptions);
   const isAllowed = !!session;
+  const permissions = session?.user.permissions!;
 
   return (
-    <ProgressProvider>
-      <ReduxProvider>
-        <ThemeProvider>
-          <CssBaseline />
+    <AppRouterCacheProvider>
+      <ThemeProvider>
+        <ProgressProvider>
+          <ReduxProvider>
+            <CssBaseline />
 
-          <SessionProviderContext>
-            <QueryClientProvider>
-              <ProtectedElement isAllowed={isAllowed}>
-                <NavBar permissions={session?.user.permissions!} />
-              </ProtectedElement>
+            <SessionProviderContext>
+              <QueryClientProvider>
+                <ProtectedElement isAllowed={isAllowed}>
+                  <NavBar permissions={permissions} />
+                </ProtectedElement>
 
-              {children}
+                {children}
 
-              <ProtectedElement isAllowed={isAllowed}>
-                <Footer />
-              </ProtectedElement>
+                <ProtectedElement isAllowed={isAllowed}>
+                  <Footer />
+                </ProtectedElement>
 
-              <ContainerToast />
-            </QueryClientProvider>
-          </SessionProviderContext>
-        </ThemeProvider>
-      </ReduxProvider>
-    </ProgressProvider>
+                <ContainerToast />
+              </QueryClientProvider>
+            </SessionProviderContext>
+          </ReduxProvider>
+        </ProgressProvider>
+      </ThemeProvider>
+    </AppRouterCacheProvider>
   );
 }
 
