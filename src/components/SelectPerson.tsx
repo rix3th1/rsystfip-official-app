@@ -10,7 +10,9 @@ import {
 import { setCategories } from "@/redux/features/resources/resourcesSlice";
 import { useAppDispatch, useAppSelector } from "@/redux/hooks";
 import { categoryService, deanService } from "@/services";
+import CircularProgress from "@mui/material/CircularProgress";
 import FormControl from "@mui/material/FormControl";
+import InputAdornment from "@mui/material/InputAdornment";
 import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
 import Select, { type SelectChangeEvent } from "@mui/material/Select";
@@ -39,8 +41,12 @@ function SelectPerson({
   const dispatch = useAppDispatch();
 
   const queries = useQueries([
-    { queryKey: "deans", queryFn: deanService.getDeans, enabled: false },
-    { queryKey: "categories", queryFn: categoryService.getCategories },
+    { queryKey: "deans", queryFn: deanService.getDeans },
+    {
+      queryKey: "categories",
+      queryFn: categoryService.getCategories,
+      enabled: false,
+    },
   ]);
 
   useEffect(() => {
@@ -103,6 +109,16 @@ function SelectPerson({
         label="Category"
         value={formDataState.category_id}
         onChange={handleChange}
+        onOpen={() => {
+          categoriesState.length === 0 && queries[1].refetch();
+        }}
+        startAdornment={
+          queries[1].isLoading && (
+            <InputAdornment position="start">
+              <CircularProgress color="inherit" size={20} />
+            </InputAdornment>
+          )
+        }
         required
       >
         <MenuItem value="">

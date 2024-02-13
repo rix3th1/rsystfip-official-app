@@ -20,6 +20,7 @@ import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
 import LoadingButton from "@mui/lab/LoadingButton";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
+import CircularProgress from "@mui/material/CircularProgress";
 import FormControl from "@mui/material/FormControl";
 import Grid from "@mui/material/Grid";
 import IconButton from "@mui/material/IconButton";
@@ -63,7 +64,7 @@ function FormUserAdd(): React.ReactNode {
     );
   };
 
-  const { mutate, isLoading } = useMutation(userService.saveUser, {
+  const mutationSaveUser = useMutation(userService.saveUser, {
     onSuccess(data) {
       notify(data.ok, {
         type: "success",
@@ -87,12 +88,13 @@ function FormUserAdd(): React.ReactNode {
   const handleSubmit = (e: THandleSubmit) => {
     e.preventDefault();
     const payload = formDataState;
-    mutate(payload);
+    mutationSaveUser.mutate(payload);
   };
 
-  const { data, error } = useQuery<[], any>(
+  const { data, error, isLoading, refetch } = useQuery<[], any>(
     "documents",
-    documentService.getDocuments
+    documentService.getDocuments,
+    { enabled: false }
   );
 
   useEffect(() => {
@@ -169,6 +171,16 @@ function FormUserAdd(): React.ReactNode {
               label="Document"
               value={formDataState.document_id}
               onChange={handleChange}
+              onOpen={() => {
+                documentsState.length === 0 && refetch();
+              }}
+              startAdornment={
+                isLoading && (
+                  <InputAdornment position="start">
+                    <CircularProgress color="inherit" size={20} />
+                  </InputAdornment>
+                )
+              }
             >
               <MenuItem value="">
                 <em>No seleccionado</em>
@@ -318,7 +330,11 @@ function FormUserAdd(): React.ReactNode {
           Back
         </Button>
 
-        <LoadingButton type="submit" loading={isLoading} sx={{ mt: 3, ml: 1 }}>
+        <LoadingButton
+          type="submit"
+          loading={mutationSaveUser.isLoading}
+          sx={{ mt: 3, ml: 1 }}
+        >
           Registrar
         </LoadingButton>
       </Box>

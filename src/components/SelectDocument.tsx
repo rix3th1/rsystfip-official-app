@@ -6,7 +6,9 @@ import type { FormDataState } from "@/redux/features/appointments/appointmentsSl
 import { setDocuments } from "@/redux/features/resources/resourcesSlice";
 import { useAppDispatch, useAppSelector } from "@/redux/hooks";
 import { documentService } from "@/services";
+import CircularProgress from "@mui/material/CircularProgress";
 import FormControl from "@mui/material/FormControl";
+import InputAdornment from "@mui/material/InputAdornment";
 import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
 import Select, { type SelectChangeEvent } from "@mui/material/Select";
@@ -29,9 +31,10 @@ function SelectDocument({ action, handleChange }: IProps): React.ReactNode {
 
   const dispatch = useAppDispatch();
 
-  const { data, error } = useQuery<[], any>(
+  const { data, error, isLoading, refetch } = useQuery<[], any>(
     "documents",
-    documentService.getDocuments
+    documentService.getDocuments,
+    { enabled: false }
   );
 
   useEffect(() => {
@@ -50,6 +53,16 @@ function SelectDocument({ action, handleChange }: IProps): React.ReactNode {
         label="Document"
         value={formDataState.document_id}
         onChange={handleChange}
+        onOpen={() => {
+          documentsState.length === 0 && refetch();
+        }}
+        startAdornment={
+          isLoading && (
+            <InputAdornment position="start">
+              <CircularProgress color="inherit" size={20} />
+            </InputAdornment>
+          )
+        }
         disabled={
           formDataState.disabledAll || formDataState.disabledAfterAutocomplete
         }

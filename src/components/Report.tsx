@@ -12,8 +12,10 @@ import {
 import { setCategories } from "@/redux/features/resources/resourcesSlice";
 import { useAppDispatch, useAppSelector } from "@/redux/hooks";
 import { categoryService, reportService } from "@/services";
+import CircularProgress from "@mui/material/CircularProgress";
 import FormControl from "@mui/material/FormControl";
 import Grid from "@mui/material/Grid";
+import InputAdornment from "@mui/material/InputAdornment";
 import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
 import Select, { type SelectChangeEvent } from "@mui/material/Select";
@@ -61,6 +63,7 @@ function Report(): React.ReactNode {
     {
       queryKey: "categories",
       queryFn: categoryService.getCategories,
+      enabled: false,
     },
     {
       queryKey: ["reports", queryDataState.start_time, queryDataState.end_time],
@@ -149,6 +152,16 @@ function Report(): React.ReactNode {
               label="Category"
               value={queryDataState.category_id}
               onChange={handleChangeSelect}
+              onOpen={() => {
+                categoriesState.length === 0 && queries[0].refetch();
+              }}
+              startAdornment={
+                queries[0].isLoading && (
+                  <InputAdornment position="start">
+                    <CircularProgress color="inherit" size={20} />
+                  </InputAdornment>
+                )
+              }
             >
               <MenuItem value="">
                 <em>Todos</em>

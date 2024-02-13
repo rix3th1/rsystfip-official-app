@@ -6,7 +6,9 @@ import type { FormDataState } from "@/redux/features/appointments/appointmentsSl
 import { setFaculties } from "@/redux/features/resources/resourcesSlice";
 import { useAppDispatch, useAppSelector } from "@/redux/hooks";
 import { facultieService } from "@/services";
+import CircularProgress from "@mui/material/CircularProgress";
 import FormControl from "@mui/material/FormControl";
+import InputAdornment from "@mui/material/InputAdornment";
 import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
 import Select, { type SelectChangeEvent } from "@mui/material/Select";
@@ -34,9 +36,10 @@ function SelectFaculties({
 
   const dispatch = useAppDispatch();
 
-  const { data, error } = useQuery<[], any>(
+  const { data, error, isLoading, refetch } = useQuery<[], any>(
     "faculties",
-    facultieService.getFaculties
+    facultieService.getFaculties,
+    { enabled: false }
   );
 
   useEffect(() => {
@@ -55,6 +58,16 @@ function SelectFaculties({
         label="Faculty"
         value={formDataState.faculty_id}
         onChange={handleChange}
+        onOpen={() => {
+          facultiesState.length === 0 && refetch();
+        }}
+        startAdornment={
+          isLoading && (
+            <InputAdornment position="start">
+              <CircularProgress color="inherit" size={20} />
+            </InputAdornment>
+          )
+        }
         ref={facultieSelectRef}
         disabled={
           formDataState.disabledAll || formDataState.disabledAfterAutocomplete
