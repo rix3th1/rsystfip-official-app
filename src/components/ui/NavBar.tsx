@@ -23,6 +23,7 @@ import {
 } from "@mui/material";
 import { signOut, useSession } from "next-auth/react";
 import { useRouter } from "next-nprogress-bar";
+import Image from "next/image";
 import NextLink from "next/link";
 import { useState } from "react";
 import ProtectedElement from "./ProtectedElement";
@@ -103,14 +104,15 @@ function NavBar({ permissions }: IProps): React.ReactNode {
   return (
     <AppBar position="static">
       <Toolbar disableGutters sx={{ mx: 3 }}>
-        <Box
-          component="img"
-          alt="RSystfip logotype"
-          src={"/rsystfip_logotype.svg"}
-          width={40}
-          height={32}
-          sx={{ display: { xs: "none", md: "flex" }, mr: 3 }}
-        />
+        <Box sx={{ display: { xs: "none", md: "flex" }, mr: 3 }}>
+          <Image
+            alt="RSystfip logotype"
+            src={"/rsystfip_logotype.svg"}
+            width={40}
+            height={32}
+            priority
+          />
+        </Box>
 
         <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
           <IconButton size="large" onClick={handleOpenNavMenu} color="inherit">

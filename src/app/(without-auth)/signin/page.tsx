@@ -3,6 +3,7 @@ import authOptions from "@/libs/authOptions";
 import { Box, Grid, Paper, Typography } from "@mui/material";
 import { type Metadata } from "next";
 import { getServerSession } from "next-auth";
+import Image from "next/image";
 import { redirect } from "next/navigation";
 
 export const metadata: Metadata = {
@@ -52,14 +53,16 @@ async function PageSignin(): Promise<React.ReactElement> {
             alignItems: "center",
           }}
         >
-          <Box
-            component="img"
-            alt="RSystfip logotype"
-            src={"/rsystfip_logotype.svg"}
-            width={40}
-            height={32}
-            sx={{ m: 1 }}
-          />
+          <Box sx={{ m: 1 }}>
+            <Image
+              alt="RSystfip logotype"
+              src={"/rsystfip_logotype.svg"}
+              width={40}
+              height={32}
+              quality={100}
+              priority
+            />
+          </Box>
 
           <Typography component="h1" variant="h5">
             {"Sign in"}

@@ -2,6 +2,7 @@ import authOptions from "@/libs/authOptions";
 import CodeIcon from "@mui/icons-material/Code";
 import { Box, Container, Grid, Link, Typography } from "@mui/material";
 import { getServerSession } from "next-auth";
+import Image from "next/image";
 import NextLink from "next/link";
 
 async function Footer(): Promise<React.ReactElement> {
@@ -37,14 +38,15 @@ async function Footer(): Promise<React.ReactElement> {
                 mr: { xs: 0, md: "auto" },
               }}
             >
-              <Box
-                component="img"
-                alt="RSystfip logotype"
-                src={"/rsystfip_logotype.svg"}
-                width={40}
-                height={32}
-                sx={{ display: { xs: "none", md: "flex" }, mr: 3 }}
-              />
+              <Box sx={{ display: { xs: "none", md: "flex" }, mr: 3 }}>
+                <Image
+                  alt="RSystfip logotype"
+                  src={"/rsystfip_logotype.svg"}
+                  width={40}
+                  height={32}
+                  priority
+                />
+              </Box>
             </Link>
           </Grid>
 

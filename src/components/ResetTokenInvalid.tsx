@@ -1,5 +1,6 @@
 import { Box, Container, Typography } from "@mui/material";
 import { GoHome } from "./ui";
+import Image from "next/image";
 
 function ResetTokenInvalid(): React.ReactNode {
   return (
@@ -12,14 +13,15 @@ function ResetTokenInvalid(): React.ReactNode {
           alignItems: "center",
         }}
       >
-        <Box
-          component="img"
-          src={"/rsystfip_logotype.svg"}
-          alt="RSystfip logotype"
-          width={72}
-          height={57}
-          sx={{ mb: 4 }}
-        />
+        <Box sx={{ mb: 4 }}>
+          <Image
+            src={"/rsystfip_logotype.svg"}
+            alt="RSystfip logotype"
+            width={72}
+            height={57}
+            priority
+          />
+        </Box>
         <Typography component="h1" variant="h3" gutterBottom>
           {"Invalid Link"}
         </Typography>

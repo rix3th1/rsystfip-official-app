@@ -3,6 +3,7 @@ import Box from "@mui/material/Box";
 import Container from "@mui/material/Container";
 import Typography from "@mui/material/Typography";
 import { type Metadata } from "next";
+import Image from "next/image";
 
 export const metadata: Metadata = {
   title: "RSystfip | Not found",
@@ -19,14 +20,15 @@ function PageNotFound(): React.ReactNode {
           alignItems: "center",
         }}
       >
-        <Box
-          component="img"
-          src={"/rsystfip_logotype.svg"}
-          alt="RSystfip logotype"
-          width={72}
-          height={57}
-          sx={{ mb: 4 }}
-        />
+        <Box sx={{ mb: 4 }}>
+          <Image
+            src={"/rsystfip_logotype.svg"}
+            alt="RSystfip logotype"
+            width={72}
+            height={57}
+            priority
+          />
+        </Box>
 
         <Typography component="h1" variant="h3" gutterBottom>
           {"Error 404"}
