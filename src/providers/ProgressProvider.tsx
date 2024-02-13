@@ -1,3 +1,5 @@
+"use client";
+
 import Box from "@mui/material/Box";
 import { AppProgressBar as ProgressBar } from "next-nprogress-bar";
 
