@@ -153,7 +153,6 @@ function Report(): React.ReactNode {
               <MenuItem value="">
                 <em>Todos</em>
               </MenuItem>
-
               {categoriesState.map(({ id, category_name }) => (
                 <MenuItem key={crypto.randomUUID()} value={id}>
                   {category_name}

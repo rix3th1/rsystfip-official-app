@@ -26,13 +26,13 @@ function FormSignin() {
     username: "",
     password: "",
     passwordVisible: false,
-    terms: true,
+    terms: false,
   };
   const [formData, setFormData] = useState(formDataInitialState);
 
   const router = useRouter();
 
-  const { mutate, isLoading } = useMutation(authService.auth, {
+  const { mutate, isLoading } = useMutation(authService.doSignIn, {
     onSuccess() {
       router.push("/ITFIP-Rectory/home");
       router.refresh();

@@ -1,6 +1,6 @@
-import { signIn } from "next-auth/react";
+import { signIn, signOut } from "next-auth/react";
 
-export const auth = async (body: any) => {
+export const doSignIn = async (body: any) => {
   const response = await signIn("rsystfip-credentials", {
     ...body,
     redirect: false,
@@ -10,3 +10,5 @@ export const auth = async (body: any) => {
     throw new Error(response.error);
   }
 };
+
+export const doSignOut = async () => await signOut({ redirect: false });

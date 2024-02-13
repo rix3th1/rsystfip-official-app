@@ -13,6 +13,7 @@ import {
 import { useAppDispatch, useAppSelector } from "@/redux/hooks";
 import { documentService, userService } from "@/services";
 import type { THandleChangeITS, THandleClick, THandleSubmit } from "@/types";
+import roleItems from "@/utils/roleItems.json";
 import KeyIcon from "@mui/icons-material/Key";
 import VisibilityIcon from "@mui/icons-material/Visibility";
 import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
@@ -117,8 +118,11 @@ function FormUserAdd(): React.ReactNode {
               <MenuItem value="">
                 <em>No seleccionado</em>
               </MenuItem>
-              <MenuItem value="2">Rector</MenuItem>
-              <MenuItem value="3">Secretario(a)</MenuItem>
+              {roleItems.map(({ id, role_name }) => (
+                <MenuItem key={crypto.randomUUID()} value={id}>
+                  {role_name}
+                </MenuItem>
+              ))}
             </Select>
           </FormControl>
         </Grid>

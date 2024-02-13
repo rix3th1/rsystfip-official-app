@@ -7,6 +7,7 @@ import { resetQueryDataStatistics } from "@/redux/features/statistics/statistics
 import { destroyTemporals } from "@/redux/features/temp/tempSlice";
 import { resetFormDataAdmin } from "@/redux/features/users/usersSlice";
 import { useAppDispatch } from "@/redux/hooks";
+import { authService } from "@/services";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import MenuIcon from "@mui/icons-material/Menu";
 import AppBar from "@mui/material/AppBar";
@@ -19,11 +20,12 @@ import MenuItem from "@mui/material/MenuItem";
 import Toolbar from "@mui/material/Toolbar";
 import Tooltip from "@mui/material/Tooltip";
 import Typography from "@mui/material/Typography";
-import { signOut, useSession } from "next-auth/react";
+import { useSession } from "next-auth/react";
 import { useRouter } from "next-nprogress-bar";
 import Image from "next/image";
 import NextLink from "next/link";
 import { useState } from "react";
+import { useMutation } from "react-query";
 import ProtectedElement from "./ProtectedElement";
 
 interface IProps {
@@ -81,9 +83,24 @@ function NavBar({ permissions }: IProps): React.ReactNode {
     setAnchorElUser(null);
   };
 
+  const mutationDoSignOut = useMutation(authService.doSignOut, {
+    onSuccess() {
+      // Redirect to the sign in page
+      router.push("/signin");
+      router.refresh();
+      notify("Sesión cerrada", { type: "success", position: "top-center" });
+    },
+    onError(error) {
+      if (error instanceof Error) {
+        notify(error.message, { type: "error" });
+      }
+    },
+  });
+
   const handleClickSignOut = async () => {
-    // Reset the Redux context
     handleCloseUserMenu();
+
+    // Reset the Redux context
     dispatch(resetFormDataAdmin());
     dispatch(resetQueryDataReports());
     dispatch(resetQueryDataStatistics());
@@ -91,12 +108,7 @@ function NavBar({ permissions }: IProps): React.ReactNode {
     dispatch(destroyTemporals());
 
     // Close the session
-    await signOut({ redirect: false });
-
-    // Redirect to the sign in page
-    router.push("/signin");
-    router.refresh();
-    notify("Sesión cerrada", { type: "success", position: "top-center" });
+    mutationDoSignOut.mutate();
   };
 
   return (
@@ -380,7 +392,10 @@ function NavBar({ permissions }: IProps): React.ReactNode {
               <Typography textAlign="center">Cambiar contraseña</Typography>
             </MenuItem>
 
-            <MenuItem onClick={handleClickSignOut}>
+            <MenuItem
+              onClick={handleClickSignOut}
+              disabled={mutationDoSignOut.isLoading}
+            >
               <Typography textAlign="center">Cerrar sesión</Typography>
             </MenuItem>
           </Menu>
