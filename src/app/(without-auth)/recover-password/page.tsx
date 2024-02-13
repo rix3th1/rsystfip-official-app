@@ -1,6 +1,6 @@
 import { RecoveryPassword } from "@/components";
 import { Copyright } from "@/components/ui";
-import { Container } from "@mui/material";
+import Container from "@mui/material/Container";
 import { type Metadata } from "next";
 
 export const metadata: Metadata = {

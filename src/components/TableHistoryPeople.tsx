@@ -6,7 +6,8 @@ import { setPeople, type People } from "@/redux/features/people/peopleSlice";
 import { useAppDispatch, useAppSelector } from "@/redux/hooks";
 import { peopleService } from "@/services";
 import EditIcon from "@mui/icons-material/Edit";
-import { IconButton, Paper } from "@mui/material";
+import IconButton from "@mui/material/IconButton";
+import Paper from "@mui/material/Paper";
 import {
   DataGrid,
   type GridColDef,

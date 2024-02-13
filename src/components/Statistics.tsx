@@ -9,7 +9,7 @@ import {
 } from "@/redux/features/statistics/statisticsSlice";
 import { useAppDispatch, useAppSelector } from "@/redux/hooks";
 import { statisticService } from "@/services";
-import { Typography } from "@mui/material";
+import Typography from "@mui/material/Typography";
 import {
   ArcElement,
   BarController,

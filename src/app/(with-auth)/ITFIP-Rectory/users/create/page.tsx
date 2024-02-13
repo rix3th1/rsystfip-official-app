@@ -1,5 +1,7 @@
 import { FormUserAdd } from "@/components";
-import { Container, Paper, Typography } from "@mui/material";
+import Container from "@mui/material/Container";
+import Paper from "@mui/material/Paper";
+import Typography from "@mui/material/Typography";
 import { type Metadata } from "next";
 
 export const metadata: Metadata = {

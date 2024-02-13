@@ -1,5 +1,5 @@
 import DownloadIcon from "@mui/icons-material/Download";
-import { Fab } from "@mui/material";
+import Fab from "@mui/material/Fab";
 import type { TCreatedPdf } from "pdfmake/build/pdfmake";
 
 interface IProps {

@@ -9,18 +9,16 @@ import { resetFormDataAdmin } from "@/redux/features/users/usersSlice";
 import { useAppDispatch } from "@/redux/hooks";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import MenuIcon from "@mui/icons-material/Menu";
-import {
-  AppBar,
-  Avatar,
-  Box,
-  Button,
-  IconButton,
-  Menu,
-  MenuItem,
-  Toolbar,
-  Tooltip,
-  Typography,
-} from "@mui/material";
+import AppBar from "@mui/material/AppBar";
+import Avatar from "@mui/material/Avatar";
+import Box from "@mui/material/Box";
+import Button from "@mui/material/Button";
+import IconButton from "@mui/material/IconButton";
+import Menu from "@mui/material/Menu";
+import MenuItem from "@mui/material/MenuItem";
+import Toolbar from "@mui/material/Toolbar";
+import Tooltip from "@mui/material/Tooltip";
+import Typography from "@mui/material/Typography";
 import { signOut, useSession } from "next-auth/react";
 import { useRouter } from "next-nprogress-bar";
 import Image from "next/image";
@@ -102,7 +100,7 @@ function NavBar({ permissions }: IProps): React.ReactNode {
   };
 
   return (
-    <AppBar position="static">
+    <AppBar position="sticky" sx={{ zIndex: 20 }}>
       <Toolbar disableGutters sx={{ mx: 3 }}>
         <Box sx={{ display: { xs: "none", md: "flex" }, mr: 3 }}>
           <Image

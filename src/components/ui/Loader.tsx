@@ -1,4 +1,5 @@
-import { Backdrop, CircularProgress } from "@mui/material";
+import Backdrop from "@mui/material/Backdrop";
+import CircularProgress from "@mui/material/CircularProgress";
 
 function Loader(): React.ReactNode {
   return (

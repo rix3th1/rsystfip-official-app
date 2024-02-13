@@ -17,7 +17,7 @@ import type { EventSourceInput, PluginDef } from "@fullcalendar/core";
 import esLocale from "@fullcalendar/core/locales/es";
 import interactionPlugin from "@fullcalendar/interaction";
 import FullCalendar from "@fullcalendar/react";
-import { TableContainer } from "@mui/material";
+import TableContainer from "@mui/material/TableContainer";
 import { format } from "date-fns";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { useQuery } from "react-query";

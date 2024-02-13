@@ -1,5 +1,5 @@
 import { RecoveryLinkPassword } from "@/components";
-import { Container } from "@mui/material";
+import Container from "@mui/material/Container";
 import { type Metadata } from "next";
 
 export const metadata: Metadata = {

@@ -1,6 +1,9 @@
 import { ProtectedElement } from "@/components/ui";
 import authOptions from "@/libs/authOptions";
-import { Button, ButtonGroup, Container, Typography } from "@mui/material";
+import Button from "@mui/material/Button";
+import ButtonGroup from "@mui/material/ButtonGroup";
+import Container from "@mui/material/Container";
+import Typography from "@mui/material/Typography";
 import { type Metadata } from "next";
 import { getServerSession } from "next-auth";
 import NextLink from "next/link";

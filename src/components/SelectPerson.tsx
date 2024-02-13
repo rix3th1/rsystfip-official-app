@@ -10,13 +10,10 @@ import {
 import { setCategories } from "@/redux/features/resources/resourcesSlice";
 import { useAppDispatch, useAppSelector } from "@/redux/hooks";
 import { categoryService, deanService } from "@/services";
-import {
-  FormControl,
-  InputLabel,
-  MenuItem,
-  Select,
-  type SelectChangeEvent,
-} from "@mui/material";
+import FormControl from "@mui/material/FormControl";
+import InputLabel from "@mui/material/InputLabel";
+import MenuItem from "@mui/material/MenuItem";
+import Select, { type SelectChangeEvent } from "@mui/material/Select";
 import { useEffect, type DependencyList } from "react";
 import { useQueries, type UseQueryResult } from "react-query";
 import { actionFormSchedule } from ".";

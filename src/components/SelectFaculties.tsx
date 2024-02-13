@@ -6,13 +6,10 @@ import type { FormDataState } from "@/redux/features/appointments/appointmentsSl
 import { setFaculties } from "@/redux/features/resources/resourcesSlice";
 import { useAppDispatch, useAppSelector } from "@/redux/hooks";
 import { facultieService } from "@/services";
-import {
-  FormControl,
-  InputLabel,
-  MenuItem,
-  Select,
-  type SelectChangeEvent,
-} from "@mui/material";
+import FormControl from "@mui/material/FormControl";
+import InputLabel from "@mui/material/InputLabel";
+import MenuItem from "@mui/material/MenuItem";
+import Select, { type SelectChangeEvent } from "@mui/material/Select";
 import { useEffect } from "react";
 import { useQuery } from "react-query";
 import { actionFormSchedule } from ".";

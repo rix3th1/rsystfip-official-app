@@ -1,6 +1,9 @@
 import { FormSignin } from "@/components";
 import authOptions from "@/libs/authOptions";
-import { Box, Grid, Paper, Typography } from "@mui/material";
+import Box from "@mui/material/Box";
+import Grid from "@mui/material/Grid";
+import Paper from "@mui/material/Paper";
+import Typography from "@mui/material/Typography";
 import { type Metadata } from "next";
 import { getServerSession } from "next-auth";
 import Image from "next/image";

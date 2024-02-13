@@ -1,6 +1,8 @@
-import { Box, Container, Typography } from "@mui/material";
-import { GoHome } from "./ui";
+import Box from "@mui/material/Box";
+import Container from "@mui/material/Container";
+import Typography from "@mui/material/Typography";
 import Image from "next/image";
+import { GoHome } from "./ui";
 
 function ResetTokenInvalid(): React.ReactNode {
   return (

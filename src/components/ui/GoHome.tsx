@@ -1,7 +1,7 @@
 "use client";
 
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
-import { Button } from "@mui/material";
+import Button from "@mui/material/Button";
 import { useRouter } from "next-nprogress-bar";
 
 function GoHome(): React.ReactNode {

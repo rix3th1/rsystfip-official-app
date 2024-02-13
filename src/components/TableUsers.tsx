@@ -7,7 +7,9 @@ import { setUsers, type User } from "@/redux/features/users/usersSlice";
 import { useAppDispatch, useAppSelector } from "@/redux/hooks";
 import { userService } from "@/services";
 import { Delete as DeleteIcon, Key as KeyIcon } from "@mui/icons-material";
-import { CircularProgress, IconButton, Paper } from "@mui/material";
+import CircularProgress from "@mui/material/CircularProgress";
+import IconButton from "@mui/material/IconButton";
+import Paper from "@mui/material/Paper";
 import {
   DataGrid,
   type GridColDef,

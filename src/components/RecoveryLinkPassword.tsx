@@ -2,7 +2,9 @@
 
 import { notify } from "@/libs/notify";
 import { accountService } from "@/services";
-import { LinearProgress, Paper, Typography } from "@mui/material";
+import LinearProgress from "@mui/material/LinearProgress";
+import Paper from "@mui/material/Paper";
+import Typography from "@mui/material/Typography";
 import { useParams } from "next/navigation";
 import { useEffect, useState } from "react";
 import { useQuery } from "react-query";

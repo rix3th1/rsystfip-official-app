@@ -8,7 +8,7 @@ import {
 } from "@/redux/features/cancellations/cancellationsSlice";
 import { useAppDispatch, useAppSelector } from "@/redux/hooks";
 import { peopleService } from "@/services";
-import { Paper } from "@mui/material";
+import Paper from "@mui/material/Paper";
 import {
   DataGrid,
   type GridColDef,

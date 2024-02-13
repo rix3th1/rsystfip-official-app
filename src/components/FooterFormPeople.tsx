@@ -2,7 +2,8 @@
 
 import type { THandleClick } from "@/types";
 import LoadingButton from "@mui/lab/LoadingButton";
-import { Box, Button } from "@mui/material";
+import Box from "@mui/material/Box";
+import Button from "@mui/material/Button";
 import { useRouter } from "next-nprogress-bar";
 
 interface IProps {

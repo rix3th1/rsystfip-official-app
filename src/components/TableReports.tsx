@@ -3,7 +3,7 @@
 import { createColumn } from "@/libs/utils";
 import type { Reports } from "@/redux/features/reports/reportsSlice";
 import { useAppSelector } from "@/redux/hooks";
-import { Paper } from "@mui/material";
+import Paper from "@mui/material/Paper";
 import {
   DataGrid,
   type GridColDef,

@@ -1,6 +1,8 @@
 import { TableUsers } from "@/components";
 import AddIcon from "@mui/icons-material/Add";
-import { Container, Fab, Typography } from "@mui/material";
+import Container from "@mui/material/Container";
+import Fab from "@mui/material/Fab";
+import Typography from "@mui/material/Typography";
 import { type Metadata } from "next";
 import NextLink from "next/link";
 

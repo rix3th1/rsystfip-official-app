@@ -1,4 +1,5 @@
-import { Link, Typography, type TypographyOwnProps } from "@mui/material";
+import Link from "@mui/material/Link";
+import Typography, { type TypographyOwnProps } from "@mui/material/Typography";
 
 function Copyright(props: TypographyOwnProps): React.ReactNode {
   return (
