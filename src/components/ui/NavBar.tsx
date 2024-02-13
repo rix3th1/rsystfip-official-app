@@ -89,6 +89,13 @@ function NavBar({ permissions }: IProps): React.ReactNode {
       router.push("/signin");
       router.refresh();
       notify("Sesión cerrada", { type: "success", position: "top-center" });
+
+      // Reset the Redux context
+      dispatch(resetFormDataAdmin());
+      dispatch(resetQueryDataReports());
+      dispatch(resetQueryDataStatistics());
+      dispatch(resetAllFormDataProgramming());
+      dispatch(destroyTemporals());
     },
     onError(error) {
       if (error instanceof Error) {
@@ -99,13 +106,6 @@ function NavBar({ permissions }: IProps): React.ReactNode {
 
   const handleClickSignOut = async () => {
     handleCloseUserMenu();
-
-    // Reset the Redux context
-    dispatch(resetFormDataAdmin());
-    dispatch(resetQueryDataReports());
-    dispatch(resetQueryDataStatistics());
-    dispatch(resetAllFormDataProgramming());
-    dispatch(destroyTemporals());
 
     // Close the session
     mutationDoSignOut.mutate();
