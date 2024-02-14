@@ -13,7 +13,7 @@ export async function GET() {
 
   try {
     const payload = (await jwtDecode({
-      secret: process.env.SECRET_KEY || "secretkey",
+      secret: process.env.NEXTAUTH_SECRET || "secretkey",
       token: jwt,
     })) as unknown as IPayload;
 

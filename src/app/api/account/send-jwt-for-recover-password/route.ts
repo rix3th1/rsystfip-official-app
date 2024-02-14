@@ -33,7 +33,7 @@ export async function POST(request: Request) {
     email: userFound.email,
   };
   const token = await jwtEncode({
-    secret: process.env.SECRET_KEY || "secretkey",
+    secret: process.env.NEXTAUTH_SECRET || "secretkey",
     token: payload,
     maxAge: 3 * 60,
   });

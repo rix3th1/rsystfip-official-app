@@ -14,7 +14,7 @@ export async function PATCH(request: Request) {
 
   try {
     const payload = (await jwtDecode({
-      secret: process.env.SECRET_KEY || "secretkey",
+      secret: process.env.NEXTAUTH_SECRET || "secretkey",
       token: value.resetToken,
     })) as unknown as IPayload;
 

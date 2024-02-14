@@ -8,7 +8,6 @@ declare namespace NodeJS {
     DB_NAME?: string;
     NEXTAUTH_SECRET?: string;
     SENDGRID_API_KEY?: string;
-    SECRET_KEY?: string;
     EMAIL_SENDER?: string;
     NAME_SENDER?: string;
   }
