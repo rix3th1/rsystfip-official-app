@@ -1,20 +1,20 @@
 "use client";
 
-import Box from "@mui/material/Box";
 import { AppProgressBar as ProgressBar } from "next-nprogress-bar";
+import useMediaQuery from "@mui/material/useMediaQuery";
 
 function ProgressProvider({ children }: { children: React.ReactNode }) {
+  const prefersDarkMode = useMediaQuery("(prefers-color-scheme: dark)");
+
   return (
     <>
-      <Box
-        component={ProgressBar}
+      <ProgressBar
         height="5px"
-        color="#feca00"
+        color={prefersDarkMode ? "#2e2a80" : "#fbd90a"}
         options={{
           showSpinner: false,
         }}
         shallowRouting
-        sx={{ zIndex: 100 }}
       />
       {children}
     </>

@@ -20,7 +20,7 @@ import MenuItem from "@mui/material/MenuItem";
 import Toolbar from "@mui/material/Toolbar";
 import Tooltip from "@mui/material/Tooltip";
 import Typography from "@mui/material/Typography";
-import { useSession } from "next-auth/react";
+import { type Session } from "next-auth";
 import { useRouter } from "next-nprogress-bar";
 import Image from "next/image";
 import NextLink from "next/link";
@@ -29,11 +29,12 @@ import { useMutation } from "react-query";
 import ProtectedElement from "./ProtectedElement";
 
 interface IProps {
-  permissions: Array<string>;
+  session: Session | null;
 }
 
-function NavBar({ permissions }: IProps): React.ReactNode {
-  const { data: session } = useSession();
+function NavBar({ session }: IProps): React.ReactNode {
+  const permissions = session?.user.permissions!;
+
   const dispatch = useAppDispatch();
   const router = useRouter();
 

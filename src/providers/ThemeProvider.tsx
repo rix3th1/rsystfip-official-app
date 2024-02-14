@@ -4,7 +4,7 @@ import {
   ThemeProvider as MuiThemeProvider,
   createTheme,
 } from "@mui/material/styles";
-// import useMediaQuery from "@mui/material/useMediaQuery";
+import useMediaQuery from "@mui/material/useMediaQuery";
 
 import { Roboto } from "next/font/google";
 
@@ -15,14 +15,14 @@ const roboto = Roboto({
 });
 
 function ThemeProvider({ children }: { children: React.ReactNode }) {
-  // const prefersDarkMode = useMediaQuery("(prefers-color-scheme: dark)");
+  const prefersDarkMode = useMediaQuery("(prefers-color-scheme: dark)");
 
   const theme = createTheme({
     typography: {
       fontFamily: roboto.style.fontFamily,
     },
     palette: {
-      // mode: prefersDarkMode ? "dark" : "light",
+      mode: prefersDarkMode ? "dark" : "light",
       primary: {
         main: "#3366CC",
       },

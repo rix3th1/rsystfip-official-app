@@ -21,7 +21,6 @@ async function App({
 }): Promise<React.ReactElement> {
   const session = await getServerSession(authOptions);
   const isAllowed = !!session;
-  const permissions = session?.user.permissions!;
 
   return (
     <AppRouterCacheProvider>
@@ -33,7 +32,7 @@ async function App({
             <SessionProviderContext>
               <QueryClientProvider>
                 <ProtectedElement isAllowed={isAllowed}>
-                  <NavBar permissions={permissions} />
+                  <NavBar session={session} />
                 </ProtectedElement>
 
                 {children}
