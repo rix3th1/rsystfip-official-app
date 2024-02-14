@@ -162,6 +162,7 @@ function Report(): React.ReactNode {
                   </InputAdornment>
                 )
               }
+              autoFocus
             >
               <MenuItem value="">
                 <em>Todos</em>

@@ -6,14 +6,15 @@ import { styled } from "@mui/material/styles";
 import Typography from "@mui/material/Typography";
 
 interface IProps {
-  valueLength: number;
+  value: string;
   LinearProgressProps: LinearProgressProps;
 }
 
 function PasswordMeter({
-  valueLength,
+  value,
   LinearProgressProps,
 }: IProps): React.ReactNode {
+  const valueLength = value.length;
   const minLength = 8;
   const hue = Math.min(valueLength * 10, 120);
 

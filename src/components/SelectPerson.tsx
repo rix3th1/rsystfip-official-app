@@ -119,6 +119,7 @@ function SelectPerson({
             </InputAdornment>
           )
         }
+        autoFocus
         required
       >
         <MenuItem value="">

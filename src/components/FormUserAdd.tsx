@@ -276,7 +276,7 @@ function FormUserAdd(): React.ReactNode {
           />
 
           <PasswordMeter
-            valueLength={formDataState.password.length}
+            value={formDataState.password}
             LinearProgressProps={{
               variant: "determinate",
             }}
@@ -317,7 +317,7 @@ function FormUserAdd(): React.ReactNode {
           />
 
           <PasswordMeter
-            valueLength={formDataState.password2.length}
+            value={formDataState.password2}
             LinearProgressProps={{
               variant: "determinate",
             }}

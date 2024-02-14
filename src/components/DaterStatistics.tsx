@@ -92,6 +92,7 @@ function DaterStatistics({ appointment_status }: IProps): React.ReactNode {
             label="Chart type"
             value={queryDataState.chart_type}
             onChange={handleChangeSelect}
+            autoFocus
           >
             {queryDataState.chart_types.map((chart_type) => (
               <MenuItem key={crypto.randomUUID()} value={chart_type}>

@@ -150,7 +150,7 @@ function FormChangePsw({ userId }: IProps): React.ReactNode {
       />
 
       <PasswordMeter
-        valueLength={formData.newPassword.length}
+        value={formData.newPassword}
         LinearProgressProps={{
           variant: "determinate",
         }}
@@ -189,7 +189,7 @@ function FormChangePsw({ userId }: IProps): React.ReactNode {
       />
 
       <PasswordMeter
-        valueLength={formData.confirmPassword.length}
+        value={formData.confirmPassword}
         LinearProgressProps={{
           variant: "determinate",
         }}

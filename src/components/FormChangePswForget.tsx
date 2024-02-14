@@ -75,7 +75,6 @@ function FormChangePswForget(): React.ReactNode {
     <Box component="form" onSubmit={handleSubmit}>
       <TextField
         margin="normal"
-        required
         fullWidth
         name="password"
         label="New password"
@@ -103,10 +102,12 @@ function FormChangePswForget(): React.ReactNode {
             </InputAdornment>
           ),
         }}
+        autoFocus
+        required
       />
 
       <PasswordMeter
-        valueLength={formData.password.length}
+        value={formData.password}
         LinearProgressProps={{
           variant: "determinate",
         }}
@@ -114,7 +115,6 @@ function FormChangePswForget(): React.ReactNode {
 
       <TextField
         margin="normal"
-        required
         fullWidth
         name="password2"
         label="Confirm password"
@@ -142,10 +142,11 @@ function FormChangePswForget(): React.ReactNode {
             </InputAdornment>
           ),
         }}
+        required
       />
 
       <PasswordMeter
-        valueLength={formData.password2.length}
+        value={formData.password2}
         LinearProgressProps={{
           variant: "determinate",
         }}
