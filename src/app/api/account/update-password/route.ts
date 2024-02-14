@@ -2,7 +2,7 @@ import * as bcryptHelper from "@/helpers/bcrypt.helper";
 import type { IPayload, IUser } from "@/interfaces";
 import { UserService } from "@/services/backend";
 import { forgetPswSchema } from "@/validation/schemas";
-import Jwt from "jsonwebtoken";
+import { decode as jwtDecode } from "next-auth/jwt";
 import { NextResponse } from "next/server";
 
 export async function PATCH(request: Request) {
@@ -13,10 +13,10 @@ export async function PATCH(request: Request) {
   }
 
   try {
-    const payload = Jwt.verify(
-      value.resetToken,
-      process.env.SECRET_KEY || "secretkey"
-    ) as IPayload;
+    const payload = (await jwtDecode({
+      secret: process.env.SECRET_KEY || "secretkey",
+      token: value.resetToken,
+    })) as unknown as IPayload;
 
     const userFound = await UserService.getUser(payload.userId, payload.email);
     if (!userFound) {

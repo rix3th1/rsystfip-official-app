@@ -12,7 +12,7 @@ import {
 } from "@/redux/features/users/usersSlice";
 import { useAppDispatch, useAppSelector } from "@/redux/hooks";
 import { documentService, userService } from "@/services";
-import type { THandleChangeITS, THandleClick, THandleSubmit } from "@/types";
+import type { THandleChangeITS, THandleSubmit } from "@/types";
 import roleItems from "@/utils/roleItems.json";
 import KeyIcon from "@mui/icons-material/Key";
 import VisibilityIcon from "@mui/icons-material/Visibility";
@@ -79,11 +79,6 @@ function FormUserAdd(): React.ReactNode {
       }
     },
   });
-
-  const handleClick = (e: THandleClick) => {
-    e.preventDefault();
-    router.back();
-  };
 
   const handleSubmit = (e: THandleSubmit) => {
     e.preventDefault();
@@ -326,7 +321,11 @@ function FormUserAdd(): React.ReactNode {
       </Grid>
 
       <Box sx={{ display: "flex", justifyContent: "space-between" }}>
-        <Button onClick={handleClick} sx={{ mt: 3, ml: 1 }}>
+        <Button
+          type="button"
+          onClick={() => router.back()}
+          sx={{ mt: 3, ml: 1 }}
+        >
           Back
         </Button>
 

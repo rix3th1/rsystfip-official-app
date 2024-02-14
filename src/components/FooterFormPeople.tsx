@@ -1,6 +1,5 @@
 "use client";
 
-import type { THandleClick } from "@/types";
 import LoadingButton from "@mui/lab/LoadingButton";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
@@ -14,14 +13,9 @@ interface IProps {
 function FooterFormPeople({ isEdit, isLoading }: IProps): React.ReactNode {
   const router = useRouter();
 
-  const handleClick = (e: THandleClick) => {
-    e.preventDefault();
-    router.back();
-  };
-
   return (
     <Box sx={{ display: "flex", justifyContent: "space-between" }}>
-      <Button onClick={handleClick} sx={{ mt: 3, ml: 1 }}>
+      <Button type="button" onClick={() => router.back()} sx={{ mt: 3, ml: 1 }}>
         Back
       </Button>
 

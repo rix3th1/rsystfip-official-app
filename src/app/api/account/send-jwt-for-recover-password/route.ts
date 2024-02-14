@@ -2,7 +2,7 @@ import * as sgHelper from "@/helpers/sg.helper";
 import type { IPayload } from "@/interfaces";
 import { UserService } from "@/services/backend";
 import { emailItfipSchema, sendEmailSchema } from "@/validation/schemas";
-import Jwt from "jsonwebtoken";
+import { encode as jwtEncode } from "next-auth/jwt";
 import { headers } from "next/headers";
 import { NextResponse } from "next/server";
 
@@ -32,8 +32,10 @@ export async function POST(request: Request) {
     userId: userFound.id,
     email: userFound.email,
   };
-  const token = Jwt.sign(payload, process.env.SECRET_KEY || "secretkey", {
-    expiresIn: 3 * 60,
+  const token = await jwtEncode({
+    secret: process.env.SECRET_KEY || "secretkey",
+    token: payload,
+    maxAge: 3 * 60,
   });
 
   const headersList = headers();

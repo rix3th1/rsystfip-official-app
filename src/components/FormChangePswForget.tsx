@@ -8,14 +8,17 @@ import VisibilityIcon from "@mui/icons-material/Visibility";
 import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
 import LoadingButton from "@mui/lab/LoadingButton";
 import Box from "@mui/material/Box";
+import Button from "@mui/material/Button";
 import IconButton from "@mui/material/IconButton";
 import InputAdornment from "@mui/material/InputAdornment";
 import TextField from "@mui/material/TextField";
 import { isAxiosError } from "axios";
+import { signOut } from "next-auth/react";
+import { useRouter } from "next-nprogress-bar";
 import { useParams } from "next/navigation";
 import { useState } from "react";
 import { useMutation } from "react-query";
-import { PasswordMeter } from "./ui";
+import { PasswordMeter, ProtectedElement } from "./ui";
 
 function FormChangePswForget(): React.ReactNode {
   const formDataInitialState = {
@@ -24,7 +27,10 @@ function FormChangePswForget(): React.ReactNode {
     passwordVisible: false,
   };
   const [formData, setFormData] = useState(formDataInitialState);
+  const [hasChanged, setHasChanged] = useState(false);
   const params = useParams<{ resetToken: string }>();
+
+  const router = useRouter();
 
   const { mutate, isLoading } = useMutation(
     accountService.changePasswordWithJwt,
@@ -36,6 +42,7 @@ function FormChangePswForget(): React.ReactNode {
         });
 
         setFormData(formDataInitialState);
+        setHasChanged(true);
       },
       onError(error) {
         if (isAxiosError(error)) {
@@ -152,10 +159,34 @@ function FormChangePswForget(): React.ReactNode {
         }}
       />
 
-      <Box sx={{ display: "flex", justifyContent: "flex-end" }}>
-        <LoadingButton type="submit" loading={isLoading} sx={{ mt: 3, ml: 1 }}>
-          Continue
-        </LoadingButton>
+      <Box sx={{ display: "flex", justifyContent: "space-between" }}>
+        <Button
+          type="button"
+          onClick={() => router.back()}
+          sx={{ mt: 3, ml: 1 }}
+        >
+          Back
+        </Button>
+
+        <ProtectedElement isAllowed={!hasChanged}>
+          <LoadingButton
+            type="submit"
+            loading={isLoading}
+            sx={{ mt: 3, ml: 1 }}
+          >
+            Continue
+          </LoadingButton>
+        </ProtectedElement>
+
+        <ProtectedElement isAllowed={hasChanged}>
+          <Button
+            type="button"
+            onClick={() => signOut({ callbackUrl: "/signin" })}
+            sx={{ mt: 3, ml: 1 }}
+          >
+            Sign In
+          </Button>
+        </ProtectedElement>
       </Box>
     </Box>
   );

@@ -3,7 +3,7 @@
 import type { IUserBase } from "@/interfaces";
 import { notify } from "@/libs/notify";
 import { accountService } from "@/services";
-import type { THandleChangeI, THandleClick, THandleSubmit } from "@/types";
+import type { THandleChangeI, THandleSubmit } from "@/types";
 import KeyIcon from "@mui/icons-material/Key";
 import VisibilityIcon from "@mui/icons-material/Visibility";
 import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
@@ -14,10 +14,11 @@ import IconButton from "@mui/material/IconButton";
 import InputAdornment from "@mui/material/InputAdornment";
 import TextField from "@mui/material/TextField";
 import { isAxiosError } from "axios";
+import { signOut } from "next-auth/react";
 import { useRouter } from "next-nprogress-bar";
 import { useState } from "react";
 import { useMutation } from "react-query";
-import { PasswordMeter } from "./ui";
+import { PasswordMeter, ProtectedElement } from "./ui";
 
 interface IProps {
   userId: IUserBase["id"];
@@ -31,6 +32,7 @@ function FormChangePsw({ userId }: IProps): React.ReactNode {
     passwordVisible: false,
   };
   const [formData, setFormData] = useState(formDataInitialState);
+  const [hasChanged, setHasChanged] = useState(false);
 
   const router = useRouter();
 
@@ -42,6 +44,7 @@ function FormChangePsw({ userId }: IProps): React.ReactNode {
       });
 
       setFormData(formDataInitialState);
+      setHasChanged(true);
     },
     onError(error) {
       if (isAxiosError(error)) {
@@ -68,11 +71,6 @@ function FormChangePsw({ userId }: IProps): React.ReactNode {
       ...formData,
       passwordVisible: !formData.passwordVisible,
     });
-  };
-
-  const handleClick = (e: THandleClick) => {
-    e.preventDefault();
-    router.back();
   };
 
   const handleChange = (e: THandleChangeI) => {
@@ -196,13 +194,33 @@ function FormChangePsw({ userId }: IProps): React.ReactNode {
       />
 
       <Box sx={{ display: "flex", justifyContent: "space-between" }}>
-        <Button onClick={handleClick} sx={{ mt: 3, ml: 1 }}>
+        <Button
+          type="button"
+          onClick={() => router.back()}
+          sx={{ mt: 3, ml: 1 }}
+        >
           Back
         </Button>
 
-        <LoadingButton type="submit" loading={isLoading} sx={{ mt: 3, ml: 1 }}>
-          Continue
-        </LoadingButton>
+        <ProtectedElement isAllowed={!hasChanged}>
+          <LoadingButton
+            type="submit"
+            loading={isLoading}
+            sx={{ mt: 3, ml: 1 }}
+          >
+            Continue
+          </LoadingButton>
+        </ProtectedElement>
+
+        <ProtectedElement isAllowed={hasChanged}>
+          <Button
+            type="button"
+            onClick={() => signOut({ callbackUrl: "/signin" })}
+            sx={{ mt: 3, ml: 1 }}
+          >
+            Sign In
+          </Button>
+        </ProtectedElement>
       </Box>
     </Box>
   );

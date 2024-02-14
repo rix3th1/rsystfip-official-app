@@ -1,5 +1,5 @@
 import type { IPayload } from "@/interfaces";
-import Jwt from "jsonwebtoken";
+import { decode as jwtDecode } from "next-auth/jwt";
 import { headers } from "next/headers";
 import { NextResponse } from "next/server";
 
@@ -12,10 +12,11 @@ export async function GET() {
   }
 
   try {
-    const payload = Jwt.verify(
-      jwt,
-      process.env.SECRET_KEY || "secretkey"
-    ) as IPayload;
+    const payload = (await jwtDecode({
+      secret: process.env.SECRET_KEY || "secretkey",
+      token: jwt,
+    })) as unknown as IPayload;
+
     return NextResponse.json({ tokenIsValid: true, email: payload.email });
   } catch (error: any) {
     return NextResponse.json({ error: error.message }, { status: 401 });
