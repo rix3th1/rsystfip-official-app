@@ -16,6 +16,7 @@ import {
 } from "@mui/x-data-grid";
 import { useEffect } from "react";
 import { useQuery } from "react-query";
+import LinearProgress from "@mui/material/LinearProgress";
 
 const columns: GridColDef[] = [
   createColumn("id", "ID", 85),
@@ -60,18 +61,22 @@ function TableHistoryCanceledPeople(): React.ReactNode {
   return (
     <div style={{ height: 400, width: "100%" }}>
       <Paper>
-        <DataGrid
-          rows={cancelledPeopleState}
-          columns={columns}
-          initialState={{
-            pagination: {
-              paginationModel: { page: 0, pageSize: 5 },
-            },
-          }}
-          pageSizeOptions={[5, 10]}
-          loading={isLoading}
-          sx={{ border: "none" }}
-        />
+        {isLoading ? (
+          <LinearProgress sx={{ my: 5 }} />
+        ) : (
+          <DataGrid
+            rows={cancelledPeopleState}
+            columns={columns}
+            initialState={{
+              pagination: {
+                paginationModel: { page: 0, pageSize: 5 },
+              },
+            }}
+            pageSizeOptions={[5, 10]}
+            loading={isLoading}
+            sx={{ border: "none" }}
+          />
+        )}
       </Paper>
     </div>
   );

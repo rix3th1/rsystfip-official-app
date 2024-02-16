@@ -3,6 +3,7 @@
 import { createColumn } from "@/libs/utils";
 import type { Reports } from "@/redux/features/reports/reportsSlice";
 import { useAppSelector } from "@/redux/hooks";
+import LinearProgress from "@mui/material/LinearProgress";
 import Paper from "@mui/material/Paper";
 import {
   DataGrid,
@@ -68,18 +69,22 @@ function TableReports({ isLoading }: IProps): React.ReactNode {
   return (
     <div style={{ height: 400, width: "100%" }}>
       <Paper>
-        <DataGrid
-          rows={reportsState}
-          columns={columns}
-          initialState={{
-            pagination: {
-              paginationModel: { page: 0, pageSize: 5 },
-            },
-          }}
-          pageSizeOptions={[5, 10]}
-          loading={isLoading}
-          sx={{ border: "none" }}
-        />
+        {isLoading ? (
+          <LinearProgress sx={{ my: 5 }} />
+        ) : (
+          <DataGrid
+            rows={reportsState}
+            columns={columns}
+            initialState={{
+              pagination: {
+                paginationModel: { page: 0, pageSize: 5 },
+              },
+            }}
+            pageSizeOptions={[5, 10]}
+            loading={isLoading}
+            sx={{ border: "none" }}
+          />
+        )}
       </Paper>
     </div>
   );

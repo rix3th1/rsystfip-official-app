@@ -9,6 +9,7 @@ import { userService } from "@/services";
 import { Delete as DeleteIcon, Key as KeyIcon } from "@mui/icons-material";
 import CircularProgress from "@mui/material/CircularProgress";
 import IconButton from "@mui/material/IconButton";
+import LinearProgress from "@mui/material/LinearProgress";
 import Paper from "@mui/material/Paper";
 import {
   DataGrid,
@@ -30,7 +31,7 @@ function TableUsers(): React.ReactNode {
   const mutationDeleteUser = useMutation(userService.deleteUser);
 
   const handleClick = async (roleId: IUserBase["id"]) => {
-    if (!confirm("Seguro(a) de eliminar ese usuario?")) return;
+    if (!confirm("Are you sure you want to delete it?")) return;
 
     setLoadingButtons((prevSet) => new Set(prevSet).add(+roleId));
 
@@ -60,7 +61,7 @@ function TableUsers(): React.ReactNode {
     {
       ...createColumn("actions", "Actions", 150),
       align: "center",
-      renderCell: ({ row: { id, email } }) => (
+      renderCell: ({ row: { id, email, role_name } }) => (
         <>
           <IconButton
             component={NextLink}
@@ -74,7 +75,7 @@ function TableUsers(): React.ReactNode {
             color="error"
             onClick={() => handleClick(id)}
             disabled={id === 3}
-            title={`Delete user ${email} (Requires confirmation)`}
+            title={`Delete permanently ${role_name} ${email}.`}
           >
             {loadingButtons.has(id) ? (
               <CircularProgress size={24} />
@@ -102,21 +103,25 @@ function TableUsers(): React.ReactNode {
   return (
     <div style={{ height: 400, width: "100%" }}>
       <Paper>
-        <DataGrid
-          rows={usersState}
-          columns={columns}
-          initialState={{
-            pagination: {
-              paginationModel: {
-                page: 0,
-                pageSize: 5,
+        {isLoading ? (
+          <LinearProgress sx={{ my: 5 }} />
+        ) : (
+          <DataGrid
+            rows={usersState}
+            columns={columns}
+            initialState={{
+              pagination: {
+                paginationModel: {
+                  page: 0,
+                  pageSize: 5,
+                },
               },
-            },
-          }}
-          pageSizeOptions={[5, 10]}
-          loading={isLoading}
-          sx={{ border: "none" }}
-        />
+            }}
+            pageSizeOptions={[5, 10]}
+            loading={isLoading}
+            sx={{ border: "none" }}
+          />
+        )}
       </Paper>
     </div>
   );

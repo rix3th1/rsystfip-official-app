@@ -7,6 +7,7 @@ import { useAppDispatch, useAppSelector } from "@/redux/hooks";
 import { peopleService } from "@/services";
 import EditIcon from "@mui/icons-material/Edit";
 import IconButton from "@mui/material/IconButton";
+import LinearProgress from "@mui/material/LinearProgress";
 import Paper from "@mui/material/Paper";
 import {
   DataGrid,
@@ -73,21 +74,25 @@ function TableHistoryPeople(): React.ReactNode {
   return (
     <div style={{ height: 400, width: "100%" }}>
       <Paper>
-        <DataGrid
-          rows={peopleState}
-          columns={columns}
-          initialState={{
-            pagination: {
-              paginationModel: {
-                page: 0,
-                pageSize: 5,
+        {isLoading ? (
+          <LinearProgress sx={{ my: 5 }} />
+        ) : (
+          <DataGrid
+            rows={peopleState}
+            columns={columns}
+            initialState={{
+              pagination: {
+                paginationModel: {
+                  page: 0,
+                  pageSize: 5,
+                },
               },
-            },
-          }}
-          pageSizeOptions={[5, 10]}
-          loading={isLoading}
-          sx={{ border: "none" }}
-        />
+            }}
+            pageSizeOptions={[5, 10]}
+            loading={isLoading}
+            sx={{ border: "none" }}
+          />
+        )}
       </Paper>
     </div>
   );
