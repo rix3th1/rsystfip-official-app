@@ -8,3 +8,6 @@ export { default as Loader } from "./Loader";
 export { default as NavBar } from "./NavBar";
 export { default as PasswordMeter } from "./PasswordMeter";
 export { default as ProtectedElement } from "./ProtectedElement";
+export { default as ScrollTop } from "./ScrollTop";
+export { default as ScrollTopButton } from "./ScrollTopButton";
+export { default as ThemeToggler } from "./ThemeToggler";

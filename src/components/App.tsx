@@ -3,6 +3,8 @@ import {
   Footer,
   NavBar,
   ProtectedElement,
+  ScrollTopButton,
+  ThemeToggler,
 } from "@/components/ui";
 import authOptions from "@/libs/authOptions";
 import MUIThemeProvider from "@/providers/MUIThemeProvider";
@@ -40,6 +42,9 @@ async function App({
                   <ProtectedElement isAllowed={isAllowed}>
                     <Footer />
                   </ProtectedElement>
+
+                  <ThemeToggler />
+                  <ScrollTopButton />
 
                   <ContainerToast />
                 </QueryClientProvider>

@@ -1,4 +1,4 @@
-import Fca from "@/components/Fca";
+import { Fca } from "@/components";
 import Container from "@mui/material/Container";
 import Typography from "@mui/material/Typography";
 import { type Metadata } from "next";

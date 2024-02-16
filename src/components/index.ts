@@ -1,6 +1,9 @@
+export { default as App } from "./App";
 export { default as Ctx } from "./Ctx";
 export { default as DaterStatistics } from "./DaterStatistics";
 export { default as Downloader } from "./Downloader";
+export { default as Fca } from "./Fca";
+export { default as Fcs } from "./Fcs";
 export { default as FetcherDataForChangePsw } from "./FetcherDataForChangePsw";
 export { default as FooterFormPeople } from "./FooterFormPeople";
 export { default as FormCancellPerson } from "./FormCancellPerson";

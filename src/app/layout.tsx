@@ -1,5 +1,5 @@
 import pkg from "@/../package.json";
-import App from "@/components/App";
+import { App } from "@/components";
 import { type Metadata } from "next";
 import "./globals.scss";
 

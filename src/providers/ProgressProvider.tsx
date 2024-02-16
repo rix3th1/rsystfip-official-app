@@ -10,12 +10,9 @@ function ProgressProvider({
   return (
     <>
       <ProgressBar
-        height="5px"
-        color="#2e2a80"
-        options={{
-          showSpinner: false,
-        }}
-        shallowRouting
+        height="3px"
+        color="#ffcc00"
+        options={{ showSpinner: false }}
       />
       {children}
     </>

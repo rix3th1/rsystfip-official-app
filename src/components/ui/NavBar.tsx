@@ -27,7 +27,6 @@ import NextLink from "next/link";
 import { useState } from "react";
 import { useMutation } from "react-query";
 import ProtectedElement from "./ProtectedElement";
-import ThemeToggler from "./ThemeToggler";
 
 interface IProps {
   session: Session | null;
@@ -115,7 +114,7 @@ function NavBar({ session }: IProps): React.ReactNode {
 
   return (
     <AppBar position="sticky" sx={{ zIndex: 20 }}>
-      <Toolbar disableGutters sx={{ mx: 3 }}>
+      <Toolbar disableGutters sx={{ mx: 3 }} id="back-to-top-anchor">
         <Box sx={{ display: { xs: "none", md: "flex" }, mr: 3 }}>
           <Image
             alt="RSystfip logotype"
@@ -353,8 +352,6 @@ function NavBar({ session }: IProps): React.ReactNode {
         </Box>
 
         <Box sx={{ flexGrow: 0 }}>
-          <ThemeToggler />
-
           <Tooltip title="Open settings">
             <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
               <Avatar>
