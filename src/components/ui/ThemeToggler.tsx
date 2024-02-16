@@ -3,11 +3,13 @@
 import DarkModeIcon from "@mui/icons-material/DarkMode";
 import LightModeIcon from "@mui/icons-material/LightMode";
 import IconButton from "@mui/material/IconButton";
+import { useTheme as useMUITheme } from "@mui/material/styles";
 import { useTheme } from "next-themes";
 
 function ThemeToggler(): React.ReactNode {
-  const { theme, setTheme } = useTheme();
-  const isDarkMode = theme === "dark";
+  const { setTheme } = useTheme();
+  const theme = useMUITheme();
+  const isDarkMode = theme.palette.mode === "dark";
 
   const handleChange = () => setTheme(isDarkMode ? "ligth" : "dark");
 

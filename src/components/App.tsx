@@ -34,6 +34,7 @@ async function App({
                     <NavBar session={session} />
                   </ProtectedElement>
 
+                  {/* Pages rendering */}
                   {children}
 
                   <ProtectedElement isAllowed={isAllowed}>
