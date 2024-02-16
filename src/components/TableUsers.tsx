@@ -61,7 +61,7 @@ function TableUsers(): React.ReactNode {
     {
       ...createColumn("actions", "Actions", 150),
       align: "center",
-      renderCell: ({ row: { id, email, role_name } }) => (
+      renderCell: ({ row: { id, email, role_name } }): React.ReactNode => (
         <>
           <IconButton
             component={NextLink}

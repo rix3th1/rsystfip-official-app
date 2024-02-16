@@ -4,7 +4,7 @@ import dayGridPlugin from "@fullcalendar/daygrid";
 import listPlugin from "@fullcalendar/list";
 import { FullCalendarScheduling } from ".";
 
-function Fca() {
+function Fca(): React.ReactNode {
   const plugins = [dayGridPlugin, listPlugin];
 
   return (

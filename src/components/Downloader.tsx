@@ -15,7 +15,10 @@ function Downloader({ pdf }: IProps): React.ReactNode {
       sx={{ mb: 2 }}
       onClick={
         () => pdf.open()
-        // pdf.download(`RSystfip-Report-${formatTodaysDateTime()}.pdf`)
+        // () =>
+        //   pdf.download(
+        //     `RSystfip-Report-${format(new Date(), "yyyy-MM-dd HH:mm:ss")}.pdf`
+        //   )
       }
     >
       <DownloadIcon />

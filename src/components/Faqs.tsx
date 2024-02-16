@@ -8,7 +8,7 @@ import Grid from "@mui/material/Grid";
 import Typography from "@mui/material/Typography";
 import { useState } from "react";
 
-function Faqs() {
+function Faqs(): React.ReactNode {
   const [expandedSec1, setExpandedSec1] = useState<string | false>(false);
   const [expandedSec2, setExpandedSec2] = useState<string | false>(false);
 

@@ -20,7 +20,7 @@ interface IProps {
 function FormCancellPerson({
   closeModalCancell,
   changeIsLoadingCancellPerson,
-}: IProps) {
+}: IProps): React.ReactNode {
   const formDataInitialState = { cancellation_subject: "" };
   const [formData, setFormData] = useState(formDataInitialState);
 

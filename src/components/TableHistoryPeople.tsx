@@ -40,7 +40,7 @@ const columns: GridColDef[] = [
   {
     ...createColumn("actions", "Actions", 120),
     align: "center",
-    renderCell: (params) => (
+    renderCell: (params): React.ReactNode => (
       <IconButton
         component={NextLink}
         href={`/ITFIP-Rectory/history/general/update/${params.row.id}`}

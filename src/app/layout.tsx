@@ -1,6 +1,6 @@
 import pkg from "@/../package.json";
+import App from "@/components/App";
 import { type Metadata } from "next";
-import App from "./App";
 import "./globals.scss";
 
 export const metadata: Metadata = {
@@ -17,7 +17,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <head>
         <link
           rel="shortcut icon"

@@ -7,7 +7,11 @@ import {
 
 const queryClient = new QueryClient();
 
-function QueryClientProvider({ children }: { children: React.ReactNode }) {
+function QueryClientProvider({
+  children,
+}: {
+  children: React.ReactNode;
+}): React.ReactNode {
   return (
     <ReactQueryClientProvider client={queryClient}>
       {children}

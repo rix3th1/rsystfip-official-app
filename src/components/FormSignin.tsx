@@ -21,7 +21,7 @@ import { useState } from "react";
 import { useMutation } from "react-query";
 import { Copyright } from "./ui";
 
-function FormSignin() {
+function FormSignin(): React.ReactNode {
   const formDataInitialState = {
     username: "",
     password: "",
@@ -127,7 +127,6 @@ function FormSignin() {
         control={
           <Checkbox
             name="terms"
-            color="primary"
             onChange={() =>
               setFormData({
                 ...formData,

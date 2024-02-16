@@ -27,6 +27,7 @@ import NextLink from "next/link";
 import { useState } from "react";
 import { useMutation } from "react-query";
 import ProtectedElement from "./ProtectedElement";
+import ThemeToggler from "./ThemeToggler";
 
 interface IProps {
   session: Session | null;
@@ -352,6 +353,8 @@ function NavBar({ session }: IProps): React.ReactNode {
         </Box>
 
         <Box sx={{ flexGrow: 0 }}>
+          <ThemeToggler />
+
           <Tooltip title="Open settings">
             <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
               <Avatar>

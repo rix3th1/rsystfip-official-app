@@ -2,7 +2,11 @@
 
 import { AppProgressBar as ProgressBar } from "next-nprogress-bar";
 
-function ProgressProvider({ children }: { children: React.ReactNode }) {
+function ProgressProvider({
+  children,
+}: {
+  children: React.ReactNode;
+}): React.ReactNode {
   return (
     <>
       <ProgressBar
