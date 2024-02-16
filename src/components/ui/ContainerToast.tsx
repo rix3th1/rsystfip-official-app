@@ -14,7 +14,6 @@ function ContainerToast(): React.ReactNode {
       draggable={false}
       pauseOnHover={false}
       limit={4}
-      theme="colored"
     />
   );
 }

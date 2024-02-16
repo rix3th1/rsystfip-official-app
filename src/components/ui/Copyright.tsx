@@ -10,7 +10,7 @@ function Copyright(props: TypographyOwnProps): React.ReactNode {
       {...props}
     >
       {"Copyright © "}
-      <Link color="inherit" href="https://itfip.edu.co/">
+      <Link color="inherit" target="_blank" href="https://itfip.edu.co">
         {"RSystfip"}
       </Link>{" "}
       {new Date().getFullYear()}
