@@ -9,6 +9,7 @@ import {
 } from "@/redux/features/statistics/statisticsSlice";
 import { useAppDispatch, useAppSelector } from "@/redux/hooks";
 import { statisticService } from "@/services";
+import LinearProgress from "@mui/material/LinearProgress";
 import Typography from "@mui/material/Typography";
 import {
   ArcElement,
@@ -220,7 +221,14 @@ function Statistics({ appointment_status }: IProps): React.ReactNode {
 
       <DaterStatistics appointment_status={appointment_status} />
 
-      <StatisticsData appointment_status={appointment_status} ctxRef={ctxRef} />
+      {queries[0].isLoading || queries[1].isLoading || queries[2].isLoading ? (
+        <LinearProgress sx={{ my: 40 }} />
+      ) : (
+        <StatisticsData
+          appointment_status={appointment_status}
+          ctxRef={ctxRef}
+        />
+      )}
     </>
   );
 }
