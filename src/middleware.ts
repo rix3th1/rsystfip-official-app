@@ -1,13 +1,13 @@
-import { type User } from "next-auth";
 import { withAuth } from "next-auth/middleware";
 import { NextResponse } from "next/server";
+import { type IUser } from "./interfaces";
 export const config = {
   matcher: ["/ITFIP-Rectory/:path*", "/api/:path*"],
 };
 
 export default withAuth(function middleware(req) {
   const pathname = req.nextUrl.pathname;
-  const user = req.nextauth.token?.user as User;
+  const user = req.nextauth.token?.user as IUser;
   const userRole = user.role_name;
   const userPermissions = user.permissions;
 
