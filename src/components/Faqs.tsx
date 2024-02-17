@@ -41,7 +41,7 @@ function Faqs(): React.ReactNode {
 
             <Typography sx={{ color: "text.secondary" }}>
               {
-                "¿Cómo puedo ver una lista de todas las personas que han visitado la rectoría hasta el día de hoy?"
+                "How can I see a list of all the people who have visited the rectory up to today?"
               }
             </Typography>
           </AccordionSummary>
@@ -49,11 +49,11 @@ function Faqs(): React.ReactNode {
           <AccordionDetails>
             <Typography>
               {
-                "Para ver todas las personas que se encuentran agendadas y registradas en el aplicativo por una visita a la rectoría, debes ir a la seccion de"
+                "To see all the people who are scheduled and registered in the application for a visit to the rectory, you must go to the"
               }
-              <code>{" Personas "}</code>
+              <code>{" People "}</code>
               {
-                "que se encuentra en la barra superior de todas las secciones del aplicativo y acceder a esa opción, para ver toda la información pertinente de cada persona."
+                "section, which is located in the top bar of all sections of the application and access that option to see all the relevant information of each person."
               }
             </Typography>
           </AccordionDetails>
@@ -68,7 +68,7 @@ function Faqs(): React.ReactNode {
 
             <Typography sx={{ color: "text.secondary" }}>
               {
-                "¿Cómo hacer un agendamiento programado para una fecha o día y hora en específico?"
+                "How to schedule an appointment for a specific date or day and time?"
               }
             </Typography>
           </AccordionSummary>
@@ -76,30 +76,30 @@ function Faqs(): React.ReactNode {
           <AccordionDetails>
             <Typography>
               {
-                "Para reservar una cita con la rectoría del itfip (Agendar una persona) debe dirigirse a la seccion de"
+                "To schedule an appointment with the rectory of the ITFIP (Schedule a person) you must go to the"
               }
-              <code>{" Agendar "}</code>
+              <code>{" Schedule "}</code>
               {
-                ", arriba en la barra superior de opciones del aplicativo. Una vez estando en la vista de calendario, seleccionar el dia dando click en el recuadro y dentro en el número del día ó en la barra lateral del calendario de agendamientos da click en semana (week) o día (day) para agendar en el dia que hayas seleccionado y por último arrastrar y soltar hasta la hora que requiera el agendamiento."
-              }
-            </Typography>
-
-            <Typography sx={{ mt: 2 }}>
-              {
-                "Completar el formulario de agendamiento con todos los datos que pida, por último enviar el formulario para completar el proceso."
+                "section, at the top of the application's options bar. Once in the calendar view, select the day by clicking on the box and inside on the number of the day or on the side bar of the scheduling calendar click on week (week) or day (day) to schedule on the day you have selected and finally drag and drop until the time you require the appointment."
               }
             </Typography>
 
             <Typography sx={{ mt: 2 }}>
-              <strong>{"Nota: "}</strong>
               {
-                "El día o semana seleccionada en el calendario de agendamientos se puede cambiar fácil y sencillamente usando las flechas que aparecen la parte superior izquierda del calendario."
+                "Complete the scheduling form with all the requested data, finally submit the form to complete the process."
+              }
+            </Typography>
+
+            <Typography sx={{ mt: 2 }}>
+              <strong>{"Note: "}</strong>
+              {
+                "The selected day or week in the scheduling calendar can be changed easily and simply using the arrows that appear at the top left of the calendar."
               }
             </Typography>
 
             <Typography>
               {
-                "El boton hoy (today) sirve para posicionarse fácilmente en el dia actual y/o fecha actual del calendario de agendamientos."
+                "The button today serves to easily position yourself on the current day and/or current date of the scheduling calendar."
               }
             </Typography>
           </AccordionDetails>
@@ -114,7 +114,7 @@ function Faqs(): React.ReactNode {
 
             <Typography sx={{ color: "text.secondary" }}>
               {
-                "¿Cómo hacer un agendamiento rápido del día a día, de una persona que llega inmediatamente a la rectoría?"
+                "How to quickly schedule day-to-day, a person who arrives immediately at the rectory?"
               }
             </Typography>
           </AccordionSummary>
@@ -122,11 +122,11 @@ function Faqs(): React.ReactNode {
           <AccordionDetails>
             <Typography>
               {
-                "Hacer un agendamiento del día a día, significa agendar a la persona en el mismo instante que ha llegado a la Rectoría y el Rector tiene la disponibilidad de atenderlo en ese instante, entonces en este instante se hace dicho agendamiento, para eso se dirige a la opción de"
+                "Scheduling day-to-day means scheduling the person at the same moment they have arrived at the Rectory and the Rector is available to attend to them at that moment, so at this moment the scheduling is done, for that go to the option of"
               }
-              <code>{" Agendar "}</code>
+              <code>{" Schedule "}</code>
               {
-                ", y luego completar el formulario de agendamiento, el cual es el mismo excluyendo la diferencia de seleccionar la fecha y hora, ya que es en el mismo instante y ésta es guardada automáticamente al enviar el formulario."
+                ", and then complete the scheduling form, which is the same except for the difference of selecting the date and time, since it is at the same moment and this is saved automatically when submitting the form."
               }
             </Typography>
           </AccordionDetails>
@@ -145,7 +145,7 @@ function Faqs(): React.ReactNode {
 
             <Typography sx={{ color: "text.secondary" }}>
               {
-                "¿Cómo ver estadísticas e informes gráficos de las personas que visitaron la rectoría en determinada fecha ó mes a mes?"
+                "How to view statistics and graphical reports of the people who visited the rectory on a certain date or month to month?"
               }
             </Typography>
           </AccordionSummary>
@@ -153,21 +153,21 @@ function Faqs(): React.ReactNode {
           <AccordionDetails>
             <Typography>
               {
-                "Para ver un reporte gráfico e información visualmente mejor y más interactiva, se debe dirigir a la sección de"
+                "To view a graphical report and visually better and more interactive information, you must go to the"
               }
-              <code>{" Reportes "}</code>
+              <code>{" Reports "}</code>
               {
-                ", y dar click en el menu desplegable, luego seleccionar la opcion"
+                "section, and click on the dropdown menu, then select the option"
               }
-              <code>{" Gráficas reporte agendamientos "}</code>
+              <code>{" Graphs report scheduling "}</code>
               {
-                "y tan sólo debe seleccionar el rango de fecha entre cual desea ver la información."
+                "and you only need to select the date range between which you want to see the information."
               }
             </Typography>
 
             <Typography sx={{ mt: 2 }}>
               {
-                "Puede escoger libremente e interactivamente el tipo de gráfico para leer y/o consumir la información"
+                "You can freely and interactively choose the type of graph to read and/or consume the information."
               }
             </Typography>
           </AccordionDetails>
@@ -182,7 +182,7 @@ function Faqs(): React.ReactNode {
 
             <Typography sx={{ color: "text.secondary" }}>
               {
-                "¿Cómo generar reportes y ver un listado detallado con la información de fecha y hora de agendamiento?"
+                "How to generate reports and see a detailed list with the date and time information of scheduling?"
               }
             </Typography>
           </AccordionSummary>
@@ -190,18 +190,18 @@ function Faqs(): React.ReactNode {
           <AccordionDetails>
             <Typography>
               {
-                "Para generar reportes y poderlos visualizar facilmente, se debe dirigir a la sección de"
+                "To generate reports and be able to view them easily, you must go to the"
               }
-              <code>{" Reportes "}</code>
+              <code>{" Reports "}</code>
               {
-                ", y dar click en el menu desplegable. luego seleccionar la opción"
+                "section, and click on the dropdown menu. then select the option"
               }
-              <code>{" Generar reporte de agendamientos "}</code>
+              <code>{" Generate scheduling report "}</code>
               {
-                "y luego seleccionar la fecha entre la cual desea el reporte, tambien puede especificar el tipo de persona que visitaron la rectoría y darle click en"
+                "and then select the date between which you want the report, you can also specify the type of person who visited the rectory and click on"
               }
-              <code>{" Filtrar "}</code>
-              {", para obtener el reporte."}
+              <code>{" Filter "}</code>
+              {", to get the report."}
             </Typography>
           </AccordionDetails>
         </Accordion>
@@ -215,7 +215,7 @@ function Faqs(): React.ReactNode {
 
             <Typography sx={{ color: "text.secondary" }}>
               {
-                "¿Cómo generar un reporte PDF con la información de las personas que visitaron la rectoría en determinado lapso de tiempo o hasta el día de hoy?"
+                "How to generate a PDF report with the information of the people who visited the rectory in a certain period of time or up to today?"
               }
             </Typography>
           </AccordionSummary>
@@ -223,28 +223,28 @@ function Faqs(): React.ReactNode {
           <AccordionDetails>
             <Typography>
               {
-                "Para generar un reporte PDF y guardarlo localmente en el dispositivo, se debe dirigir a la sección de"
+                "To generate a PDF report and save it locally on the device, you must go to the"
               }
-              <code>{" Reportes "}</code>
+              <code>{" Reports "}</code>
               {
-                ", y dar click en el menu desplegable, luego seleccionar la opcion"
+                "section, and click on the dropdown menu, then select the option"
               }
-              <code>{" Generar reporte de agendamientos "}</code>
+              <code>{" Generate scheduling report "}</code>
               {
-                ", y luego completar las opciones que requiera para filtrar la información, despues se debe dar click en"
+                ", and then complete the options you require to filter the information, then click on"
               }
-              <code>{" Descargar "}</code>
-              {"ó en"}
-              <code>{" Visualizar "}</code>
-              {"para ver el reporte antes de descargarlo."}
+              <code>{" Download "}</code>
+              {"or in"}
+              <code>{" View "}</code>
+              {"to view the report before downloading it."}
             </Typography>
 
             <Typography sx={{ mt: 2 }}>
-              <strong>{"Nota: "}</strong>
-              {"La opción"}
-              <code>{" Visualizar "}</code>
+              <strong>{"Note: "}</strong>
+              {"The option"}
+              <code>{" View "}</code>
               {
-                "sólo funciona en computadores o portátiles de escritorio, en teléfonos móviles que ejecuten un navegador diferente al de una versión de escritorio, no se puede."
+                "only works on computers or desktop laptops, on mobile phones that run a browser different from a desktop version, it cannot be done."
               }
             </Typography>
           </AccordionDetails>

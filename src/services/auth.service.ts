@@ -9,6 +9,8 @@ export const doSignIn = async (body: any) => {
   if (response?.error) {
     throw new Error(response.error);
   }
+
+  return response;
 };
 
 export const doSignOut = async () => await signOut({ redirect: false });

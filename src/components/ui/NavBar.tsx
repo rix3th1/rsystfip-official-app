@@ -22,6 +22,7 @@ import Toolbar from "@mui/material/Toolbar";
 import Tooltip from "@mui/material/Tooltip";
 import Typography from "@mui/material/Typography";
 import { type Session } from "next-auth";
+import { type SignOutResponse } from "next-auth/react";
 import { useRouter } from "next-nprogress-bar";
 import Image from "next/image";
 import NextLink from "next/link";
@@ -86,9 +87,9 @@ function NavBar({ session }: IProps): React.ReactNode {
   };
 
   const mutationDoSignOut = useMutation(authService.doSignOut, {
-    onSuccess() {
+    onSuccess(data: SignOutResponse) {
       // Redirect to the sign in page
-      router.push("/signin");
+      router.push(data.url || "/signin");
       router.refresh();
       notify("Session closed", { type: "success", position: "top-center" });
 

@@ -37,10 +37,12 @@ function RecoveryLinkPassword(): React.ReactNode {
         {isLoading ? (
           <LinearProgress sx={{ mt: 1 }} />
         ) : (
-          <>
-            {"User email: "}
-            <b>{dataUserVerified.email}</b>
-          </>
+          dataUserVerified.email && (
+            <>
+              {"User email: "}
+              <b>{dataUserVerified.email}</b>
+            </>
+          )
         )}
       </Typography>
 
