@@ -23,18 +23,18 @@ function ListerStatistics({ appointment_status }: IProps): React.ReactNode {
   );
 
   const titleText: string =
-    appointment_status === AppointmentStatus.daily ? "diario" : "programado";
+    appointment_status === AppointmentStatus.daily ? "daily" : "scheduled";
 
   return (
     <>
       <Listgroup
-        title={`Agendamiento ${titleText} en el rango de fecha`}
+        title={`Scheduling ${titleText} in date range`}
         data={mostAgendatedOnRangeState}
         end_time={queryDataState.end_time}
       />
 
       <Listgroup
-        title={`Agendamiento ${titleText} en todas las fechas`}
+        title={`Scheduling ${titleText} in all dates`}
         data={mostAgendatedAllTimeState}
         end_time={queryDataState.end_time}
       />

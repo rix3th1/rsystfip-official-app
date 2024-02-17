@@ -24,7 +24,7 @@ async function Footer(): Promise<React.ReactElement> {
         >
           <Grid item xs={12} md={4}>
             <Typography variant="body2" color="textSecondary">
-              {"© 2023 Tecnología en gestión informática "}
+              {`© ${new Date().getFullYear()} Tecnología en gestión informática `}
               <CodeIcon fontSize="small" sx={{ my: -0.5 }} />
             </Typography>
           </Grid>
@@ -63,7 +63,7 @@ async function Footer(): Promise<React.ReactElement> {
                 color="textSecondary"
                 sx={{ mr: 2 }}
               >
-                Inicio
+                {"Home"}
               </Link>
 
               <Link
@@ -73,7 +73,7 @@ async function Footer(): Promise<React.ReactElement> {
                 color="textSecondary"
                 sx={{ mr: 2 }}
               >
-                FAQs
+                {"FAQs"}
               </Link>
 
               <Link
@@ -83,7 +83,7 @@ async function Footer(): Promise<React.ReactElement> {
                 color="textSecondary"
                 sx={{ mr: 2 }}
               >
-                Acerca de
+                {"About"}
               </Link>
 
               <Link
@@ -92,7 +92,7 @@ async function Footer(): Promise<React.ReactElement> {
                 variant="body2"
                 color="textSecondary"
               >
-                Olvidó su contraseña?
+                {"Forgot your password?"}
               </Link>
             </nav>
           </Grid>

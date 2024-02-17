@@ -34,7 +34,14 @@ function RecoveryLinkPassword(): React.ReactNode {
   return (
     <Paper sx={{ my: { xs: 3, md: 6 }, p: { xs: 2, md: 3 } }} elevation={6}>
       <Typography component="h1" variant="h5" gutterBottom align="center">
-        {isLoading ? <LinearProgress sx={{ mt: 1 }} /> : dataUserVerified.email}
+        {isLoading ? (
+          <LinearProgress sx={{ mt: 1 }} />
+        ) : (
+          <>
+            {"User email: "}
+            <b>{dataUserVerified.email}</b>
+          </>
+        )}
       </Typography>
 
       {!isLoading ? (

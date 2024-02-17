@@ -20,7 +20,7 @@ function PageUsers(): React.ReactNode {
         gutterBottom
         marginY={{ xs: "1rem", sm: "2rem", md: "3rem" }}
       >
-        {"Administrar usuarios"}
+        {"Manage users"}
       </Typography>
 
       <Tooltip title="Add user">

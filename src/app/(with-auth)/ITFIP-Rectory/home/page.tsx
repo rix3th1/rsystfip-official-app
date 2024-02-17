@@ -25,15 +25,14 @@ async function PageHome(): Promise<React.ReactElement> {
         gutterBottom
         marginTop={{ xs: "1rem", sm: "2rem", md: "3rem" }}
       >
-        {`${"Bienvenido(a)"} ${session?.user.role_name}: ${
-          session?.user.first_name
-        } ${session?.user.last_name}`}
+        {"Welcome"} <b>{session?.user.role_name}:</b>
+        {` ${session?.user.first_name} ${session?.user.last_name}`}
       </Typography>
 
       <ButtonGroup variant="outlined">
         <ProtectedElement isAllowed={isAllowed}>
           <Button component={NextLink} href="/ITFIP-Rectory/people/create">
-            Agendamiento diario
+            {"Daily Scheduling"}
           </Button>
         </ProtectedElement>
 
@@ -41,7 +40,7 @@ async function PageHome(): Promise<React.ReactElement> {
           component={NextLink}
           href="/ITFIP-Rectory/people/create-schedule"
         >
-          Agendamiento programado
+          {"Scheduled Scheduling"}
         </Button>
       </ButtonGroup>
     </Container>

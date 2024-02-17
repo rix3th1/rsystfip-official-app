@@ -90,7 +90,7 @@ function NavBar({ session }: IProps): React.ReactNode {
       // Redirect to the sign in page
       router.push("/signin");
       router.refresh();
-      notify("Sesión cerrada", { type: "success", position: "top-center" });
+      notify("Session closed", { type: "success", position: "top-center" });
 
       // Reset the Redux context
       dispatch(resetFormDataAdmin());
@@ -153,7 +153,7 @@ function NavBar({ session }: IProps): React.ReactNode {
               href="/ITFIP-Rectory/home"
               onClick={handleCloseNavMenu}
             >
-              <Typography textAlign="center">Inicio</Typography>
+              <Typography textAlign="center">{"Home"}</Typography>
             </MenuItem>
 
             <MenuItem
@@ -161,37 +161,37 @@ function NavBar({ session }: IProps): React.ReactNode {
               href="/ITFIP-Rectory/users"
               onClick={handleCloseNavMenu}
             >
-              <Typography textAlign="center">Usuarios</Typography>
+              <Typography textAlign="center">{"Users"}</Typography>
             </MenuItem>
             <MenuItem onClick={handleOpenMenu1}>
-              Agendar <KeyboardArrowDownIcon />
+              {"Schedule"} <KeyboardArrowDownIcon />
             </MenuItem>
             <MenuItem
               component={NextLink}
               href="/ITFIP-Rectory/appointments"
               onClick={handleCloseNavMenu}
             >
-              <Typography textAlign="center">Agendamientos</Typography>
+              <Typography textAlign="center">{"Appointments"}</Typography>
             </MenuItem>
             <MenuItem onClick={handleOpenMenu2}>
-              Estadísticas <KeyboardArrowDownIcon />
+              {"Statistics"} <KeyboardArrowDownIcon />
             </MenuItem>
             <MenuItem
               component={NextLink}
               href="/ITFIP-Rectory/reports"
               onClick={handleCloseNavMenu}
             >
-              <Typography textAlign="center">Reportes</Typography>
+              <Typography textAlign="center">{"Reports"}</Typography>
             </MenuItem>
             <MenuItem onClick={handleOpenMenu3}>
-              Historial <KeyboardArrowDownIcon />
+              {"History"} <KeyboardArrowDownIcon />
             </MenuItem>
             <MenuItem
               component={NextLink}
               href="/ITFIP-Rectory/faqs"
               onClick={handleCloseNavMenu}
             >
-              <Typography textAlign="center">Faqs</Typography>
+              <Typography textAlign="center">{"Faqs"}</Typography>
             </MenuItem>
           </Menu>
         </Box>
@@ -203,7 +203,7 @@ function NavBar({ session }: IProps): React.ReactNode {
             onClick={handleCloseNavMenu}
             sx={{ my: 2, color: "white" }}
           >
-            Inicio
+            {"Home"}
           </Button>
 
           <ProtectedElement isAllowed={permissions.includes("admin")}>
@@ -213,7 +213,7 @@ function NavBar({ session }: IProps): React.ReactNode {
               onClick={handleCloseNavMenu}
               sx={{ my: 2, color: "white" }}
             >
-              Usuarios
+              {"Users"}
             </Button>
           </ProtectedElement>
 
@@ -223,7 +223,7 @@ function NavBar({ session }: IProps): React.ReactNode {
             disableElevation
             endIcon={<KeyboardArrowDownIcon />}
           >
-            Agendar
+            {"Schedule"}
           </Button>
 
           <Menu
@@ -239,7 +239,7 @@ function NavBar({ session }: IProps): React.ReactNode {
                 href="/ITFIP-Rectory/people/create"
                 onClick={handleCloseMenu1}
               >
-                <Typography textAlign="center">Diario</Typography>
+                <Typography textAlign="center">{"Daily"}</Typography>
               </MenuItem>
             </ProtectedElement>
 
@@ -249,7 +249,7 @@ function NavBar({ session }: IProps): React.ReactNode {
                 href="/ITFIP-Rectory/people/create-schedule"
                 onClick={handleCloseMenu1}
               >
-                <Typography textAlign="center">Programado</Typography>
+                <Typography textAlign="center">{"Scheduled"}</Typography>
               </MenuItem>
             </ProtectedElement>
           </Menu>
@@ -261,7 +261,7 @@ function NavBar({ session }: IProps): React.ReactNode {
               onClick={handleCloseNavMenu}
               sx={{ my: 2, color: "white" }}
             >
-              Agendamientos
+              {"Appointments"}
             </Button>
           </ProtectedElement>
 
@@ -271,7 +271,7 @@ function NavBar({ session }: IProps): React.ReactNode {
               sx={{ my: 2, color: "white" }}
               endIcon={<KeyboardArrowDownIcon />}
             >
-              Estadísticas
+              {"Statistics"}
             </Button>
           </ProtectedElement>
 
@@ -287,7 +287,7 @@ function NavBar({ session }: IProps): React.ReactNode {
               href="/ITFIP-Rectory/statistics/daily"
               onClick={handleCloseMenu2}
             >
-              <Typography textAlign="center">Diario</Typography>
+              <Typography textAlign="center">{"Daily"}</Typography>
             </MenuItem>
 
             <MenuItem
@@ -295,7 +295,7 @@ function NavBar({ session }: IProps): React.ReactNode {
               href="/ITFIP-Rectory/statistics/scheduled"
               onClick={handleCloseMenu2}
             >
-              <Typography textAlign="center">Programado</Typography>
+              <Typography textAlign="center">{"Scheduled"}</Typography>
             </MenuItem>
           </Menu>
 
@@ -306,7 +306,7 @@ function NavBar({ session }: IProps): React.ReactNode {
               onClick={handleCloseNavMenu}
               sx={{ my: 2, color: "white" }}
             >
-              Reportes
+              {"Reports"}
             </Button>
           </ProtectedElement>
 
@@ -315,7 +315,7 @@ function NavBar({ session }: IProps): React.ReactNode {
             sx={{ my: 2, color: "white" }}
             endIcon={<KeyboardArrowDownIcon />}
           >
-            Historial
+            {"History"}
           </Button>
 
           <Menu
@@ -330,7 +330,7 @@ function NavBar({ session }: IProps): React.ReactNode {
               href="/ITFIP-Rectory/history/general"
               onClick={handleCloseMenu3}
             >
-              <Typography textAlign="center">General</Typography>
+              <Typography textAlign="center">{"General"}</Typography>
             </MenuItem>
 
             <MenuItem
@@ -338,7 +338,7 @@ function NavBar({ session }: IProps): React.ReactNode {
               href="/ITFIP-Rectory/history/cancelled"
               onClick={handleCloseMenu3}
             >
-              <Typography textAlign="center">Cancelamientos</Typography>
+              <Typography textAlign="center">{"Cancelled"}</Typography>
             </MenuItem>
           </Menu>
 
@@ -348,7 +348,7 @@ function NavBar({ session }: IProps): React.ReactNode {
             onClick={handleCloseNavMenu}
             sx={{ my: 2, color: "white" }}
           >
-            Faqs
+            {"Faqs"}
           </Button>
         </Box>
 
@@ -383,7 +383,7 @@ function NavBar({ session }: IProps): React.ReactNode {
               href="/ITFIP-Rectory/faqs"
               onClick={handleCloseUserMenu}
             >
-              <Typography textAlign="center">Ayuda</Typography>
+              <Typography textAlign="center">{"Help"}</Typography>
             </MenuItem>
 
             <MenuItem
@@ -391,14 +391,14 @@ function NavBar({ session }: IProps): React.ReactNode {
               href={`/ITFIP-Rectory/users/change-password/${session?.user.id}`}
               onClick={handleCloseUserMenu}
             >
-              <Typography textAlign="center">Cambiar contraseña</Typography>
+              <Typography textAlign="center">{"Change password"}</Typography>
             </MenuItem>
 
             <MenuItem
               onClick={handleClickSignOut}
               disabled={mutationDoSignOut.isLoading}
             >
-              <Typography textAlign="center">Cerrar sesión</Typography>
+              <Typography textAlign="center">{"Sign out"}</Typography>
             </MenuItem>
           </Menu>
         </Box>

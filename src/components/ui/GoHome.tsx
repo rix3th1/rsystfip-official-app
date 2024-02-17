@@ -15,7 +15,7 @@ function GoHome(): React.ReactNode {
       startIcon={<ArrowBackIcon />}
       sx={{ mt: 3 }}
     >
-      Go Back
+      {"Go Back"}
     </Button>
   );
 }

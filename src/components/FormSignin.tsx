@@ -139,8 +139,10 @@ function FormSignin(): React.ReactNode {
         label={
           <Typography variant="body2">
             {
-              "I accept the terms and conditions of Instituto Tolimense de Formación Técnica Profesional ITFIP for"
+              "I accept the terms and conditions of Instituto Tolimense de Formación Técnica Profesional"
             }
+            <b>{" ITFIP "}</b>
+            {"for"}
             <Link
               variant="body2"
               component={NextLink}

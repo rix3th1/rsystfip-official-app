@@ -4,7 +4,7 @@ import Typography from "@mui/material/Typography";
 import { type Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "RSystfip | Frecuently asked questions",
+  title: "RSystfip | Frequently Asked Questions",
 };
 
 function PageFaqs(): React.ReactNode {
@@ -16,7 +16,7 @@ function PageFaqs(): React.ReactNode {
         gutterBottom
         marginTop={{ xs: "1rem", sm: "2rem", md: "3rem" }}
       >
-        {"Preguntas más frecuentes"}
+        {"Frequently Asked Questions"}
       </Typography>
 
       <Faqs />

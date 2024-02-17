@@ -11,6 +11,7 @@ import CircularProgress from "@mui/material/CircularProgress";
 import Fab from "@mui/material/Fab";
 import InputAdornment from "@mui/material/InputAdornment";
 import TextField from "@mui/material/TextField";
+import Tooltip from "@mui/material/Tooltip";
 import { green } from "@mui/material/colors";
 import { isAxiosError } from "axios";
 import { useState } from "react";
@@ -75,20 +76,22 @@ function FormRecoveryPsw(): React.ReactNode {
           endAdornment: (
             <InputAdornment position="end" sx={{ my: 5 }}>
               <Box sx={{ position: "relative" }}>
-                <Fab
-                  color={`${
-                    isSuccess ? "success" : isError ? "error" : "primary"
-                  }`}
-                  type="submit"
-                >
-                  {isSuccess ? (
-                    <CheckIcon />
-                  ) : isError ? (
-                    <ErrorIcon />
-                  ) : (
-                    <MailIcon />
-                  )}
-                </Fab>
+                <Tooltip title="Send email">
+                  <Fab
+                    color={`${
+                      isSuccess ? "success" : isError ? "error" : "primary"
+                    }`}
+                    type="submit"
+                  >
+                    {isSuccess ? (
+                      <CheckIcon />
+                    ) : isError ? (
+                      <ErrorIcon />
+                    ) : (
+                      <MailIcon />
+                    )}
+                  </Fab>
+                </Tooltip>
 
                 {isLoading && (
                   <CircularProgress

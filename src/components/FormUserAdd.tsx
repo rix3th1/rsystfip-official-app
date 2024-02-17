@@ -326,7 +326,7 @@ function FormUserAdd(): React.ReactNode {
           onClick={() => router.back()}
           sx={{ mt: 3, ml: 1 }}
         >
-          Back
+          {"Back"}
         </Button>
 
         <LoadingButton
@@ -334,7 +334,7 @@ function FormUserAdd(): React.ReactNode {
           loading={mutationSaveUser.isLoading}
           sx={{ mt: 3, ml: 1 }}
         >
-          Registrar
+          {"Register"}
         </LoadingButton>
       </Box>
     </Box>

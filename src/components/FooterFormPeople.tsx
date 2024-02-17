@@ -16,7 +16,7 @@ function FooterFormPeople({ isEdit, isLoading }: IProps): React.ReactNode {
   return (
     <Box sx={{ display: "flex", justifyContent: "space-between" }}>
       <Button type="button" onClick={() => router.back()} sx={{ mt: 3, ml: 1 }}>
-        Back
+        {"Back"}
       </Button>
 
       <LoadingButton
@@ -25,7 +25,7 @@ function FooterFormPeople({ isEdit, isLoading }: IProps): React.ReactNode {
         disabled={isLoading}
         sx={{ mt: 3, ml: 1 }}
       >
-        {isEdit ? "Actualizar" : "Registrar"}
+        {isEdit ? "Update" : "Register"}
       </LoadingButton>
     </Box>
   );

@@ -16,7 +16,7 @@ function PageHistoryPeople(): React.ReactNode {
         gutterBottom
         marginTop={{ xs: "1rem", sm: "2rem", md: "3rem" }}
       >
-        {"Personas agendadas"}
+        {"Scheduled People"}
       </Typography>
 
       <TableHistoryPeople />

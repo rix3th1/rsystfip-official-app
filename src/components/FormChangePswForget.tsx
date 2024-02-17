@@ -165,7 +165,7 @@ function FormChangePswForget(): React.ReactNode {
           onClick={() => router.back()}
           sx={{ mt: 3, ml: 1 }}
         >
-          Back
+          {"Back"}
         </Button>
 
         <ProtectedElement isAllowed={!hasChanged}>
@@ -174,7 +174,7 @@ function FormChangePswForget(): React.ReactNode {
             loading={isLoading}
             sx={{ mt: 3, ml: 1 }}
           >
-            Continue
+            {"Continue"}
           </LoadingButton>
         </ProtectedElement>
 
@@ -184,7 +184,7 @@ function FormChangePswForget(): React.ReactNode {
             onClick={() => signOut({ callbackUrl: "/signin" })}
             sx={{ mt: 3, ml: 1 }}
           >
-            Sign In
+            {"Sign In"}
           </Button>
         </ProtectedElement>
       </Box>

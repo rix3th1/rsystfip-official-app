@@ -38,7 +38,10 @@ function FetcherDataForChangePsw(): React.ReactNode {
     <Paper sx={{ my: { xs: 3, md: 6 }, p: { xs: 2, md: 3 } }} elevation={6}>
       <Typography component="h1" variant="h5" gutterBottom align="center">
         {tempDataStateForChangePsw.email && !isLoading ? (
-          tempDataStateForChangePsw.email
+          <>
+            User email:
+            <b>{` ${tempDataStateForChangePsw.email}`}</b>
+          </>
         ) : (
           <CircularProgress size={20} />
         )}

@@ -1,7 +1,7 @@
 {
   "name": "itfip.rsystfip",
   "version": "1.0.0",
-  "description": "Sistema de agendamiento de citas para la rectoría del INSTITUTO TOLIMENSE DE FORMACIÓN TÉCNICA PROFESIONAL (ITFIP).",
+  "description": "Appointment scheduling system for the rector's office of INSTITUTO TOLIMENSE DE FORMACIÓN TÉCNICA PROFESIONAL (ITFIP).",
   "private": true,
   "scripts": {
     "dev": "next dev",
