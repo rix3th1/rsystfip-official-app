@@ -8,6 +8,7 @@ import {
 } from "@/redux/features/appointments/appointmentsSlice";
 import {
   setCalendarEvents,
+  setLoading,
   type ICalendarState,
 } from "@/redux/features/calendar/calendarSlice";
 import { useAppDispatch, useAppSelector } from "@/redux/hooks";
@@ -19,11 +20,11 @@ import interactionPlugin from "@fullcalendar/interaction";
 import FullCalendar from "@fullcalendar/react";
 import TableContainer from "@mui/material/TableContainer";
 import { format } from "date-fns";
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { useQuery } from "react-query";
 import ModalCancellPersonConfirmation from "./ModalCancellPersonConfirmation";
 import ModalSchedulePeopleForm from "./ModalSchedulePeopleForm";
-import { LoadCalendar } from "./ui";
+import { Loader, ProtectedElement } from "./ui";
 
 interface IProps {
   right: string;
@@ -59,9 +60,7 @@ function FullCalendarScheduling({
   );
   const showModalScheduling = () => setStateModalScheduling(true);
 
-  const loadEventsRef = useRef<HTMLDivElement>(null);
-
-  const { data, error } = useQuery<[], any>(
+  const { data, error, isLoading } = useQuery<[], any>(
     [propsAction.schedule, calendarEventsState.changes],
     scheduleService.getEvents
   );
@@ -75,7 +74,9 @@ function FullCalendarScheduling({
 
   return (
     <TableContainer>
-      <LoadCalendar loadEventsRef={loadEventsRef} />
+      <ProtectedElement isAllowed={calendarEventsState.loading || isLoading}>
+        <Loader />
+      </ProtectedElement>
 
       <ModalSchedulePeopleForm
         stateModalScheduling={stateModalScheduling}
@@ -177,8 +178,7 @@ function FullCalendarScheduling({
             minute: "2-digit",
           }}
           loading={(state: boolean) => {
-            if (loadEventsRef.current)
-              loadEventsRef.current.style.display = state ? "block" : "none";
+            dispatch(setLoading(state));
           }}
         />
       </div>
