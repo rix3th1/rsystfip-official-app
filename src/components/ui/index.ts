@@ -1,3 +1,4 @@
+export { default as BigLProgress } from "./BigLProgress";
 export { default as ContainerToast } from "./ContainerToast";
 export { default as Copyright } from "./Copyright";
 export { default as Footer } from "./Footer";

@@ -8,6 +8,7 @@ import {
 } from "@/redux/features/cancellations/cancellationsSlice";
 import { useAppDispatch, useAppSelector } from "@/redux/hooks";
 import { peopleService } from "@/services";
+import LinearProgress from "@mui/material/LinearProgress";
 import Paper from "@mui/material/Paper";
 import {
   DataGrid,
@@ -16,7 +17,6 @@ import {
 } from "@mui/x-data-grid";
 import { useEffect } from "react";
 import { useQuery } from "react-query";
-import LinearProgress from "@mui/material/LinearProgress";
 
 const columns: GridColDef[] = [
   createColumn("id", "ID", 85),

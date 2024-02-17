@@ -9,7 +9,6 @@ import {
 } from "@/redux/features/statistics/statisticsSlice";
 import { useAppDispatch, useAppSelector } from "@/redux/hooks";
 import { statisticService } from "@/services";
-import LinearProgress from "@mui/material/LinearProgress";
 import Typography from "@mui/material/Typography";
 import {
   ArcElement,
@@ -32,6 +31,7 @@ import { memo, useEffect, useRef, useState, type DependencyList } from "react";
 import { useQueries, type UseQueryResult } from "react-query";
 import DaterStatistics from "./DaterStatistics";
 import StatisticsData from "./StatisticsData";
+import { BigLProgress } from "./ui";
 
 ChartJS.register(
   ArcElement,
@@ -222,7 +222,7 @@ function Statistics({ appointment_status }: IProps): React.ReactNode {
       <DaterStatistics appointment_status={appointment_status} />
 
       {queries[0].isLoading || queries[1].isLoading || queries[2].isLoading ? (
-        <LinearProgress sx={{ my: 40 }} />
+        <BigLProgress />
       ) : (
         <StatisticsData
           appointment_status={appointment_status}

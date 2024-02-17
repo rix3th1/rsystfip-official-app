@@ -15,7 +15,7 @@ import { useAppDispatch, useAppSelector } from "@/redux/hooks";
 import { scheduleService } from "@/services";
 import { propsAction } from "@/types/propsAction";
 import type { EventSourceInput, PluginDef } from "@fullcalendar/core";
-import esLocale from "@fullcalendar/core/locales/es";
+import esLocale from "@fullcalendar/core/locales/es-us";
 import interactionPlugin from "@fullcalendar/interaction";
 import FullCalendar from "@fullcalendar/react";
 import TableContainer from "@mui/material/TableContainer";
@@ -93,7 +93,7 @@ function FullCalendarScheduling({
           initialView={initialView}
           plugins={[...plugins, interactionPlugin]}
           height="auto"
-          locale="es-us"
+          locale={true ? "en" : "es-us"}
           locales={[esLocale]}
           navLinks
           editable
