@@ -8,6 +8,7 @@ import { destroyTemporals } from "@/redux/features/temp/tempSlice";
 import { resetFormDataAdmin } from "@/redux/features/users/usersSlice";
 import { useAppDispatch } from "@/redux/hooks";
 import { authService } from "@/services";
+import type { THandleClick } from "@/types";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import MenuIcon from "@mui/icons-material/Menu";
 import AppBar from "@mui/material/AppBar";
@@ -45,7 +46,7 @@ function NavBar({ session }: IProps): React.ReactNode {
   const [anchorElMenu3, setAnchorElMenu3] = useState<null | HTMLElement>(null);
 
   const handleOpenMenu1 = (
-    event: React.MouseEvent<HTMLButtonElement | HTMLLIElement>
+    event: THandleClick<HTMLButtonElement | HTMLLIElement>
   ) => {
     setAnchorElMenu1(event.currentTarget);
   };
@@ -54,7 +55,7 @@ function NavBar({ session }: IProps): React.ReactNode {
   };
 
   const handleOpenMenu2 = (
-    event: React.MouseEvent<HTMLButtonElement | HTMLLIElement>
+    event: THandleClick<HTMLButtonElement | HTMLLIElement>
   ) => {
     setAnchorElMenu2(event.currentTarget);
   };
@@ -63,7 +64,7 @@ function NavBar({ session }: IProps): React.ReactNode {
   };
 
   const handleOpenMenu3 = (
-    event: React.MouseEvent<HTMLButtonElement | HTMLLIElement>
+    event: THandleClick<HTMLButtonElement | HTMLLIElement>
   ) => {
     setAnchorElMenu3(event.currentTarget);
   };
@@ -71,10 +72,10 @@ function NavBar({ session }: IProps): React.ReactNode {
     setAnchorElMenu3(null);
   };
 
-  const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
+  const handleOpenNavMenu = (event: THandleClick<HTMLElement>) => {
     setAnchorElNav(event.currentTarget);
   };
-  const handleOpenUserMenu = (event: React.MouseEvent<HTMLElement>) => {
+  const handleOpenUserMenu = (event: THandleClick<HTMLElement>) => {
     setAnchorElUser(event.currentTarget);
   };
   const handleCloseNavMenu = () => {
@@ -352,7 +353,7 @@ function NavBar({ session }: IProps): React.ReactNode {
         </Box>
 
         <Box sx={{ flexGrow: 0 }}>
-          <Tooltip title="Open settings">
+          <Tooltip title="Open profile options">
             <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
               <Avatar>
                 {session?.user.first_name[0]

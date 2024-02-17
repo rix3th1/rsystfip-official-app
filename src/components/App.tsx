@@ -12,7 +12,6 @@ import NextThemeProvider from "@/providers/NextThemeProvider";
 import ProgressProvider from "@/providers/ProgressProvider";
 import QueryClientProvider from "@/providers/QueryClientProvider";
 import ReduxProvider from "@/providers/ReduxProvider";
-import SessionProviderContext from "@/providers/SessionProvider";
 import { AppRouterCacheProvider } from "@mui/material-nextjs/v14-appRouter";
 import { getServerSession } from "next-auth";
 
@@ -30,25 +29,23 @@ async function App({
         <MUIThemeProvider>
           <ProgressProvider>
             <ReduxProvider>
-              <SessionProviderContext>
-                <QueryClientProvider>
-                  <ProtectedElement isAllowed={isAllowed}>
-                    <NavBar session={session} />
-                  </ProtectedElement>
+              <QueryClientProvider>
+                <ProtectedElement isAllowed={isAllowed}>
+                  <NavBar session={session} />
+                </ProtectedElement>
 
-                  {/* Pages rendering */}
-                  {children}
+                {/* Pages rendering */}
+                {children}
 
-                  <ProtectedElement isAllowed={isAllowed}>
-                    <Footer />
-                  </ProtectedElement>
+                <ProtectedElement isAllowed={isAllowed}>
+                  <Footer />
+                </ProtectedElement>
 
-                  <ThemeToggler />
-                  <ScrollTopButton />
+                <ThemeToggler />
+                <ScrollTopButton />
 
-                  <ContainerToast />
-                </QueryClientProvider>
-              </SessionProviderContext>
+                <ContainerToast />
+              </QueryClientProvider>
             </ReduxProvider>
           </ProgressProvider>
         </MUIThemeProvider>

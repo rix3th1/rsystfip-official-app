@@ -5,7 +5,7 @@ import Box from "@mui/material/Box";
 import Fade from "@mui/material/Fade";
 import useScrollTrigger from "@mui/material/useScrollTrigger";
 
-interface Props {
+interface IProps {
   /**
    * Injected by the documentation to work in an iframe.
    * You won't need it on your project.
@@ -14,7 +14,7 @@ interface Props {
   children: React.ReactElement;
 }
 
-function ScrollTop({ children, window }: Props) {
+function ScrollTop({ children, window }: IProps) {
   // Note that you normally won't need to set the window ref as useScrollTrigger
   // will default to window.
   // This is only being set here because the demo is in an iframe.

@@ -9,6 +9,7 @@ import EditIcon from "@mui/icons-material/Edit";
 import IconButton from "@mui/material/IconButton";
 import LinearProgress from "@mui/material/LinearProgress";
 import Paper from "@mui/material/Paper";
+import Tooltip from "@mui/material/Tooltip";
 import {
   DataGrid,
   type GridColDef,
@@ -40,14 +41,15 @@ const columns: GridColDef[] = [
   {
     ...createColumn("actions", "Actions", 120),
     align: "center",
-    renderCell: (params): React.ReactNode => (
-      <IconButton
-        component={NextLink}
-        href={`/ITFIP-Rectory/history/general/update/${params.row.id}`}
-        title={`Edit data for ${params.row.full_name}`}
-      >
-        <EditIcon />
-      </IconButton>
+    renderCell: ({ row: { id, first_name, last_name } }): React.ReactNode => (
+      <Tooltip title={`Edit data for ${first_name} ${last_name}`}>
+        <IconButton
+          component={NextLink}
+          href={`/ITFIP-Rectory/history/general/update/${id}`}
+        >
+          <EditIcon />
+        </IconButton>
+      </Tooltip>
     ),
   },
 ];

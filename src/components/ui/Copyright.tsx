@@ -1,4 +1,3 @@
-import Link from "@mui/material/Link";
 import Typography, { type TypographyOwnProps } from "@mui/material/Typography";
 
 function Copyright(props: TypographyOwnProps): React.ReactNode {
@@ -9,10 +8,7 @@ function Copyright(props: TypographyOwnProps): React.ReactNode {
       align="center"
       {...props}
     >
-      {"Copyright © "}
-      <Link color="inherit" target="_blank" href="https://itfip.edu.co">
-        {"RSystfip"}
-      </Link>{" "}
+      {"Copyright © RSystfip "}
       {new Date().getFullYear()}
       {"."}
     </Typography>

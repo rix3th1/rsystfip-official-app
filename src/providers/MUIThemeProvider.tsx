@@ -1,6 +1,6 @@
 "use client";
 
-import { darkTheme, lightTheme } from "@/styles";
+import { darkTheme, lightTheme } from "@/utils/styles";
 import CssBaseline from "@mui/material/CssBaseline";
 import { ThemeProvider } from "@mui/material/styles";
 import { useTheme } from "next-themes";

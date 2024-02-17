@@ -11,6 +11,7 @@ import CircularProgress from "@mui/material/CircularProgress";
 import IconButton from "@mui/material/IconButton";
 import LinearProgress from "@mui/material/LinearProgress";
 import Paper from "@mui/material/Paper";
+import Tooltip from "@mui/material/Tooltip";
 import {
   DataGrid,
   type GridColDef,
@@ -63,26 +64,28 @@ function TableUsers(): React.ReactNode {
       align: "center",
       renderCell: ({ row: { id, email, role_name } }): React.ReactNode => (
         <>
-          <IconButton
-            component={NextLink}
-            href={`/ITFIP-Rectory/users/change-password/${id}`}
-            title={`Change password for user ${email}`}
-          >
-            <KeyIcon />
-          </IconButton>
+          <Tooltip title={`Change password for user ${email}`}>
+            <IconButton
+              component={NextLink}
+              href={`/ITFIP-Rectory/users/change-password/${id}`}
+            >
+              <KeyIcon />
+            </IconButton>
+          </Tooltip>
 
-          <IconButton
-            color="error"
-            onClick={() => handleClick(id)}
-            disabled={id === 3}
-            title={`Delete permanently ${role_name} ${email}.`}
-          >
-            {loadingButtons.has(id) ? (
-              <CircularProgress size={24} />
-            ) : (
-              <DeleteIcon />
-            )}
-          </IconButton>
+          <Tooltip title={`Delete permanently ${role_name} ${email}.`}>
+            <IconButton
+              color="error"
+              onClick={() => handleClick(id)}
+              disabled={id === 3}
+            >
+              {loadingButtons.has(id) ? (
+                <CircularProgress size={24} />
+              ) : (
+                <DeleteIcon />
+              )}
+            </IconButton>
+          </Tooltip>
         </>
       ),
     },

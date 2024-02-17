@@ -1,5 +1,3 @@
-"use client";
-
 interface IProps {
   children?: React.ReactNode;
   isAllowed: boolean;

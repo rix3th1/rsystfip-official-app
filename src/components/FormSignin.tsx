@@ -136,7 +136,21 @@ function FormSignin(): React.ReactNode {
             checked={formData.terms}
           />
         }
-        label="I accept the terms and conditions"
+        label={
+          <Typography variant="body2">
+            {
+              "I accept the terms and conditions of Instituto Tolimense de Formación Técnica Profesional ITFIP for"
+            }
+            <Link
+              variant="body2"
+              component={NextLink}
+              target="_blank"
+              href="https://itfip.edu.co/politicas-de-tratamiento-de-los-datos-personales"
+            >
+              {" data processing."}
+            </Link>
+          </Typography>
+        }
       />
 
       <LoadingButton

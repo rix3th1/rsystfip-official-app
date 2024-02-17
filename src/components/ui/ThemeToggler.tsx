@@ -6,6 +6,7 @@ import Box from "@mui/material/Box";
 import IconButton from "@mui/material/IconButton";
 import { useTheme as useMUITheme } from "@mui/material/styles";
 import { useTheme } from "next-themes";
+import Tooltip from "@mui/material/Tooltip";
 
 function ThemeToggler(): React.ReactNode {
   const { setTheme } = useTheme();
@@ -20,14 +21,16 @@ function ThemeToggler(): React.ReactNode {
       sx={{ position: "fixed", bottom: 16, right: 16 }}
       zIndex={100}
     >
-      <IconButton
-        sx={{ ml: 1 }}
-        onClick={handleChange}
-        color="inherit"
-        aria-label="toggle theme"
-      >
-        {isDarkMode ? <LightModeIcon /> : <DarkModeIcon />}
-      </IconButton>
+      <Tooltip title="Toggle theme">
+        <IconButton
+          sx={{ ml: 1 }}
+          onClick={handleChange}
+          color="inherit"
+          aria-label="toggle theme"
+        >
+          {isDarkMode ? <LightModeIcon /> : <DarkModeIcon />}
+        </IconButton>
+      </Tooltip>
     </Box>
   );
 }
