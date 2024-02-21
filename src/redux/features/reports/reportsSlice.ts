@@ -1,6 +1,6 @@
+import type { ICounts } from "@/interfaces";
 import { createSlice, type PayloadAction } from "@reduxjs/toolkit";
 import { endOfMonth, format } from "date-fns";
-import type { ICounts } from "@/interfaces";
 
 export interface Reports {
   category_id: number;

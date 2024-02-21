@@ -1,5 +1,5 @@
-import { connect } from "@/libs/db";
 import type { IPeople } from "@/interfaces";
+import { connect } from "@/libs/db";
 import type { ResultSetHeader, RowDataPacket } from "mysql2";
 
 export async function createPerson(person: IPeople): Promise<IPeople | null> {

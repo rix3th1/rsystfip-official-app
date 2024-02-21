@@ -1,5 +1,5 @@
-import { connect } from "@/libs/db";
 import type { IDean } from "@/interfaces";
+import { connect } from "@/libs/db";
 import type { ResultSetHeader, RowDataPacket } from "mysql2";
 
 export async function getDean(id: IDean["id"]): Promise<IDean | null> {

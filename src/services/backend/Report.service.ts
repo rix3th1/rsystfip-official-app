@@ -1,5 +1,5 @@
-import { connect } from "@/libs/db";
 import type { IAppointment, ICount, IReport } from "@/interfaces";
+import { connect } from "@/libs/db";
 import type { RowDataPacket } from "mysql2";
 
 export async function getReports(

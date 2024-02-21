@@ -13,7 +13,7 @@ import {
 } from "@/redux/features/calendar/calendarSlice";
 import { useAppDispatch, useAppSelector } from "@/redux/hooks";
 import { scheduleService } from "@/services";
-import { propsAction } from "@/types/propsAction";
+import { propsAction } from "@/types";
 import type { EventSourceInput, PluginDef } from "@fullcalendar/core";
 import esLocale from "@fullcalendar/core/locales/es-us";
 import interactionPlugin from "@fullcalendar/interaction";

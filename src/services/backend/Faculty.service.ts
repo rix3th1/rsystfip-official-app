@@ -1,5 +1,5 @@
-import { connect } from "@/libs/db";
 import type { IFaculty } from "@/interfaces";
+import { connect } from "@/libs/db";
 import type { RowDataPacket } from "mysql2";
 
 export async function getFaculties(): Promise<Array<IFaculty> | null> {

@@ -1,5 +1,5 @@
-import { createSlice, type PayloadAction } from "@reduxjs/toolkit";
 import type { IPeopleBase } from "@/interfaces";
+import { createSlice, type PayloadAction } from "@reduxjs/toolkit";
 
 export interface PeopleCancellation extends IPeopleBase {
   cancellation_subject: string;

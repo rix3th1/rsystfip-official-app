@@ -1,6 +1,6 @@
 "use client";
 
-import { propsAction } from "@/types/propsAction";
+import { propsAction } from "@/types";
 import LoadingButton from "@mui/lab/LoadingButton";
 import Button from "@mui/material/Button";
 import Dialog from "@mui/material/Dialog";

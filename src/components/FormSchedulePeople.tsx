@@ -11,7 +11,7 @@ import { registerAChange } from "@/redux/features/calendar/calendarSlice";
 import { useAppDispatch, useAppSelector } from "@/redux/hooks";
 import { deanService, peopleService, scheduleService } from "@/services";
 import type { THandleChangeITS, THandleSubmit } from "@/types";
-import { propsAction } from "@/types/propsAction";
+import { propsAction } from "@/types";
 import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";
 import { type SelectChangeEvent } from "@mui/material/Select";
@@ -424,7 +424,10 @@ function FormSchedulePeople({
               rows={4}
               autoComplete="off"
               spellCheck={false}
-              inputProps={{ minLength: 10, maxLength: 150 }}
+              inputProps={{
+                minLength: 10,
+                maxLength: 150,
+              }}
               disabled={formDataState.disabledAll}
             />
           </Grid>

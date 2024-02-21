@@ -1,5 +1,5 @@
-import Joi from "joi";
 import { AppointmentStatus } from "@/interfaces";
+import Joi from "joi";
 
 const JoiDefaults = Joi.defaults((scheme) =>
   scheme.options({ abortEarly: false })

@@ -1,5 +1,5 @@
-import { connect } from "@/libs/db";
 import type { IAppointment, ICount, IStatistic } from "@/interfaces";
+import { connect } from "@/libs/db";
 import type { RowDataPacket } from "mysql2";
 
 export async function getStatistics(

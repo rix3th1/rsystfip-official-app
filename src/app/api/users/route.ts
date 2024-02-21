@@ -1,4 +1,4 @@
-import { IUser } from "@/interfaces";
+import type { IUser } from "@/interfaces";
 import { UserService } from "@/services/backend";
 import { userSchema } from "@/validation/schemas";
 import { NextResponse } from "next/server";

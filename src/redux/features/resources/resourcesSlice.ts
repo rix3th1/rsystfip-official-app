@@ -1,5 +1,5 @@
-import { createSlice, type PayloadAction } from "@reduxjs/toolkit";
 import type { ICategory, IDocument, IResourceFacultie } from "@/interfaces";
+import { createSlice, type PayloadAction } from "@reduxjs/toolkit";
 
 interface ResourcesState {
   categories: Array<ICategory>;

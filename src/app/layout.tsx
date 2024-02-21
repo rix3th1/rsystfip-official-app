@@ -1,7 +1,7 @@
 import pkg from "@/../package.json";
+import "@/app/globals.scss";
 import { App } from "@/components";
 import { type Metadata } from "next";
-import "./globals.scss";
 
 export const metadata: Metadata = {
   applicationName: pkg.name,

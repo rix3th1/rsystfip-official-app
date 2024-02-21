@@ -1,6 +1,7 @@
 import { withAuth } from "next-auth/middleware";
 import { NextResponse } from "next/server";
-import { type IUser } from "./interfaces";
+import { type IUser } from "@/interfaces";
+
 export const config = {
   matcher: ["/ITFIP-Rectory/:path*", "/api/:path*"],
 };

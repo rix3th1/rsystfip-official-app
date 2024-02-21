@@ -1,5 +1,5 @@
 import { FormSchedulePeople } from "@/components";
-import { propsAction } from "@/types/propsAction";
+import { propsAction } from "@/types";
 import Container from "@mui/material/Container";
 import Paper from "@mui/material/Paper";
 import Typography from "@mui/material/Typography";

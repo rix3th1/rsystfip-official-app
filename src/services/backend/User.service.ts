@@ -1,5 +1,5 @@
-import { connect } from "@/libs/db";
 import type { IUser } from "@/interfaces";
+import { connect } from "@/libs/db";
 import type { ResultSetHeader, RowDataPacket } from "mysql2";
 
 export async function getUser(
