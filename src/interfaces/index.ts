@@ -18,7 +18,7 @@ export type {
   IResourceDocument,
   IResourceFacultie,
 } from "./IResources";
-export type { IRole } from "./IRole";
+export type { IRole, TPermission, TRole } from "./IRole";
 export type { IStatistic } from "./IStatistic";
 export type { IUser } from "./IUser";
 export type { IUserBase } from "./IUserBase";

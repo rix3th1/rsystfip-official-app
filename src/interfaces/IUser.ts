@@ -1,3 +1,5 @@
+import type { IRole } from ".";
+
 export interface IUser {
   id: string;
   first_name: string;
@@ -8,6 +10,6 @@ export interface IUser {
   email: string;
   password?: string;
   role_id: number;
-  role_name: string;
-  permissions: Array<string>;
+  role_name: IRole["role_name"];
+  permissions: IRole["permissions"];
 }
