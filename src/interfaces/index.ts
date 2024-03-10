@@ -1,4 +1,4 @@
-export { AppointmentStatus, type IAppointment } from "./IAppointment";
+export type { IAppointment } from "./IAppointment";
 export type { ICalendar } from "./ICalendar";
 export type { ICanceledAppointment } from "./ICanceledAppointment";
 export type { ICategory } from "./ICategory";

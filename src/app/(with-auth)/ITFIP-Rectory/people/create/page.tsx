@@ -1,5 +1,5 @@
 import { FormSchedulePeople } from "@/components";
-import { propsAction } from "@/types";
+import { PropsAction } from "@/enums";
 import Container from "@mui/material/Container";
 import Paper from "@mui/material/Paper";
 import Typography from "@mui/material/Typography";
@@ -17,7 +17,7 @@ function PageDailyScheduling(): React.ReactNode {
           {"Daily Scheduling"}
         </Typography>
 
-        <FormSchedulePeople action={propsAction.add} />
+        <FormSchedulePeople action={PropsAction.add} />
       </Paper>
     </Container>
   );

@@ -1,4 +1,4 @@
-import { AppointmentStatus } from "@/interfaces";
+import { AppointmentStatus } from "@/enums";
 import Joi from "joi";
 
 const JoiDefaults = Joi.defaults((scheme) =>

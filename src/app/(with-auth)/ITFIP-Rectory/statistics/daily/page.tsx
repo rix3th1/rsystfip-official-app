@@ -1,5 +1,5 @@
 import { Statistics } from "@/components";
-import { AppointmentStatus } from "@/redux/features/appointments/appointmentsSlice";
+import { AppointmentStatus } from "@/enums";
 import Container from "@mui/material/Container";
 import { type Metadata } from "next";
 

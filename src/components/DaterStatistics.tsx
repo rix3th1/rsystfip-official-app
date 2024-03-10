@@ -1,6 +1,6 @@
 "use client";
 
-import type { AppointmentStatus } from "@/redux/features/appointments/appointmentsSlice";
+import type { AppointmentStatus } from "@/enums";
 import {
   setQueryData,
   type QueryData,

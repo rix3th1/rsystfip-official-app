@@ -1,7 +1,7 @@
 "use client";
 
+import { AppointmentStatus } from "@/enums";
 import { notify } from "@/libs/notify";
-import { AppointmentStatus } from "@/redux/features/appointments/appointmentsSlice";
 import {
   setMostAgendatedAllTime,
   setMostAgendatedOnRange,

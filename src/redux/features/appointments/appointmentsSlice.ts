@@ -1,12 +1,7 @@
-import { createSlice, type PayloadAction } from "@reduxjs/toolkit";
+import { AppointmentStatus } from "@/enums";
 import type { IKeyBool } from "@/interfaces";
+import { createSlice, type PayloadAction } from "@reduxjs/toolkit";
 import { updateFormDataByAction } from "./functions";
-
-export enum AppointmentStatus {
-  daily = "daily",
-  scheduled = "scheduled",
-  cancelled = "cancelled",
-}
 
 export interface FormDataState {
   id: string;

@@ -1,6 +1,6 @@
 "use client";
 
-import { propsAction } from "@/types";
+import { PropsAction } from "@/enums";
 import LoadingButton from "@mui/lab/LoadingButton";
 import Button from "@mui/material/Button";
 import Dialog from "@mui/material/Dialog";
@@ -32,7 +32,7 @@ function ModalSchedulePeopleForm({
 
       <DialogContent>
         <FormSchedulePeople
-          action={propsAction.schedule}
+          action={PropsAction.schedule}
           closeModalScheduling={closeModalScheduling}
           changeIsLoadingScheduleAction={changeIsLoadingScheduleAction}
         />

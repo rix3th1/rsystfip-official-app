@@ -1,8 +1,8 @@
 "use client";
 
+import { AppointmentStatus, PropsAction } from "@/enums";
 import { notify } from "@/libs/notify";
 import {
-  AppointmentStatus,
   setFormData,
   type FormDataState,
 } from "@/redux/features/appointments/appointmentsSlice";
@@ -13,7 +13,6 @@ import {
 } from "@/redux/features/calendar/calendarSlice";
 import { useAppDispatch, useAppSelector } from "@/redux/hooks";
 import { scheduleService } from "@/services";
-import { propsAction } from "@/types";
 import type { EventSourceInput, PluginDef } from "@fullcalendar/core";
 import esLocale from "@fullcalendar/core/locales/es-us";
 import interactionPlugin from "@fullcalendar/interaction";
@@ -32,7 +31,7 @@ interface IProps {
   plugins: PluginDef[];
 }
 
-const action = propsAction.schedule;
+const action = PropsAction.schedule;
 
 function FullCalendarScheduling({
   right,
@@ -61,7 +60,7 @@ function FullCalendarScheduling({
   const showModalScheduling = () => setStateModalScheduling(true);
 
   const { data, error, isLoading } = useQuery<[], any>(
-    [propsAction.schedule, calendarEventsState.changes],
+    [PropsAction.schedule, calendarEventsState.changes],
     scheduleService.getEvents
   );
 

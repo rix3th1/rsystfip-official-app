@@ -1,4 +1,5 @@
-import { AppointmentStatus, type IAppointment } from "@/interfaces";
+import { AppointmentStatus } from "@/enums";
+import { IAppointment } from "@/interfaces";
 import { ScheduleService } from "@/services/backend";
 import { idSchema } from "@/validation/schemas";
 import { NextResponse } from "next/server";

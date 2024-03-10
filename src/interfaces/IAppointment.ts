@@ -1,8 +1,4 @@
-export enum AppointmentStatus {
-  daily = "daily",
-  scheduled = "scheduled",
-  cancelled = "cancelled",
-}
+import type { AppointmentStatus } from "../enums/AppointmentStatus";
 
 export interface IAppointment {
   id: number;

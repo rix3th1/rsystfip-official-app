@@ -1,7 +1,7 @@
 "use client";
 
+import { AppointmentStatus } from "@/enums";
 import type { ICounts } from "@/interfaces";
-import { AppointmentStatus } from "@/redux/features/appointments/appointmentsSlice";
 import type { QueryData } from "@/redux/features/statistics/statisticsSlice";
 import { useAppSelector } from "@/redux/hooks";
 import { memo } from "react";

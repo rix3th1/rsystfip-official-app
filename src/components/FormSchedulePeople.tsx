@@ -1,8 +1,8 @@
 "use client";
 
+import { AppointmentStatus, PropsAction } from "@/enums";
 import { notify } from "@/libs/notify";
 import {
-  AppointmentStatus,
   setFormData,
   type Deans,
   type FormDataState,
@@ -11,7 +11,6 @@ import { registerAChange } from "@/redux/features/calendar/calendarSlice";
 import { useAppDispatch, useAppSelector } from "@/redux/hooks";
 import { deanService, peopleService, scheduleService } from "@/services";
 import type { THandleChangeITS, THandleSubmit } from "@/types";
-import { propsAction } from "@/types";
 import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";
 import { type SelectChangeEvent } from "@mui/material/Select";
@@ -27,7 +26,7 @@ import SelectPerson from "./SelectPerson";
 import { ProtectedElement } from "./ui";
 
 interface IProps {
-  action: propsAction;
+  action: PropsAction;
   closeModalScheduling?: () => void;
   changeIsLoadingScheduleAction?: (value: boolean) => void;
 }
@@ -160,7 +159,7 @@ function FormSchedulePeople({
   };
 
   const executionsToSubmit = {
-    [propsAction.add]: () => {
+    [PropsAction.add]: () => {
       dispatch(
         setFormData([
           action,
@@ -173,8 +172,8 @@ function FormSchedulePeople({
 
       return schedulePerson();
     },
-    [propsAction.edit]: () => editPerson(),
-    [propsAction.schedule]: () => schedulePerson(closeModalScheduling),
+    [PropsAction.edit]: () => editPerson(),
+    [PropsAction.schedule]: () => schedulePerson(closeModalScheduling),
   };
 
   const handleSubmit = (e: THandleSubmit) => {
@@ -204,7 +203,7 @@ function FormSchedulePeople({
     if (
       !deansState ||
       formDataState.category_id !== "4" ||
-      action === propsAction.edit
+      action === PropsAction.edit
     )
       return;
 
@@ -409,7 +408,7 @@ function FormSchedulePeople({
           />
         </Grid>
 
-        <ProtectedElement isAllowed={action !== propsAction.edit}>
+        <ProtectedElement isAllowed={action !== PropsAction.edit}>
           <Grid item md={12}>
             <TextField
               margin="normal"
@@ -433,7 +432,7 @@ function FormSchedulePeople({
           </Grid>
         </ProtectedElement>
 
-        <ProtectedElement isAllowed={action === propsAction.schedule}>
+        <ProtectedElement isAllowed={action === PropsAction.schedule}>
           <Grid item md={12}>
             <TextField
               margin="normal"
@@ -450,9 +449,9 @@ function FormSchedulePeople({
         </ProtectedElement>
       </Grid>
 
-      <ProtectedElement isAllowed={action !== propsAction.schedule}>
+      <ProtectedElement isAllowed={action !== PropsAction.schedule}>
         <FooterFormPeople
-          isEdit={action === propsAction.edit}
+          isEdit={action === PropsAction.edit}
           isLoading={
             mutationEditPerson.isLoading ||
             mutationSavePeople.isLoading ||

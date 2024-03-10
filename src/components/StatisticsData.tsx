@@ -1,4 +1,4 @@
-import type { AppointmentStatus } from "@/redux/features/appointments/appointmentsSlice";
+import type { AppointmentStatus } from "@/enums";
 import Grid from "@mui/material/Grid";
 import { memo } from "react";
 import Ctx from "./Ctx";
