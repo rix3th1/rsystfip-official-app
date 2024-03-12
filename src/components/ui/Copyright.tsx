@@ -1,6 +1,9 @@
 import Typography, { type TypographyOwnProps } from "@mui/material/Typography";
+import { useTranslations } from "next-intl";
 
 function Copyright(props: TypographyOwnProps): React.ReactNode {
+  const t = useTranslations("PageSignin");
+
   return (
     <Typography
       variant="body2"
@@ -8,7 +11,8 @@ function Copyright(props: TypographyOwnProps): React.ReactNode {
       align="center"
       {...props}
     >
-      {"Copyright © RSystfip "}
+      {t("copyright")}
+      {" © RSystfip "}
       {new Date().getFullYear()}
       {"."}
     </Typography>

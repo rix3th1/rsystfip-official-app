@@ -1,0 +1,28 @@
+{
+  "Index": {
+    "title": "ITFIP Rectory Appointment scheduling",
+    "toggleTheme": "Toggle Theme"
+  },
+  "PageSignin": {
+    "title": "Sign in",
+    "subtitle": "Appointment scheduling system for the rector's office of Instituto Tolimense de Formación Técnica Profesional",
+    "terms1": "I accept the terms and conditions of Instituto Tolimense de Formación Técnica Profesional",
+    "terms2": "for ",
+    "terms3": "data processing.",
+    "username": "Username",
+    "password": "Password",
+    "submit": "Sign In",
+    "forgot": "Forgot password?",
+    "copyright": "Copyright"
+  },
+  "PageNotFound": {
+    "title": "404 Error",
+    "subtitle": "Oops! The page you're looking for doesn't exist."
+  },
+  "PageRecoverPassword": {
+    "title": "Password Recovery",
+    "back": "Back",
+    "placeholder": "Mail@itfip.edu.co",
+    "submit": "Send Email"
+  }
+}

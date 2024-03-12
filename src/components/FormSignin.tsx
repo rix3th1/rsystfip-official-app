@@ -16,6 +16,7 @@ import Link from "@mui/material/Link";
 import TextField from "@mui/material/TextField";
 import Typography from "@mui/material/Typography";
 import { type SignInResponse } from "next-auth/react";
+import { useTranslations } from "next-intl";
 import { useRouter } from "next-nprogress-bar";
 import NextLink from "next/link";
 import { useState } from "react";
@@ -23,6 +24,8 @@ import { useMutation } from "react-query";
 import { Copyright } from "./ui";
 
 function FormSignin(): React.ReactNode {
+  const t = useTranslations("PageSignin");
+
   const formDataInitialState = {
     username: "",
     password: "",
@@ -81,7 +84,7 @@ function FormSignin(): React.ReactNode {
         required
         fullWidth
         name="username"
-        label="Username"
+        label={t("username")}
         onChange={handleChange}
         value={formData.username}
         autoComplete="off"
@@ -102,7 +105,7 @@ function FormSignin(): React.ReactNode {
         required
         fullWidth
         name="password"
-        label="Password"
+        label={t("password")}
         type={formData.passwordVisible ? "text" : "password"}
         onChange={handleChange}
         value={formData.password}
@@ -139,18 +142,16 @@ function FormSignin(): React.ReactNode {
         }
         label={
           <Typography variant="body2">
-            {
-              "I accept the terms and conditions of Instituto Tolimense de Formación Técnica Profesional"
-            }
+            {t("terms1")}
             <b>{" ITFIP "}</b>
-            {"for"}
+            {t("terms2")}
             <Link
               variant="body2"
               component={NextLink}
               target="_blank"
               href="https://itfip.edu.co/politicas-de-tratamiento-de-los-datos-personales"
             >
-              {" data processing."}
+              {t("terms3")}
             </Link>
           </Typography>
         }
@@ -164,13 +165,13 @@ function FormSignin(): React.ReactNode {
         loading={isLoading}
         disabled={!formData.terms}
       >
-        Sign In
+        {t("submit")}
       </LoadingButton>
 
       <Grid container>
         <Grid item xs>
           <Link component={NextLink} href="/recover-password" variant="body2">
-            {"Forgot password?"}
+            {t("forgot")}
           </Link>
         </Grid>
       </Grid>

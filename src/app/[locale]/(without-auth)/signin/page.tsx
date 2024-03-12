@@ -6,17 +6,23 @@ import Paper from "@mui/material/Paper";
 import Typography from "@mui/material/Typography";
 import { type Metadata } from "next";
 import { getServerSession } from "next-auth";
+import { getTranslations } from "next-intl/server";
 import Image from "next/image";
 import { redirect } from "next/navigation";
 
-export const metadata: Metadata = {
-  title: "RSystfip | Sign in",
-};
+export async function generateMetadata(): Promise<Metadata> {
+  const t = await getTranslations("PageSignin");
+
+  return {
+    title: `RSystfip | ${t("title")}`,
+  };
+}
 
 async function PageSignin(): Promise<React.ReactElement> {
   const session = await getServerSession(authOptions);
-
   if (session) redirect("/ITFIP-Rectory/home");
+
+  const t = await getTranslations("PageSignin");
 
   return (
     <Grid container component="main" sx={{ height: "100vh" }}>
@@ -68,13 +74,11 @@ async function PageSignin(): Promise<React.ReactElement> {
           </Box>
 
           <Typography component="h1" variant="h5">
-            {"Sign in"}
+            {t("title")}
           </Typography>
 
           <Typography component="h1" variant="subtitle1" align="center">
-            {
-              "Appointment scheduling system for the rector's office of Instituto Tolimense de Formación Técnica Profesional"
-            }
+            {t("subtitle")}
             <b>{" ITFIP"}</b>
             {"."}
           </Typography>

@@ -1,14 +1,22 @@
 import { withAuth } from "next-auth/middleware";
+import createMiddleware from "next-intl/middleware";
+import { type NextRequest } from "next/server";
+import { locales, type TLocale } from "./i18n";
 import {
   validatePermissionsForPageRoutes,
   validateRolesForApiRoutes,
-} from "./middlewares/rolesMiddlewares";
+} from "@/middlewares/rolesMiddlewares";
 
-export const config = {
-  matcher: ["/api/:path*", "/ITFIP-Rectory/:path*"],
-};
+const publicPages = ["/signin", "/recover-password"];
 
-export default withAuth(function middleware(req) {
+const intlMiddleware = createMiddleware({
+  locales,
+  localePrefix: "always",
+  defaultLocale: <TLocale>"en",
+  localeDetection: true,
+});
+
+const authMiddleware = withAuth(function middleware(req) {
   const pathname = req.nextUrl.pathname;
 
   // Verify access for api routes.
@@ -52,3 +60,35 @@ export default withAuth(function middleware(req) {
     }
   }
 });
+
+export default function middleware(req: NextRequest) {
+  const publicPathnameRegex = RegExp(
+    `^(/(${locales.join("|")}))?(${publicPages
+      .flatMap((p) => (p === "/" ? ["", "/"] : p))
+      .join("|")})/?$`,
+    "i"
+  );
+  const isPublicPage = publicPathnameRegex.test(req.nextUrl.pathname);
+
+  if (isPublicPage) {
+    return intlMiddleware(req);
+  } else {
+    return (authMiddleware as any)(req);
+  }
+}
+
+export const config = {
+  matcher: ["/((?!api|_next|.*\\..*).*)"],
+};
+
+// export const config = {
+//   matcher: [
+//     // Match only internationalized pathnames
+//     "/",
+//     "/(es|en)/:path*",
+
+//     // RSystfip App
+//     "/api/:path*",
+//     "/ITFIP-Rectory/:path*",
+//   ],
+// };

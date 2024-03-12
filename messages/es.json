@@ -1,0 +1,28 @@
+{
+  "Index": {
+    "title": "Agendamiento Citas Rectoría ITFIP",
+    "toggleTheme": "Alternar tema"
+  },
+  "PageSignin": {
+    "title": "Iniciar Sesión",
+    "subtitle": "Sistema de agendamiento de citas para la Rectoría del Instituto Tolimense de Formación Técnica Profesional",
+    "terms1": "Acepto los términos y condiciones del Instituto Tolimense de Formación Técnica Profesional",
+    "terms2": "de ",
+    "terms3": "tratamiento de datos.",
+    "username": "Nombre de usuario",
+    "password": "Contraseña",
+    "submit": "Iniciar Sesión",
+    "forgot": "Olvidaste la contraseña?",
+    "copyright": "Todos los derechos reservados"
+  },
+  "PageNotFound": {
+    "title": "Error 404",
+    "subtitle": "¡Ups! La página que estás buscando no existe."
+  },
+  "PageRecoverPassword": {
+    "title": "Recuperación de contraseña",
+    "back": "Volver atrás",
+    "placeholder": "Correo@itfip.edu.co",
+    "submit": "Enviar correo"
+  }
+}

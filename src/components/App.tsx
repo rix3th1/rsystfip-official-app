@@ -6,14 +6,17 @@ import {
   ScrollTopButton,
   ThemeToggler,
 } from "@/components/ui";
+import type { TLocale } from "@/i18n";
 import authOptions from "@/libs/authOptions";
 import MUIThemeProvider from "@/providers/MUIThemeProvider";
+import NextIntlProvider from "@/providers/NextIntlProvider";
 import NextThemeProvider from "@/providers/NextThemeProvider";
 import ProgressProvider from "@/providers/ProgressProvider";
 import QueryClientProvider from "@/providers/QueryClientProvider";
 import ReduxProvider from "@/providers/ReduxProvider";
 import { AppRouterCacheProvider } from "@mui/material-nextjs/v14-appRouter";
 import { getServerSession } from "next-auth";
+import { getLocale, getMessages } from "next-intl/server";
 
 async function App({
   children,
@@ -23,6 +26,9 @@ async function App({
   const session = await getServerSession(authOptions);
   const isAllowed = !!session;
 
+  const locale = (await getLocale()) as TLocale;
+  const messages = await getMessages();
+
   return (
     <NextThemeProvider>
       <AppRouterCacheProvider>
@@ -30,21 +36,23 @@ async function App({
           <ProgressProvider>
             <ReduxProvider>
               <QueryClientProvider>
-                <ProtectedElement isAllowed={isAllowed}>
-                  <NavBar session={session} />
-                </ProtectedElement>
+                <NextIntlProvider locale={locale} messages={messages}>
+                  <ProtectedElement isAllowed={isAllowed}>
+                    <NavBar session={session} />
+                  </ProtectedElement>
 
-                {/* Pages rendering */}
-                {children}
+                  {/* Pages rendering */}
+                  {children}
 
-                <ProtectedElement isAllowed={isAllowed}>
-                  <Footer />
-                </ProtectedElement>
+                  <ProtectedElement isAllowed={isAllowed}>
+                    <Footer />
+                  </ProtectedElement>
 
-                <ThemeToggler />
-                <ScrollTopButton />
+                  <ThemeToggler />
+                  <ScrollTopButton />
 
-                <ContainerToast />
+                  <ContainerToast />
+                </NextIntlProvider>
               </QueryClientProvider>
             </ReduxProvider>
           </ProgressProvider>

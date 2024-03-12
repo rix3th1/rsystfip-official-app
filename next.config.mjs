@@ -1,20 +1,8 @@
-/** @type {import('next').NextConfig} */
-const nextConfig = {
-  async redirects() {
-    return [
-      // Initial redirect to signin page
-      {
-        source: "/",
-        destination: "/signin",
-        permanent: true,
-      },
-      {
-        source: "/ITFIP-Rectory",
-        destination: "/ITFIP-Rectory/home",
-        permanent: true,
-      },
-    ];
-  },
-};
+import createNextIntlPlugin from "next-intl/plugin";
 
-export default nextConfig;
+const withNextIntl = createNextIntlPlugin();
+
+/** @type {import('next').NextConfig} */
+const nextConfig = {};
+
+export default withNextIntl(nextConfig);

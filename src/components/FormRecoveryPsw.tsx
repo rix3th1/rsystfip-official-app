@@ -14,10 +14,13 @@ import TextField from "@mui/material/TextField";
 import Tooltip from "@mui/material/Tooltip";
 import { green } from "@mui/material/colors";
 import { isAxiosError } from "axios";
+import { useTranslations } from "next-intl";
 import { useState } from "react";
 import { useMutation } from "react-query";
 
 function FormRecoveryPsw(): React.ReactNode {
+  const t = useTranslations("PageRecoverPassword");
+
   const formDataInitialState = { email: "" };
   const [formData, setFormData] = useState(formDataInitialState);
 
@@ -60,7 +63,7 @@ function FormRecoveryPsw(): React.ReactNode {
         required
         fullWidth
         name="email"
-        placeholder="Mail@itfip.edu.co"
+        placeholder={t("placeholder")}
         onChange={handleChange}
         value={formData.email}
         type="email"
@@ -76,7 +79,7 @@ function FormRecoveryPsw(): React.ReactNode {
           endAdornment: (
             <InputAdornment position="end" sx={{ my: 5 }}>
               <Box sx={{ position: "relative" }}>
-                <Tooltip title="Send email">
+                <Tooltip title={t("submit")}>
                   <Fab
                     color={`${
                       isSuccess ? "success" : isError ? "error" : "primary"

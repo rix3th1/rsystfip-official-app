@@ -45,6 +45,7 @@
     "net": "latest",
     "next": "latest",
     "next-auth": "latest",
+    "next-intl": "^3.9.4",
     "next-nprogress-bar": "latest",
     "next-themes": "latest",
     "pdfmake": "latest",
