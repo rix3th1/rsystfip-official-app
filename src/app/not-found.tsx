@@ -3,15 +3,15 @@ import Box from "@mui/material/Box";
 import Container from "@mui/material/Container";
 import Typography from "@mui/material/Typography";
 import { type Metadata } from "next";
-import { useTranslations } from "next-intl";
+import { getTranslations } from "next-intl/server";
 import Image from "next/image";
 
 export const metadata: Metadata = {
   title: "RSystfip | Not found",
 };
 
-function PageNotFound(): React.ReactNode {
-  const t = useTranslations("PageNotFound");
+async function PageNotFound(): Promise<React.ReactElement> {
+  const t = await getTranslations("PageNotFound");
 
   return (
     <Container component="main" maxWidth="xs">

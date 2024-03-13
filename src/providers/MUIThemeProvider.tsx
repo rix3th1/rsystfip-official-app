@@ -1,8 +1,10 @@
 "use client";
 
-import { darkTheme, lightTheme } from "@/utils/styles";
+import { makeMUITheme } from "@/utils/styles";
 import CssBaseline from "@mui/material/CssBaseline";
+import { enUS, esES } from "@mui/material/locale";
 import { ThemeProvider } from "@mui/material/styles";
+import { useLocale } from "next-intl";
 import { useTheme } from "next-themes";
 import { useEffect, useState } from "react";
 
@@ -11,16 +13,23 @@ function MUIThemeProvider({
 }: {
   children: React.ReactNode;
 }): React.ReactNode {
+  const locale = useLocale();
+  const MUILocale = locale === "en" ? enUS : esES;
+
   const { theme } = useTheme();
 
-  const [currentTheme, setCurrentTheme] = useState(lightTheme);
+  const [currentTheme, setCurrentTheme] = useState(
+    makeMUITheme("light", MUILocale)
+  );
 
   useEffect(() => {
-    theme === "dark" ? setCurrentTheme(darkTheme) : setCurrentTheme(lightTheme);
+    theme === "dark"
+      ? setCurrentTheme(makeMUITheme("dark", MUILocale))
+      : setCurrentTheme(makeMUITheme("light", MUILocale));
   }, [theme]);
 
   return (
-    <ThemeProvider theme={currentTheme}>
+    <ThemeProvider theme={{ ...currentTheme }}>
       <CssBaseline />
 
       {children}

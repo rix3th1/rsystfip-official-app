@@ -6,6 +6,7 @@ import Container from "@mui/material/Container";
 import Typography from "@mui/material/Typography";
 import { type Metadata } from "next";
 import { getServerSession } from "next-auth";
+import { getTranslations } from "next-intl/server";
 import NextLink from "next/link";
 
 export const metadata: Metadata = {
@@ -17,6 +18,8 @@ async function PageHome(): Promise<React.ReactElement> {
   const permissions = session?.user.permissions!;
   const isAllowed = permissions.includes("add");
 
+  const t = await getTranslations("PageHome");
+
   return (
     <Container component="main" maxWidth="xl">
       <Typography
@@ -25,14 +28,14 @@ async function PageHome(): Promise<React.ReactElement> {
         gutterBottom
         marginTop={{ xs: "1rem", sm: "2rem", md: "3rem" }}
       >
-        {"Welcome"} <b>{session?.user.role_name}:</b>
+        {t("title")} <b>{session?.user.role_name}:</b>
         {` ${session?.user.first_name} ${session?.user.last_name}`}
       </Typography>
 
       <ButtonGroup variant="outlined">
         <ProtectedElement isAllowed={isAllowed}>
           <Button component={NextLink} href="/ITFIP-Rectory/people/create">
-            {"Daily Scheduling"}
+            {t("button1")}
           </Button>
         </ProtectedElement>
 
@@ -40,7 +43,7 @@ async function PageHome(): Promise<React.ReactElement> {
           component={NextLink}
           href="/ITFIP-Rectory/people/create-schedule"
         >
-          {"Scheduled Scheduling"}
+          {t("button2")}
         </Button>
       </ButtonGroup>
     </Container>

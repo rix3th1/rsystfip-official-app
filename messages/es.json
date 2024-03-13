@@ -4,7 +4,7 @@
     "toggleTheme": "Alternar tema",
     "team": "Tecnología en gestión informática",
     "home": "Inicio",
-    "faqs": "PMFs",
+    "faqs": "FAQs",
     "about": "Nosotros",
     "forgot": "Olvidaste tu contraseña?",
     "users": "Usuarios",
@@ -36,12 +36,18 @@
   },
   "PageNotFound": {
     "title": "Error 404",
-    "subtitle": "¡Ups! La página que estás buscando no existe."
+    "subtitle": "¡Ups! La página que estás buscando no existe.",
+    "back": "Ir a atrás"
   },
   "PageRecoverPassword": {
     "title": "Recuperación de contraseña",
     "back": "Volver atrás",
     "placeholder": "Correo@itfip.edu.co",
     "submit": "Enviar correo"
+  },
+  "PageHome": {
+    "title": "Bienvenid@",
+    "button1": "Agendamiento Diario",
+    "button2": "Agendamiento Programado"
   }
 }

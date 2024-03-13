@@ -1,3 +1,5 @@
+import { type PaletteMode } from "@mui/material";
+import { type Localization } from "@mui/material/locale";
 import { createTheme } from "@mui/material/styles";
 import { Roboto } from "next/font/google";
 
@@ -7,32 +9,21 @@ export const roboto = Roboto({
   display: "swap",
 });
 
-export const lightTheme = createTheme({
-  typography: {
-    fontFamily: roboto.style.fontFamily,
-  },
-  palette: {
-    mode: "light",
-    primary: {
-      main: "#3366CC",
+export const makeMUITheme = (mode: PaletteMode, locale: Localization) =>
+  createTheme(
+    {
+      typography: {
+        fontFamily: roboto.style.fontFamily,
+      },
+      palette: {
+        mode,
+        primary: {
+          main: "#3366CC",
+        },
+        error: {
+          main: "#E6161C",
+        },
+      },
     },
-    error: {
-      main: "#E6161C",
-    },
-  },
-});
-
-export const darkTheme = createTheme({
-  typography: {
-    fontFamily: roboto.style.fontFamily,
-  },
-  palette: {
-    mode: "dark",
-    primary: {
-      main: "#3366CC",
-    },
-    error: {
-      main: "#E6161C",
-    },
-  },
-});
+    locale
+  );

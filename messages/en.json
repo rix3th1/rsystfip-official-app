@@ -36,12 +36,18 @@
   },
   "PageNotFound": {
     "title": "404 Error",
-    "subtitle": "Oops! The page you're looking for doesn't exist."
+    "subtitle": "Oops! The page you're looking for doesn't exist.",
+    "back": "Go back"
   },
   "PageRecoverPassword": {
     "title": "Password Recovery",
     "back": "Back",
     "placeholder": "Mail@itfip.edu.co",
     "submit": "Send Email"
+  },
+  "PageHome": {
+    "title": "Welcome",
+    "button1": "Daily scheduling",
+    "button2": "Schedule scheduling"
   }
 }

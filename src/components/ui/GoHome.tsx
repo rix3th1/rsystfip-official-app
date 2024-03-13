@@ -2,9 +2,12 @@
 
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import Button from "@mui/material/Button";
+import { useTranslations } from "next-intl";
 import { useRouter } from "next-nprogress-bar";
 
 function GoHome(): React.ReactNode {
+  const t = useTranslations("PageNotFound");
+
   const router = useRouter();
 
   return (
@@ -15,7 +18,7 @@ function GoHome(): React.ReactNode {
       startIcon={<ArrowBackIcon />}
       sx={{ mt: 3 }}
     >
-      {"Go Back"}
+      {t("back")}
     </Button>
   );
 }

@@ -6,7 +6,6 @@ import {
   ScrollTopButton,
   ThemeToggler,
 } from "@/components/ui";
-import type { TLocale } from "@/i18n";
 import authOptions from "@/libs/authOptions";
 import MUIThemeProvider from "@/providers/MUIThemeProvider";
 import NextIntlProvider from "@/providers/NextIntlProvider";
@@ -27,7 +26,7 @@ async function App({
   const isAllowed = !!session;
 
   // NextIntl Provider config options
-  const locale = (await getLocale()) as TLocale;
+  const locale = await getLocale();
   const tz = await getTimeZone();
   const messages = await getMessages();
 
