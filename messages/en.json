@@ -1,7 +1,26 @@
 {
   "Index": {
     "title": "ITFIP Rectory Appointment scheduling",
-    "toggleTheme": "Toggle Theme"
+    "toggleTheme": "Toggle Theme",
+    "team": "Technology in computer management",
+    "home": "Home",
+    "faqs": "FAQs",
+    "about": "About",
+    "forgot": "Forgot your password?",
+    "users": "Users",
+    "appointments": "Appointments",
+    "reports": "Reports",
+    "schedule": "Schedule",
+    "statistics": "Statistics",
+    "history": "History",
+    "daily": "Daily",
+    "scheduled": "Scheduled",
+    "cancelled": "Cancelled",
+    "general": "General",
+    "profilemenu": "Open profile options",
+    "help": "Help",
+    "changepsw": "Change password",
+    "signout": "Sign Out"
   },
   "PageSignin": {
     "title": "Sign in",

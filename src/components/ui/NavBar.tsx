@@ -23,6 +23,7 @@ import Tooltip from "@mui/material/Tooltip";
 import Typography from "@mui/material/Typography";
 import { type Session } from "next-auth";
 import { type SignOutResponse } from "next-auth/react";
+import { useTranslations } from "next-intl";
 import { useRouter } from "next-nprogress-bar";
 import Image from "next/image";
 import NextLink from "next/link";
@@ -35,6 +36,8 @@ interface IProps {
 }
 
 function NavBar({ session }: IProps): React.ReactNode {
+  const t = useTranslations("Index");
+
   const permissions = session?.user.permissions!;
 
   const dispatch = useAppDispatch();
@@ -154,7 +157,7 @@ function NavBar({ session }: IProps): React.ReactNode {
               href="/ITFIP-Rectory/home"
               onClick={handleCloseNavMenu}
             >
-              <Typography textAlign="center">{"Home"}</Typography>
+              <Typography textAlign="center">{t("home")}</Typography>
             </MenuItem>
 
             <MenuItem
@@ -162,37 +165,37 @@ function NavBar({ session }: IProps): React.ReactNode {
               href="/ITFIP-Rectory/users"
               onClick={handleCloseNavMenu}
             >
-              <Typography textAlign="center">{"Users"}</Typography>
+              <Typography textAlign="center">{t("users")}</Typography>
             </MenuItem>
             <MenuItem onClick={handleOpenMenu1}>
-              {"Schedule"} <KeyboardArrowDownIcon />
+              {t("schedule")} <KeyboardArrowDownIcon />
             </MenuItem>
             <MenuItem
               component={NextLink}
               href="/ITFIP-Rectory/appointments"
               onClick={handleCloseNavMenu}
             >
-              <Typography textAlign="center">{"Appointments"}</Typography>
+              <Typography textAlign="center">{t("appointments")}</Typography>
             </MenuItem>
             <MenuItem onClick={handleOpenMenu2}>
-              {"Statistics"} <KeyboardArrowDownIcon />
+              {t("statistics")} <KeyboardArrowDownIcon />
             </MenuItem>
             <MenuItem
               component={NextLink}
               href="/ITFIP-Rectory/reports"
               onClick={handleCloseNavMenu}
             >
-              <Typography textAlign="center">{"Reports"}</Typography>
+              <Typography textAlign="center">{t("reports")}</Typography>
             </MenuItem>
             <MenuItem onClick={handleOpenMenu3}>
-              {"History"} <KeyboardArrowDownIcon />
+              {t("history")} <KeyboardArrowDownIcon />
             </MenuItem>
             <MenuItem
               component={NextLink}
               href="/ITFIP-Rectory/faqs"
               onClick={handleCloseNavMenu}
             >
-              <Typography textAlign="center">{"Faqs"}</Typography>
+              <Typography textAlign="center">{t("faqs")}</Typography>
             </MenuItem>
           </Menu>
         </Box>
@@ -204,7 +207,7 @@ function NavBar({ session }: IProps): React.ReactNode {
             onClick={handleCloseNavMenu}
             sx={{ my: 2, color: "white" }}
           >
-            {"Home"}
+            {t("home")}
           </Button>
 
           <ProtectedElement isAllowed={permissions.includes("admin")}>
@@ -214,7 +217,7 @@ function NavBar({ session }: IProps): React.ReactNode {
               onClick={handleCloseNavMenu}
               sx={{ my: 2, color: "white" }}
             >
-              {"Users"}
+              {t("users")}
             </Button>
           </ProtectedElement>
 
@@ -224,7 +227,7 @@ function NavBar({ session }: IProps): React.ReactNode {
             disableElevation
             endIcon={<KeyboardArrowDownIcon />}
           >
-            {"Schedule"}
+            {t("schedule")}
           </Button>
 
           <Menu
@@ -240,7 +243,7 @@ function NavBar({ session }: IProps): React.ReactNode {
                 href="/ITFIP-Rectory/people/create"
                 onClick={handleCloseMenu1}
               >
-                <Typography textAlign="center">{"Daily"}</Typography>
+                <Typography textAlign="center">{t("daily")}</Typography>
               </MenuItem>
             </ProtectedElement>
 
@@ -250,7 +253,7 @@ function NavBar({ session }: IProps): React.ReactNode {
                 href="/ITFIP-Rectory/people/create-schedule"
                 onClick={handleCloseMenu1}
               >
-                <Typography textAlign="center">{"Scheduled"}</Typography>
+                <Typography textAlign="center">{t("scheduled")}</Typography>
               </MenuItem>
             </ProtectedElement>
           </Menu>
@@ -262,7 +265,7 @@ function NavBar({ session }: IProps): React.ReactNode {
               onClick={handleCloseNavMenu}
               sx={{ my: 2, color: "white" }}
             >
-              {"Appointments"}
+              {t("appointments")}
             </Button>
           </ProtectedElement>
 
@@ -272,7 +275,7 @@ function NavBar({ session }: IProps): React.ReactNode {
               sx={{ my: 2, color: "white" }}
               endIcon={<KeyboardArrowDownIcon />}
             >
-              {"Statistics"}
+              {t("statistics")}
             </Button>
           </ProtectedElement>
 
@@ -288,7 +291,7 @@ function NavBar({ session }: IProps): React.ReactNode {
               href="/ITFIP-Rectory/statistics/daily"
               onClick={handleCloseMenu2}
             >
-              <Typography textAlign="center">{"Daily"}</Typography>
+              <Typography textAlign="center">{t("daily")}</Typography>
             </MenuItem>
 
             <MenuItem
@@ -296,7 +299,7 @@ function NavBar({ session }: IProps): React.ReactNode {
               href="/ITFIP-Rectory/statistics/scheduled"
               onClick={handleCloseMenu2}
             >
-              <Typography textAlign="center">{"Scheduled"}</Typography>
+              <Typography textAlign="center">{t("scheduled")}</Typography>
             </MenuItem>
           </Menu>
 
@@ -307,7 +310,7 @@ function NavBar({ session }: IProps): React.ReactNode {
               onClick={handleCloseNavMenu}
               sx={{ my: 2, color: "white" }}
             >
-              {"Reports"}
+              {t("reports")}
             </Button>
           </ProtectedElement>
 
@@ -316,7 +319,7 @@ function NavBar({ session }: IProps): React.ReactNode {
             sx={{ my: 2, color: "white" }}
             endIcon={<KeyboardArrowDownIcon />}
           >
-            {"History"}
+            {t("history")}
           </Button>
 
           <Menu
@@ -331,7 +334,7 @@ function NavBar({ session }: IProps): React.ReactNode {
               href="/ITFIP-Rectory/history/general"
               onClick={handleCloseMenu3}
             >
-              <Typography textAlign="center">{"General"}</Typography>
+              <Typography textAlign="center">{t("general")}</Typography>
             </MenuItem>
 
             <MenuItem
@@ -339,7 +342,7 @@ function NavBar({ session }: IProps): React.ReactNode {
               href="/ITFIP-Rectory/history/cancelled"
               onClick={handleCloseMenu3}
             >
-              <Typography textAlign="center">{"Cancelled"}</Typography>
+              <Typography textAlign="center">{t("cancelled")}</Typography>
             </MenuItem>
           </Menu>
 
@@ -349,12 +352,12 @@ function NavBar({ session }: IProps): React.ReactNode {
             onClick={handleCloseNavMenu}
             sx={{ my: 2, color: "white" }}
           >
-            {"Faqs"}
+            {t("faqs")}
           </Button>
         </Box>
 
         <Box sx={{ flexGrow: 0 }}>
-          <Tooltip title="Open profile options">
+          <Tooltip title={t("profilemenu")}>
             <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
               <Avatar>
                 {session?.user.first_name[0]
@@ -384,7 +387,7 @@ function NavBar({ session }: IProps): React.ReactNode {
               href="/ITFIP-Rectory/faqs"
               onClick={handleCloseUserMenu}
             >
-              <Typography textAlign="center">{"Help"}</Typography>
+              <Typography textAlign="center">{t("help")}</Typography>
             </MenuItem>
 
             <MenuItem
@@ -392,14 +395,14 @@ function NavBar({ session }: IProps): React.ReactNode {
               href={`/ITFIP-Rectory/users/change-password/${session?.user.id}`}
               onClick={handleCloseUserMenu}
             >
-              <Typography textAlign="center">{"Change password"}</Typography>
+              <Typography textAlign="center">{t("changepsw")}</Typography>
             </MenuItem>
 
             <MenuItem
               onClick={handleClickSignOut}
               disabled={mutationDoSignOut.isLoading}
             >
-              <Typography textAlign="center">{"Sign out"}</Typography>
+              <Typography textAlign="center">{t("signout")}</Typography>
             </MenuItem>
           </Menu>
         </Box>

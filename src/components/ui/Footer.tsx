@@ -6,12 +6,15 @@ import Grid from "@mui/material/Grid";
 import Link from "@mui/material/Link";
 import Typography from "@mui/material/Typography";
 import { getServerSession } from "next-auth";
+import { getTranslations } from "next-intl/server";
 import Image from "next/image";
 import NextLink from "next/link";
 
 async function Footer(): Promise<React.ReactElement> {
   const session = await getServerSession(authOptions);
   const isAllowed = !!session;
+
+  const t = await getTranslations("Index");
 
   return (
     <Container maxWidth="lg" sx={{ py: 4, my: 4 }}>
@@ -24,7 +27,7 @@ async function Footer(): Promise<React.ReactElement> {
         >
           <Grid item xs={12} md={4}>
             <Typography variant="body2" color="textSecondary">
-              {`© ${new Date().getFullYear()} Tecnología en gestión informática `}
+              {`© ${new Date().getFullYear()} ${t("team")} `}
               <CodeIcon fontSize="small" sx={{ my: -0.5 }} />
             </Typography>
           </Grid>
@@ -63,7 +66,7 @@ async function Footer(): Promise<React.ReactElement> {
                 color="textSecondary"
                 sx={{ mr: 2 }}
               >
-                {"Home"}
+                {t("home")}
               </Link>
 
               <Link
@@ -73,7 +76,7 @@ async function Footer(): Promise<React.ReactElement> {
                 color="textSecondary"
                 sx={{ mr: 2 }}
               >
-                {"FAQs"}
+                {t("faqs")}
               </Link>
 
               <Link
@@ -83,7 +86,7 @@ async function Footer(): Promise<React.ReactElement> {
                 color="textSecondary"
                 sx={{ mr: 2 }}
               >
-                {"About"}
+                {t("about")}
               </Link>
 
               <Link
@@ -92,7 +95,7 @@ async function Footer(): Promise<React.ReactElement> {
                 variant="body2"
                 color="textSecondary"
               >
-                {"Forgot your password?"}
+                {t("forgot")}
               </Link>
             </nav>
           </Grid>

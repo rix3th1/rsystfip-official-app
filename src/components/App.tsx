@@ -16,7 +16,7 @@ import QueryClientProvider from "@/providers/QueryClientProvider";
 import ReduxProvider from "@/providers/ReduxProvider";
 import { AppRouterCacheProvider } from "@mui/material-nextjs/v14-appRouter";
 import { getServerSession } from "next-auth";
-import { getLocale, getMessages } from "next-intl/server";
+import { getLocale, getMessages, getTimeZone } from "next-intl/server";
 
 async function App({
   children,
@@ -26,7 +26,9 @@ async function App({
   const session = await getServerSession(authOptions);
   const isAllowed = !!session;
 
+  // NextIntl Provider config options
   const locale = (await getLocale()) as TLocale;
+  const tz = await getTimeZone();
   const messages = await getMessages();
 
   return (
@@ -36,7 +38,11 @@ async function App({
           <ProgressProvider>
             <ReduxProvider>
               <QueryClientProvider>
-                <NextIntlProvider locale={locale} messages={messages}>
+                <NextIntlProvider
+                  timeZone={tz}
+                  locale={locale}
+                  messages={messages}
+                >
                   <ProtectedElement isAllowed={isAllowed}>
                     <NavBar session={session} />
                   </ProtectedElement>

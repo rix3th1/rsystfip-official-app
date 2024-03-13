@@ -1,7 +1,26 @@
 {
   "Index": {
     "title": "Agendamiento Citas Rectoría ITFIP",
-    "toggleTheme": "Alternar tema"
+    "toggleTheme": "Alternar tema",
+    "team": "Tecnología en gestión informática",
+    "home": "Inicio",
+    "faqs": "PMFs",
+    "about": "Nosotros",
+    "forgot": "Olvidaste tu contraseña?",
+    "users": "Usuarios",
+    "appointments": "Agendamientos",
+    "reports": "Reportes",
+    "schedule": "Agendamiento",
+    "statistics": "Estadísticas",
+    "history": "Historial",
+    "daily": "Diario",
+    "scheduled": "Programado",
+    "cancelled": "Cancelados",
+    "general": "General",
+    "profilemenu": "Abrir opciones de perfíl",
+    "help": "Ayuda",
+    "changepsw": "Cambiar contraseña",
+    "signout": "Cerrar sesión"
   },
   "PageSignin": {
     "title": "Iniciar Sesión",
