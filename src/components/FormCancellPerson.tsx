@@ -9,6 +9,7 @@ import type { THandleChangeI, THandleSubmit } from "@/types";
 import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
 import { isAxiosError } from "axios";
+import { useTranslations } from "next-intl";
 import { useEffect, useState } from "react";
 import { useMutation } from "react-query";
 
@@ -21,6 +22,8 @@ function FormCancellPerson({
   closeModalCancell,
   changeIsLoadingCancellPerson,
 }: IProps): React.ReactNode {
+  const t = useTranslations("ModalCancellPersonConfirmation");
+
   const formDataInitialState = { cancellation_subject: "" };
   const [formData, setFormData] = useState(formDataInitialState);
 
@@ -109,7 +112,7 @@ function FormCancellPerson({
         fullWidth
         variant="standard"
         name="cancellation_subject"
-        label="Cancellation subject"
+        label={t("input1")}
         onChange={handleChange}
         value={formData.cancellation_subject}
         multiline

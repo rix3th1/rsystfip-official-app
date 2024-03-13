@@ -16,6 +16,7 @@ import InputAdornment from "@mui/material/InputAdornment";
 import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
 import Select, { type SelectChangeEvent } from "@mui/material/Select";
+import { useTranslations } from "next-intl";
 import { useEffect, type DependencyList } from "react";
 import { useQueries, type UseQueryResult } from "react-query";
 import { actionFormSchedule } from ".";
@@ -31,6 +32,8 @@ function SelectPerson({
   handleChange,
   facultieSelectRef,
 }: IProps): React.ReactNode {
+  const t = useTranslations("FormSchedulePeople");
+
   const categoriesState: Array<ICategory> = useAppSelector(
     ({ resources }) => resources.categories
   );
@@ -102,11 +105,11 @@ function SelectPerson({
 
   return (
     <FormControl fullWidth sx={{ minWidth: 120, mt: 1 }}>
-      <InputLabel>Category</InputLabel>
+      <InputLabel>{t("input1")}</InputLabel>
 
       <Select
         name="category_id"
-        label="Category"
+        label={t("input1")}
         value={formDataState.category_id}
         onChange={handleChange}
         onOpen={() => {

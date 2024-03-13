@@ -15,36 +15,39 @@ import {
   type GridColDef,
   type GridValueGetterParams,
 } from "@mui/x-data-grid";
+import { useTranslations } from "next-intl";
 import { useEffect } from "react";
 import { useQuery } from "react-query";
 
-const columns: GridColDef[] = [
-  createColumn("id", "ID", 85),
-  {
-    ...createColumn("full_name", "Full name", 250),
-    description: "This column has a value getter and is not sortable.",
-    sortable: false,
-    valueGetter: (params: GridValueGetterParams) =>
-      `${params.row.first_name || ""} ${params.row.last_name || ""}`,
-  },
-  {
-    ...createColumn("identification", "Identification", 170),
-    description: "This column has a value getter and is not sortable.",
-    sortable: false,
-    valueGetter: (params: GridValueGetterParams) =>
-      `${params.row.document_name || ""} ${params.row.document_number || ""}`,
-  },
-  createColumn("category_name", "Category", 130),
-  createColumn("faculty_name", "Faculty Name", 350),
-  createColumn("cancellation_subject", "Cancellation Subject", 450),
-];
-
 function TableHistoryCanceledPeople(): React.ReactNode {
+  const t = useTranslations("PageHistoryCancelledPeople");
+
   const dispatch = useAppDispatch();
 
   const cancelledPeopleState: Array<PeopleCancellation> = useAppSelector(
     ({ cancellation }) => cancellation
   );
+
+  const columns: GridColDef[] = [
+    createColumn("id", t("row1"), 85),
+    {
+      ...createColumn("full_name", t("row2"), 250),
+      description: "This column has a value getter and is not sortable.",
+      sortable: false,
+      valueGetter: (params: GridValueGetterParams) =>
+        `${params.row.first_name || ""} ${params.row.last_name || ""}`,
+    },
+    {
+      ...createColumn("identification", t("row3"), 170),
+      description: "This column has a value getter and is not sortable.",
+      sortable: false,
+      valueGetter: (params: GridValueGetterParams) =>
+        `${params.row.document_name || ""} ${params.row.document_number || ""}`,
+    },
+    createColumn("category_name", t("row4"), 130),
+    createColumn("faculty_name", t("row5"), 350),
+    createColumn("cancellation_subject", t("row6"), 450),
+  ];
 
   const { data, error, isLoading } = useQuery<[], any>(
     "peopleCancelled",

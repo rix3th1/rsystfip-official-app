@@ -30,12 +30,15 @@ import MenuItem from "@mui/material/MenuItem";
 import Select, { type SelectChangeEvent } from "@mui/material/Select";
 import TextField from "@mui/material/TextField";
 import { isAxiosError } from "axios";
+import { useTranslations } from "next-intl";
 import { useRouter } from "next-nprogress-bar";
 import { useEffect } from "react";
 import { useMutation, useQuery } from "react-query";
 import { PasswordMeter } from "./ui";
 
 function FormUserAdd(): React.ReactNode {
+  const t = useTranslations("PageRegisterUser");
+
   const formDataState: FormData = useAppSelector(({ users }) => users.formData);
   const tempsData: Temps = useAppSelector(({ users }) => users.temps);
   const documentsState: Array<IDocument> = useAppSelector(
@@ -104,11 +107,11 @@ function FormUserAdd(): React.ReactNode {
       <Grid container spacing={2} alignItems="center">
         <Grid item md={4}>
           <FormControl fullWidth sx={{ minWidth: 120, mt: 1 }}>
-            <InputLabel>Role</InputLabel>
+            <InputLabel>{t("input1")}</InputLabel>
 
             <Select
               name="role_id"
-              label="Role"
+              label={t("input1")}
               value={formDataState.role_id}
               onChange={handleChange}
             >
@@ -130,7 +133,7 @@ function FormUserAdd(): React.ReactNode {
             required
             fullWidth
             name="first_name"
-            label="First name"
+            label={t("input2")}
             onChange={handleChange}
             value={formDataState.first_name}
             type="text"
@@ -147,7 +150,7 @@ function FormUserAdd(): React.ReactNode {
             required
             fullWidth
             name="last_name"
-            label="Last name"
+            label={t("input3")}
             onChange={handleChange}
             value={formDataState.last_name}
             type="text"
@@ -159,11 +162,11 @@ function FormUserAdd(): React.ReactNode {
 
         <Grid item md={6}>
           <FormControl fullWidth sx={{ minWidth: 120, mt: 1 }}>
-            <InputLabel>Document</InputLabel>
+            <InputLabel>{t("input4")}</InputLabel>
 
             <Select
               name="document_id"
-              label="Document"
+              label={t("input4")}
               value={formDataState.document_id}
               onChange={handleChange}
               onOpen={() => {
@@ -195,7 +198,7 @@ function FormUserAdd(): React.ReactNode {
             required
             fullWidth
             name="document_number"
-            label="Document number"
+            label={t("input5")}
             onChange={handleChange}
             value={formDataState.document_number}
             type="text"
@@ -211,7 +214,7 @@ function FormUserAdd(): React.ReactNode {
             required
             fullWidth
             name="email"
-            label="Institutional email"
+            label={t("input6")}
             onChange={handleChange}
             value={formDataState.email}
             type="email"
@@ -227,7 +230,7 @@ function FormUserAdd(): React.ReactNode {
             required
             fullWidth
             name="phone_number"
-            label="Phone number"
+            label={t("input7")}
             onChange={handleChange}
             value={formDataState.phone_number}
             type="text"
@@ -243,7 +246,7 @@ function FormUserAdd(): React.ReactNode {
             required
             fullWidth
             name="password"
-            label="Password"
+            label={t("input8")}
             onChange={handleChange}
             value={formDataState.password}
             type={tempsData.passwordVisible ? "text" : "password"}
@@ -284,7 +287,7 @@ function FormUserAdd(): React.ReactNode {
             required
             fullWidth
             name="password2"
-            label="Password confirm"
+            label={t("input9")}
             onChange={handleChange}
             value={formDataState.password2}
             type={tempsData.passwordVisible ? "text" : "password"}
@@ -326,7 +329,7 @@ function FormUserAdd(): React.ReactNode {
           onClick={() => router.back()}
           sx={{ mt: 3, ml: 1 }}
         >
-          {"Back"}
+          {t("back")}
         </Button>
 
         <LoadingButton
@@ -334,7 +337,7 @@ function FormUserAdd(): React.ReactNode {
           loading={mutationSaveUser.isLoading}
           sx={{ mt: 3, ml: 1 }}
         >
-          {"Register"}
+          {t("submit")}
         </LoadingButton>
       </Box>
     </Box>

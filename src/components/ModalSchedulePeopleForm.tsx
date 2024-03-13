@@ -7,6 +7,7 @@ import Dialog from "@mui/material/Dialog";
 import DialogActions from "@mui/material/DialogActions";
 import DialogContent from "@mui/material/DialogContent";
 import DialogTitle from "@mui/material/DialogTitle";
+import { useTranslations } from "next-intl";
 import { useCallback, useState } from "react";
 import FormSchedulePeople from "./FormSchedulePeople";
 
@@ -19,6 +20,8 @@ function ModalSchedulePeopleForm({
   stateModalScheduling,
   closeModalScheduling,
 }: IProps): React.ReactNode {
+  const t = useTranslations("ModalSchedulePeopleForm");
+
   const [isLoadingScheduleAction, setIsLoadingScheduleAction] = useState(false);
 
   const changeIsLoadingScheduleAction = useCallback(
@@ -28,7 +31,7 @@ function ModalSchedulePeopleForm({
 
   return (
     <Dialog open={stateModalScheduling} onClose={closeModalScheduling}>
-      <DialogTitle>Agendamiento Programado</DialogTitle>
+      <DialogTitle>{t("title")}</DialogTitle>
 
       <DialogContent>
         <FormSchedulePeople
@@ -39,14 +42,14 @@ function ModalSchedulePeopleForm({
       </DialogContent>
 
       <DialogActions>
-        <Button onClick={closeModalScheduling}>Close</Button>
+        <Button onClick={closeModalScheduling}>{t("close")}</Button>
 
         <LoadingButton
           type="submit"
           form="formSchedule"
           loading={isLoadingScheduleAction}
         >
-          Schedule
+          {t("submit")}
         </LoadingButton>
       </DialogActions>
     </Dialog>

@@ -7,6 +7,7 @@ import DialogActions from "@mui/material/DialogActions";
 import DialogContent from "@mui/material/DialogContent";
 import DialogContentText from "@mui/material/DialogContentText";
 import DialogTitle from "@mui/material/DialogTitle";
+import { useTranslations } from "next-intl";
 import { useCallback, useState } from "react";
 import FormCancellPerson from "./FormCancellPerson";
 
@@ -19,6 +20,8 @@ function ModalCancellPersonConfirmation({
   stateModalCancell,
   closeModalCancell,
 }: IProps): React.ReactNode {
+  const t = useTranslations("ModalCancellPersonConfirmation");
+
   const [isLoadingCancellPerson, setIsLoadingCancellPerson] = useState(false);
 
   const changeIsLoadingCancellPerson = useCallback(
@@ -28,12 +31,10 @@ function ModalCancellPersonConfirmation({
 
   return (
     <Dialog open={stateModalCancell} onClose={closeModalCancell}>
-      <DialogTitle>Cancel appointment</DialogTitle>
+      <DialogTitle>{t("title")}</DialogTitle>
 
       <DialogContent>
-        <DialogContentText>
-          Are you sure you want to cancel this appointment?
-        </DialogContentText>
+        <DialogContentText>{t("confirm")}</DialogContentText>
 
         <FormCancellPerson
           closeModalCancell={closeModalCancell}
@@ -42,14 +43,14 @@ function ModalCancellPersonConfirmation({
       </DialogContent>
 
       <DialogActions>
-        <Button onClick={closeModalCancell}>No</Button>
+        <Button onClick={closeModalCancell}>{t("no")}</Button>
 
         <LoadingButton
           type="submit"
           form="formCancellation"
           loading={isLoadingCancellPerson}
         >
-          Yes, cancell
+          {t("yes")}
         </LoadingButton>
       </DialogActions>
     </Dialog>

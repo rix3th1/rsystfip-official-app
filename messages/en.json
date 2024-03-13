@@ -99,5 +99,79 @@
     "row3": "Created at",
     "row4": "Updated at",
     "row5": "Appointment date"
+  },
+  "PageHistoryCancelledPeople": {
+    "title": "Canceled Appointments",
+    "row1": "ID",
+    "row2": "Full name",
+    "row3": "Identification",
+    "row4": "Category",
+    "row5": "Faculty",
+    "row6": "Cancellation subject"
+  },
+  "PageHistoryPeople": {
+    "title": "Scheduled People",
+    "row1": "ID",
+    "row2": "Full name",
+    "row3": "Identification",
+    "row4": "Category",
+    "row5": "Faculty",
+    "row6": "Rectory visit subject",
+    "row7": "Actions",
+    "edit": "Edit data for {fullname}"
+  },
+  "PageFaqs": {
+    "title": "Frequently Asked Questions",
+    "question1": "How can I see a list of all the people who have visited the rectory up to today?",
+    "response1": "To see all the people who are scheduled and registered in the application for a visit to the rectory, you must go to the \"People\" section, which is located in the top bar of all sections of the application and access that option to see all the relevant information of each person.",
+    "question2": "How to schedule an appointment for a specific date or day and time?",
+    "response2": "To schedule an appointment with the rectory of the ITFIP (Schedule a person), you must go to the \"Schedule\" section, located at the top of the application's options bar. Once in the calendar view, select the day by clicking on the box and then on the day's number or on the sidebar of the scheduling calendar, click on week or day to schedule for the selected day. Finally, drag and drop until the time you require the appointment."
+  },
+  "PageEditPeople": {
+    "title": "Update Information"
+  },
+  "PageDailyScheduling": {
+    "title": "Daily Scheduling"
+  },
+  "FormSchedulePeople": {
+    "input1": "Category",
+    "input2": "Faculty",
+    "input3": "Document Type",
+    "input4": "Document Number",
+    "input5": "First name",
+    "input6": "Last name",
+    "input7": "Phone number",
+    "input8": "Email",
+    "input9": "Visit subject",
+    "input10": "Appointment color",
+    "back": "Back",
+    "update": "Update",
+    "submit": "Register"
+  },
+  "ModalCancellPersonConfirmation": {
+    "title": "Cancel appointment",
+    "confirm": "¿Are you sure you want to cancel this appointment?",
+    "input1": "Cancellation subject",
+    "no": "No",
+    "yes": "Yes, cancell"
+  },
+  "ModalSchedulePeopleForm": {
+    "title": "Scheduled Scheduling",
+    "close": "Close",
+    "submit": "Schedule"
+  },
+  "PageRegisterUser": {
+    "title": "Register new user",
+    "input1": "Role",
+    "input2": "First name",
+    "input3": "Last name",
+    "input4": "Document type",
+    "input5": "Document number",
+    "input6": "Institutional ITFIP email",
+    "input7": "Phone number",
+    "input8": "Password",
+    "input9": "Confirm password",
+    "back": "Back",
+    "submit": "Register"
   }
 }

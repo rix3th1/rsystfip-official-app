@@ -12,6 +12,7 @@ import InputAdornment from "@mui/material/InputAdornment";
 import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
 import Select, { type SelectChangeEvent } from "@mui/material/Select";
+import { useTranslations } from "next-intl";
 import { useEffect } from "react";
 import { useQuery } from "react-query";
 import { actionFormSchedule } from ".";
@@ -27,6 +28,8 @@ function SelectFaculties({
   handleChange,
   facultieSelectRef,
 }: IProps): React.ReactNode {
+  const t = useTranslations("FormSchedulePeople");
+
   const formDataState: FormDataState | undefined = useAppSelector(
     ({ appointments: { formData } }) => formData[action]
   );
@@ -51,11 +54,11 @@ function SelectFaculties({
 
   return (
     <FormControl fullWidth sx={{ minWidth: 120, mt: 1 }}>
-      <InputLabel>Faculty</InputLabel>
+      <InputLabel>{t("input2")}</InputLabel>
 
       <Select
         name="faculty_id"
-        label="Faculty"
+        label={t("input2")}
         value={formDataState.faculty_id}
         onChange={handleChange}
         onOpen={() => {

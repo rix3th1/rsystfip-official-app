@@ -16,6 +16,7 @@ import Grid from "@mui/material/Grid";
 import { type SelectChangeEvent } from "@mui/material/Select";
 import TextField from "@mui/material/TextField";
 import { isAxiosError } from "axios";
+import { useTranslations } from "next-intl";
 import { useParams } from "next/navigation";
 import { useEffect, useRef } from "react";
 import { useMutation, useQuery } from "react-query";
@@ -38,6 +39,8 @@ function FormSchedulePeople({
   closeModalScheduling,
   changeIsLoadingScheduleAction,
 }: IProps): React.ReactNode {
+  const t = useTranslations("FormSchedulePeople");
+
   const params = useParams<{ id: string }>();
 
   const facultieSelectRef = useRef<HTMLSelectElement>(null);
@@ -313,7 +316,7 @@ function FormSchedulePeople({
             required
             fullWidth
             name="document_number"
-            label="Document number"
+            label={t("input4")}
             onChange={handleChange}
             value={formDataState.document_number}
             type="text"
@@ -334,7 +337,7 @@ function FormSchedulePeople({
             required
             fullWidth
             name="first_name"
-            label="First name"
+            label={t("input5")}
             onChange={handleChange}
             value={formDataState.first_name}
             type="text"
@@ -354,7 +357,7 @@ function FormSchedulePeople({
             required
             fullWidth
             name="last_name"
-            label="Last name"
+            label={t("input6")}
             onChange={handleChange}
             value={formDataState.last_name}
             type="text"
@@ -374,7 +377,7 @@ function FormSchedulePeople({
             required
             fullWidth
             name="phone_number"
-            label="Phone number"
+            label={t("input7")}
             onChange={handleChange}
             value={formDataState.phone_number}
             type="text"
@@ -394,7 +397,7 @@ function FormSchedulePeople({
             required
             fullWidth
             name="email"
-            label="Contact email"
+            label={t("input8")}
             onChange={handleChange}
             value={formDataState.email}
             type="email"
@@ -415,7 +418,7 @@ function FormSchedulePeople({
               required
               fullWidth
               name="visit_subject"
-              label="Visit subject"
+              label={t("input9")}
               onChange={handleChange}
               value={formDataState.visit_subject}
               type="text"
@@ -439,7 +442,7 @@ function FormSchedulePeople({
               required
               fullWidth
               name="color"
-              label="Appointment color"
+              label={t("input10")}
               onChange={handleChange}
               value={formDataState.color}
               type="color"

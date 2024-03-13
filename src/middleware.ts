@@ -12,7 +12,7 @@ const publicPages = ["/signin", "/recover-password"];
 const intlMiddleware = createIntlMiddleware({
   locales,
   localePrefix: "as-needed",
-  defaultLocale: "en",
+  defaultLocale: "es",
 });
 
 const authMiddleware = withAuth(

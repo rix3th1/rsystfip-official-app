@@ -99,5 +99,79 @@
     "row3": "Creado en",
     "row4": "Actualizado en",
     "row5": "Fecha de agendamiento"
+  },
+  "PageHistoryCancelledPeople": {
+    "title": "Agendamientos cancelados",
+    "row1": "ID",
+    "row2": "Nombre completo",
+    "row3": "Identificación",
+    "row4": "Categoría",
+    "row5": "Facultad",
+    "row6": "Asunto de cancelamiento"
+  },
+  "PageHistoryPeople": {
+    "title": "Personas agendadas",
+    "row1": "ID",
+    "row2": "Nombre completo",
+    "row3": "Identificación",
+    "row4": "Categoría",
+    "row5": "Facultad",
+    "row6": "Asunto de visita Rectoría",
+    "row7": "Acciones",
+    "edit": "Editar datos para {fullname}"
+  },
+  "PageFaqs": {
+    "title": "Preguntas más frecuentes",
+    "question1": "¿Cómo puedo ver una lista de todas las personas que han visitado la rectoría hasta el día de hoy?",
+    "response1": "Para ver todas las personas que tienen programada y registrada una visita a la rectoría en la aplicación, debes ir a la sección de \"Personas\", la cual se encuentra en la barra superior de todas las secciones de la aplicación. Accede a esa opción para visualizar toda la información relevante de cada persona.",
+    "question2": "¿Cómo programar una cita para una fecha o día específico y una hora determinada?",
+    "response2": "Para programar una cita con la rectoría del ITFIP (Programar a una persona) debes ir a la sección \"Programar\", en la parte superior de la barra de opciones de la aplicación. Una vez en la vista del calendario, selecciona el día haciendo clic en el cuadro y dentro en el número del día o en la barra lateral del calendario de programación, haz clic en semana o día para programar en el día que has seleccionado y, finalmente, arrastra y suelta hasta la hora en que necesitas la cita."
+  },
+  "PageEditPeople": {
+    "title": "Actualizar información"
+  },
+  "PageDailyScheduling": {
+    "title": "Realizar Agendamiento diario"
+  },
+  "FormSchedulePeople": {
+    "input1": "Categoría",
+    "input2": "Facultad",
+    "input3": "Tipo de documento",
+    "input4": "Número de documento",
+    "input5": "Nombres",
+    "input6": "Apellidos",
+    "input7": "Número de teléfono",
+    "input8": "Correo electrónico",
+    "input9": "Asunto de visita",
+    "input10": "Color de agendamiento",
+    "back": "Atrás",
+    "update": "Actualizar",
+    "submit": "Agendar"
+  },
+  "ModalCancellPersonConfirmation": {
+    "title": "Cancelar agendamiento",
+    "confirm": "¿Estás seguro que deseas cancelar este agendamiento?",
+    "input1": "Asunto de cancelamiento",
+    "no": "No",
+    "yes": "Si, cancelar"
+  },
+  "ModalSchedulePeopleForm": {
+    "title": "Agendamiento programado",
+    "close": "Cerrar",
+    "submit": "Programar"
+  },
+  "PageRegisterUser": {
+    "title": "Registrar nuevo usuario",
+    "input1": "Rol",
+    "input2": "Nombres",
+    "input3": "Apellidos",
+    "input4": "Tipo de documento",
+    "input5": "Número de documento",
+    "input6": "Correo electrónico institucional",
+    "input7": "Número de teléfono",
+    "input8": "Contraseña",
+    "input9": "Confirmación de contraseña",
+    "back": "Atrás",
+    "submit": "Registrar"
   }
 }

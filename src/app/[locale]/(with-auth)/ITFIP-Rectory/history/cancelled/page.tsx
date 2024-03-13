@@ -2,12 +2,15 @@ import { TableHistoryCanceledPeople } from "@/components";
 import Container from "@mui/material/Container";
 import Typography from "@mui/material/Typography";
 import { type Metadata } from "next";
+import { getTranslations } from "next-intl/server";
 
 export const metadata: Metadata = {
   title: "RSystfip | Canceled people history",
 };
 
-function PageHistoryCancelledPeople(): React.ReactNode {
+async function PageHistoryCancelledPeople(): Promise<React.ReactElement> {
+  const t = await getTranslations("PageHistoryCancelledPeople");
+
   return (
     <Container component="main" maxWidth="xl">
       <Typography
@@ -16,7 +19,7 @@ function PageHistoryCancelledPeople(): React.ReactNode {
         gutterBottom
         marginTop={{ xs: "1rem", sm: "2rem", md: "3rem" }}
       >
-        {"Canceled Appointments"}
+        {t("title")}
       </Typography>
 
       <TableHistoryCanceledPeople />

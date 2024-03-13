@@ -12,6 +12,7 @@ import InputAdornment from "@mui/material/InputAdornment";
 import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
 import Select, { type SelectChangeEvent } from "@mui/material/Select";
+import { useTranslations } from "next-intl";
 import { useEffect } from "react";
 import { useQuery } from "react-query";
 import { actionFormSchedule } from ".";
@@ -22,6 +23,8 @@ interface IProps {
 }
 
 function SelectDocument({ action, handleChange }: IProps): React.ReactNode {
+  const t = useTranslations("FormSchedulePeople");
+
   const documentsState: Array<IDocument> = useAppSelector(
     ({ resources }) => resources.documents
   );
@@ -46,11 +49,11 @@ function SelectDocument({ action, handleChange }: IProps): React.ReactNode {
 
   return (
     <FormControl fullWidth sx={{ minWidth: 120, mt: 1 }}>
-      <InputLabel>Document</InputLabel>
+      <InputLabel>{t("input3")}</InputLabel>
 
       <Select
         name="document_id"
-        label="Document"
+        label={t("input3")}
         value={formDataState.document_id}
         onChange={handleChange}
         onOpen={() => {
