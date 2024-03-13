@@ -33,15 +33,11 @@ async function App({
   return (
     <NextThemeProvider>
       <AppRouterCacheProvider>
-        <MUIThemeProvider>
-          <ProgressProvider>
-            <ReduxProvider>
-              <QueryClientProvider>
-                <NextIntlProvider
-                  timeZone={tz}
-                  locale={locale}
-                  messages={messages}
-                >
+        <NextIntlProvider timeZone={tz} locale={locale} messages={messages}>
+          <MUIThemeProvider>
+            <ProgressProvider>
+              <ReduxProvider>
+                <QueryClientProvider>
                   <ProtectedElement isAllowed={isAllowed}>
                     <NavBar session={session} />
                   </ProtectedElement>
@@ -57,11 +53,11 @@ async function App({
                   <ScrollTopButton />
 
                   <ContainerToast />
-                </NextIntlProvider>
-              </QueryClientProvider>
-            </ReduxProvider>
-          </ProgressProvider>
-        </MUIThemeProvider>
+                </QueryClientProvider>
+              </ReduxProvider>
+            </ProgressProvider>
+          </MUIThemeProvider>
+        </NextIntlProvider>
       </AppRouterCacheProvider>
     </NextThemeProvider>
   );

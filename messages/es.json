@@ -46,8 +46,35 @@
     "submit": "Enviar correo"
   },
   "PageHome": {
-    "title": "Bienvenid@",
+    "title": "Bienvenido(a)",
     "button1": "Agendamiento Diario",
     "button2": "Agendamiento Programado"
+  },
+  "PageUsers": {
+    "title": "Administrar usuarios",
+    "add": "Agregar usuario",
+    "row1": "Correo institucional ITFIP",
+    "row2": "Acciones",
+    "changepsw": "Cambiar contraseña para el usuario {email}",
+    "delete": "Eliminar permantemente {role_name} {email}"
+  },
+  "PageChangePassword": {
+    "title": "Correo del usuario:",
+    "input1": "Contraseña actual",
+    "input2": "Nueva contraseña",
+    "input3": "Confirmación nueva contraseña",
+    "submit": "Continuar",
+    "back": "Atrás",
+    "level1": "Muy débil",
+    "level2": "Débil",
+    "level3": "Fuerte",
+    "level4": "Muy fuerte",
+    "signin": "Iniciar sesión"
+  },
+  "PageAppointments": {
+    "title": "Ver agendamientos programados"
+  },
+  "PageScheduleScheduling": {
+    "title": "Realizar Agendamiento programado"
   }
 }

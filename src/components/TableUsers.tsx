@@ -18,11 +18,14 @@ import {
   type GridValueGetterParams,
 } from "@mui/x-data-grid";
 import { isAxiosError } from "axios";
+import { useTranslations } from "next-intl";
 import NextLink from "next/link";
 import { useEffect, useState } from "react";
 import { useMutation, useQuery } from "react-query";
 
 function TableUsers(): React.ReactNode {
+  const t = useTranslations("PageUsers");
+
   const [loadingButtons, setLoadingButtons] = useState<Set<number>>(new Set());
 
   const dispatch = useAppDispatch();
@@ -53,18 +56,18 @@ function TableUsers(): React.ReactNode {
 
   const columns: GridColDef[] = [
     {
-      ...createColumn("email", "Institutional ITFIP Email", 700),
+      ...createColumn("email", t("row1"), 700),
       description: "This column has a value getter and is not sortable.",
       sortable: false,
       valueGetter: ({ row: { email, role_name } }: GridValueGetterParams) =>
         `${email} (${role_name[0].toUpperCase().concat(role_name.slice(1))})`,
     },
     {
-      ...createColumn("actions", "Actions", 150),
+      ...createColumn("actions", t("row2"), 150),
       align: "center",
       renderCell: ({ row: { id, email, role_name } }): React.ReactNode => (
         <>
-          <Tooltip title={`Change password for user ${email}`}>
+          <Tooltip title={t("changepsw", { email })}>
             <IconButton
               component={NextLink}
               href={`/ITFIP-Rectory/users/change-password/${id}`}
@@ -73,7 +76,7 @@ function TableUsers(): React.ReactNode {
             </IconButton>
           </Tooltip>
 
-          <Tooltip title={`Delete permanently ${role_name} ${email}.`}>
+          <Tooltip title={t("delete", { role_name, email })}>
             <IconButton
               color="error"
               onClick={() => handleClick(id)}

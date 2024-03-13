@@ -49,5 +49,32 @@
     "title": "Welcome",
     "button1": "Daily scheduling",
     "button2": "Schedule scheduling"
+  },
+  "PageUsers": {
+    "title": "Manage users",
+    "add": "Add user",
+    "row1": "Institutional ITFIP Email",
+    "row2": "Actions",
+    "changepsw": "Change password for user {email}",
+    "delete": "Delete permanently {role_name} {email}"
+  },
+  "PageChangePassword": {
+    "title": "User email:",
+    "input1": "Current password",
+    "input2": "New password",
+    "input3": "Confirm new password",
+    "submit": "Continue",
+    "back": "Back",
+    "level1": "Very weak",
+    "level2": "Weak",
+    "level3": "Strong",
+    "level4": "Very strong",
+    "signin": "Sign In"
+  },
+  "PageAppointments": {
+    "title": "View scheduled appointments"
+  },
+  "PageScheduleScheduling": {
+    "title": "Scheduled Scheduling"
   }
 }

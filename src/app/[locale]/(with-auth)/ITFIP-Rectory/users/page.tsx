@@ -5,13 +5,16 @@ import Fab from "@mui/material/Fab";
 import Tooltip from "@mui/material/Tooltip";
 import Typography from "@mui/material/Typography";
 import { type Metadata } from "next";
+import { getTranslations } from "next-intl/server";
 import NextLink from "next/link";
 
 export const metadata: Metadata = {
   title: "RSystfip | Users",
 };
 
-function PageUsers(): React.ReactNode {
+async function PageUsers(): Promise<React.ReactElement> {
+  const t = await getTranslations("PageUsers");
+
   return (
     <Container component="main" maxWidth="xl">
       <Typography
@@ -20,10 +23,10 @@ function PageUsers(): React.ReactNode {
         gutterBottom
         marginY={{ xs: "1rem", sm: "2rem", md: "3rem" }}
       >
-        {"Manage users"}
+        {t("title")}
       </Typography>
 
-      <Tooltip title="Add user">
+      <Tooltip title={t("add")}>
         <Fab
           component={NextLink}
           href="/ITFIP-Rectory/users/create"

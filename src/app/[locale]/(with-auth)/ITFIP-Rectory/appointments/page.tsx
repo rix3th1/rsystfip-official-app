@@ -2,12 +2,15 @@ import { Fca } from "@/components";
 import Container from "@mui/material/Container";
 import Typography from "@mui/material/Typography";
 import { type Metadata } from "next";
+import { getTranslations } from "next-intl/server";
 
 export const metadata: Metadata = {
   title: "RSystfip | Appointments",
 };
 
-function PageAppointments() {
+async function PageAppointments(): Promise<React.ReactElement> {
+  const t = await getTranslations("PageAppointments");
+
   return (
     <Container component="main" maxWidth="xl">
       <Typography
@@ -16,7 +19,7 @@ function PageAppointments() {
         gutterBottom
         marginTop={{ xs: "1rem", sm: "2rem", md: "3rem" }}
       >
-        {"View scheduled appointments"}
+        {t("title")}
       </Typography>
 
       <Fca />

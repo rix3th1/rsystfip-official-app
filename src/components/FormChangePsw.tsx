@@ -15,6 +15,7 @@ import InputAdornment from "@mui/material/InputAdornment";
 import TextField from "@mui/material/TextField";
 import { isAxiosError } from "axios";
 import { signOut } from "next-auth/react";
+import { useTranslations } from "next-intl";
 import { useRouter } from "next-nprogress-bar";
 import { useState } from "react";
 import { useMutation } from "react-query";
@@ -25,6 +26,8 @@ interface IProps {
 }
 
 function FormChangePsw({ userId }: IProps): React.ReactNode {
+  const t = useTranslations("PageChangePassword");
+
   const formDataInitialState = {
     currentPassword: "",
     newPassword: "",
@@ -87,7 +90,7 @@ function FormChangePsw({ userId }: IProps): React.ReactNode {
         required
         fullWidth
         name="currentPassword"
-        label="Current password"
+        label={t("input1")}
         onChange={handleChange}
         value={formData.currentPassword}
         type={formData.passwordVisible ? "text" : "password"}
@@ -120,7 +123,7 @@ function FormChangePsw({ userId }: IProps): React.ReactNode {
         required
         fullWidth
         name="newPassword"
-        label="New password"
+        label={t("input2")}
         onChange={handleChange}
         value={formData.newPassword}
         type={formData.passwordVisible ? "text" : "password"}
@@ -159,7 +162,7 @@ function FormChangePsw({ userId }: IProps): React.ReactNode {
         required
         fullWidth
         name="confirmPassword"
-        label="Confirm password"
+        label={t("input3")}
         onChange={handleChange}
         value={formData.confirmPassword}
         type={formData.passwordVisible ? "text" : "password"}
@@ -199,7 +202,7 @@ function FormChangePsw({ userId }: IProps): React.ReactNode {
           onClick={() => router.back()}
           sx={{ mt: 3, ml: 1 }}
         >
-          Back
+          {t("back")}
         </Button>
 
         <ProtectedElement isAllowed={!hasChanged}>
@@ -208,7 +211,7 @@ function FormChangePsw({ userId }: IProps): React.ReactNode {
             loading={isLoading}
             sx={{ mt: 3, ml: 1 }}
           >
-            Continue
+            {t("submit")}
           </LoadingButton>
         </ProtectedElement>
 
@@ -218,7 +221,7 @@ function FormChangePsw({ userId }: IProps): React.ReactNode {
             onClick={() => signOut({ callbackUrl: "/signin" })}
             sx={{ mt: 3, ml: 1 }}
           >
-            Sign In
+            {t("signin")}
           </Button>
         </ProtectedElement>
       </Box>

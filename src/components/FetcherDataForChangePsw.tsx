@@ -8,12 +8,15 @@ import { userService } from "@/services";
 import CircularProgress from "@mui/material/CircularProgress";
 import Paper from "@mui/material/Paper";
 import Typography from "@mui/material/Typography";
+import { useTranslations } from "next-intl";
 import { useParams } from "next/navigation";
 import { useEffect } from "react";
 import { useQuery } from "react-query";
 import FormChangePsw from "./FormChangePsw";
 
 function FetcherDataForChangePsw(): React.ReactNode {
+  const t = useTranslations("PageChangePassword");
+
   const params = useParams<{ role: string }>();
 
   const dispatch = useAppDispatch();
@@ -39,7 +42,7 @@ function FetcherDataForChangePsw(): React.ReactNode {
       <Typography component="h1" variant="h5" gutterBottom align="center">
         {tempDataStateForChangePsw.email && !isLoading ? (
           <>
-            User email:
+            {t("title")}
             <b>{` ${tempDataStateForChangePsw.email}`}</b>
           </>
         ) : (

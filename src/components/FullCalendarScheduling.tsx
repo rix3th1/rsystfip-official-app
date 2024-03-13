@@ -19,6 +19,7 @@ import interactionPlugin from "@fullcalendar/interaction";
 import FullCalendar from "@fullcalendar/react";
 import TableContainer from "@mui/material/TableContainer";
 import { format } from "date-fns";
+import { useLocale } from "next-intl";
 import { useCallback, useEffect, useState } from "react";
 import { useQuery } from "react-query";
 import ModalCancellPersonConfirmation from "./ModalCancellPersonConfirmation";
@@ -38,6 +39,9 @@ function FullCalendarScheduling({
   initialView,
   plugins,
 }: IProps): React.ReactNode {
+  const locale = useLocale();
+  const FCLocale = locale === "en" ? "en" : "es-us";
+
   const dispatch = useAppDispatch();
   const formDataState: FormDataState = useAppSelector(
     ({ appointments }) => appointments.formData.schedule
@@ -92,7 +96,7 @@ function FullCalendarScheduling({
           initialView={initialView}
           plugins={[...plugins, interactionPlugin]}
           height="auto"
-          locale={true ? "en" : "es-us"}
+          locale={FCLocale}
           locales={[esLocale]}
           navLinks
           editable

@@ -4,6 +4,7 @@ import LinearProgress, {
 } from "@mui/material/LinearProgress";
 import { styled } from "@mui/material/styles";
 import Typography from "@mui/material/Typography";
+import { useTranslations } from "next-intl";
 
 interface IProps {
   value: string;
@@ -14,6 +15,8 @@ function PasswordMeter({
   value,
   LinearProgressProps,
 }: IProps): React.ReactNode {
+  const t = useTranslations("PageChangePassword");
+
   const valueLength = value.length;
   const minLength = 8;
   const hue = Math.min(valueLength * 10, 120);
@@ -42,10 +45,10 @@ function PasswordMeter({
         variant="caption"
         sx={{ alignSelf: "flex-end", color: `hsl(${hue} 60% 50%)` }}
       >
-        {valueLength < 3 && "Very weak"}
-        {valueLength >= 3 && valueLength < 6 && "Weak"}
-        {valueLength >= 6 && valueLength < 10 && "Strong"}
-        {valueLength >= 10 && "Very strong"}
+        {valueLength < 3 && t("level1")}
+        {valueLength >= 3 && valueLength < 6 && t("level2")}
+        {valueLength >= 6 && valueLength < 10 && t("level3")}
+        {valueLength >= 10 && t("level4")}
       </Typography>
     </>
   );

@@ -2,12 +2,15 @@ import { Fcs } from "@/components";
 import Container from "@mui/material/Container";
 import Typography from "@mui/material/Typography";
 import { type Metadata } from "next";
+import { getTranslations } from "next-intl/server";
 
 export const metadata: Metadata = {
   title: "RSystfip | Programming scheduling",
 };
 
-function PageScheduleScheduling(): React.ReactNode {
+async function PageScheduleScheduling(): Promise<React.ReactElement> {
+  const t = await getTranslations("PageScheduleScheduling");
+
   return (
     <Container component="main" maxWidth="xl">
       <Typography
@@ -16,7 +19,7 @@ function PageScheduleScheduling(): React.ReactNode {
         gutterBottom
         marginTop={{ xs: "1rem", sm: "2rem", md: "3rem" }}
       >
-        {"Scheduled Scheduling"}
+        {t("title")}
       </Typography>
 
       <Fcs />
