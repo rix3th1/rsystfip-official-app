@@ -32,6 +32,7 @@ import { useQueries, type UseQueryResult } from "react-query";
 import DaterStatistics from "./DaterStatistics";
 import StatisticsData from "./StatisticsData";
 import { BigLProgress } from "./ui";
+import { useTranslations } from "next-intl";
 
 ChartJS.register(
   ArcElement,
@@ -54,6 +55,8 @@ interface IProps {
 }
 
 function Statistics({ appointment_status }: IProps): React.ReactNode {
+  const t = useTranslations("Statistics");
+
   const [chartJS, setChartJS] = useState<ChartJS<
     keyof ChartTypeRegistry,
     Array<string>,
@@ -68,8 +71,9 @@ function Statistics({ appointment_status }: IProps): React.ReactNode {
     ({ statistics }) => statistics[appointment_status].queryData
   );
 
-  const labelText =
-    appointment_status === AppointmentStatus.daily ? "daily" : "scheduled";
+  const labelText = t(
+    appointment_status === AppointmentStatus.daily ? "daily" : "scheduled"
+  );
 
   const refreshChart = (labels: Array<string>, data: Array<string>) => {
     if (chartJS) chartJS.destroy();
@@ -80,7 +84,7 @@ function Statistics({ appointment_status }: IProps): React.ReactNode {
         labels,
         datasets: [
           {
-            label: `Scheduling ${labelText} - Person(s) quantity`,
+            label: t("chartlabel", { type: labelText }),
             data,
             backgroundColor: [
               "rgba(54, 162, 235, 0.2)",
@@ -216,7 +220,7 @@ function Statistics({ appointment_status }: IProps): React.ReactNode {
         gutterBottom
         marginTop={{ xs: "1rem", sm: "2rem", md: "3rem" }}
       >
-        {`Appointment Statistics ${labelText}`}
+        {t("title", { type: labelText })}
       </Typography>
 
       <DaterStatistics appointment_status={appointment_status} />

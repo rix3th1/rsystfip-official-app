@@ -4,6 +4,7 @@ import { AppointmentStatus } from "@/enums";
 import type { ICounts } from "@/interfaces";
 import type { QueryData } from "@/redux/features/statistics/statisticsSlice";
 import { useAppSelector } from "@/redux/hooks";
+import { useTranslations } from "next-intl";
 import { memo } from "react";
 import { Listgroup } from "./ui";
 
@@ -12,6 +13,8 @@ interface IProps {
 }
 
 function ListerStatistics({ appointment_status }: IProps): React.ReactNode {
+  const t = useTranslations("Statistics");
+
   const mostAgendatedOnRangeState: Array<ICounts> = useAppSelector(
     ({ statistics }) => statistics[appointment_status].mostAgendatedOnRange
   );
@@ -22,19 +25,20 @@ function ListerStatistics({ appointment_status }: IProps): React.ReactNode {
     ({ statistics }) => statistics[appointment_status].queryData
   );
 
-  const titleText: string =
-    appointment_status === AppointmentStatus.daily ? "daily" : "scheduled";
+  const titleText: string = t(
+    appointment_status === AppointmentStatus.daily ? "daily" : "scheduled"
+  );
 
   return (
     <>
       <Listgroup
-        title={`Scheduling ${titleText} in date range`}
+        title={t("inrange", { type: titleText })}
         data={mostAgendatedOnRangeState}
         end_time={queryDataState.end_time}
       />
 
       <Listgroup
-        title={`Scheduling ${titleText} in all dates`}
+        title={t("alldate", { type: titleText })}
         data={mostAgendatedAllTimeState}
         end_time={queryDataState.end_time}
       />

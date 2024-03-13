@@ -76,5 +76,28 @@
   },
   "PageScheduleScheduling": {
     "title": "Realizar Agendamiento programado"
+  },
+  "Statistics": {
+    "title": "Estadísticas de agendamiento {type}",
+    "daily": "diario",
+    "scheduled": "programado",
+    "inrange": "Agendamiento {type} en el rango de fechas",
+    "alldate": "Agendamiento {type} en todas las fechas",
+    "start": "Fecha de inicio",
+    "end": "Fecha final",
+    "chart": "Tipo de gráfico",
+    "chartlabel": "Agendamiento {type} - Cantidad de personas"
+  },
+  "PageReportsPeople": {
+    "title": "Reportes mensuales",
+    "start": "Fecha de inicio",
+    "end": "Fecha final",
+    "category": "Categoría",
+    "download": "Descargar reporte {file}",
+    "row1": "ID",
+    "row2": "Nombre completo",
+    "row3": "Creado en",
+    "row4": "Actualizado en",
+    "row5": "Fecha de agendamiento"
   }
 }

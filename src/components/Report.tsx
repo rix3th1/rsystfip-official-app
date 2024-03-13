@@ -23,12 +23,15 @@ import { AdapterDateFns } from "@mui/x-date-pickers/AdapterDateFns";
 import { DatePicker } from "@mui/x-date-pickers/DatePicker";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { format, parse } from "date-fns";
+import { useTranslations } from "next-intl";
 import { useEffect, type DependencyList } from "react";
 import { useQueries, type UseQueryResult } from "react-query";
 import FetcherReports from "./FetcherReports";
 import TableReports from "./TableReports";
 
 function Report(): React.ReactNode {
+  const t = useTranslations("PageReportsPeople");
+
   const dispatch = useAppDispatch();
 
   const categoriesState: Array<ICategory> = useAppSelector(
@@ -122,7 +125,7 @@ function Report(): React.ReactNode {
         <Grid item>
           <LocalizationProvider dateAdapter={AdapterDateFns}>
             <DatePicker
-              label="Start time"
+              label={t("start")}
               value={parse(queryDataState.start_time, "yyyy-MM-dd", new Date())}
               onChange={(value) => {
                 handleChangeDatePicker("start_time", value!);
@@ -134,7 +137,7 @@ function Report(): React.ReactNode {
         <Grid item>
           <LocalizationProvider dateAdapter={AdapterDateFns}>
             <DatePicker
-              label="End time"
+              label={t("end")}
               value={parse(queryDataState.end_time, "yyyy-MM-dd", new Date())}
               onChange={(value) => {
                 handleChangeDatePicker("end_time", value!);
@@ -145,11 +148,11 @@ function Report(): React.ReactNode {
 
         <Grid item>
           <FormControl sx={{ minWidth: 120 }}>
-            <InputLabel>Category</InputLabel>
+            <InputLabel>{t("category")}</InputLabel>
 
             <Select
               name="category_id"
-              label="Category"
+              label={t("category")}
               value={queryDataState.category_id}
               onChange={handleChangeSelect}
               onOpen={() => {

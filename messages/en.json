@@ -76,5 +76,28 @@
   },
   "PageScheduleScheduling": {
     "title": "Scheduled Scheduling"
+  },
+  "Statistics": {
+    "title": "{type} scheduling statistics",
+    "daily": "Daily",
+    "scheduled": "Scheduled",
+    "inrange": "{type} scheduling in date range",
+    "alldate": "{type} scheduling on all dates",
+    "start": "Start time",
+    "end": "End time",
+    "chart": "Chart Type",
+    "chartlabel": "{type} scheduling - Person(s) quantity"
+  },
+  "PageReportsPeople": {
+    "title": "Monthly Reports",
+    "start": "Start time",
+    "end": "End time",
+    "category": "Category",
+    "download": "Download the report {file}",
+    "row1": "ID",
+    "row2": "Full name",
+    "row3": "Created at",
+    "row4": "Updated at",
+    "row5": "Appointment date"
   }
 }

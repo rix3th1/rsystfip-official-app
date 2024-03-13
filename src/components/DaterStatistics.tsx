@@ -15,6 +15,7 @@ import { AdapterDateFns } from "@mui/x-date-pickers/AdapterDateFns";
 import { DatePicker } from "@mui/x-date-pickers/DatePicker";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { format, parse } from "date-fns";
+import { useTranslations } from "next-intl";
 import { memo } from "react";
 
 interface IProps {
@@ -22,6 +23,8 @@ interface IProps {
 }
 
 function DaterStatistics({ appointment_status }: IProps): React.ReactNode {
+  const t = useTranslations("Statistics");
+
   const dispatch = useAppDispatch();
 
   const queryDataState: QueryData = useAppSelector(
@@ -62,7 +65,7 @@ function DaterStatistics({ appointment_status }: IProps): React.ReactNode {
       <Grid item>
         <LocalizationProvider dateAdapter={AdapterDateFns}>
           <DatePicker
-            label="Start time"
+            label={t("start")}
             value={parse(queryDataState.start_time, "yyyy-MM-dd", new Date())}
             onChange={(value) => {
               handleChangeDatePicker("start_time", value!);
@@ -74,7 +77,7 @@ function DaterStatistics({ appointment_status }: IProps): React.ReactNode {
       <Grid item>
         <LocalizationProvider dateAdapter={AdapterDateFns}>
           <DatePicker
-            label="End time"
+            label={t("end")}
             value={parse(queryDataState.end_time, "yyyy-MM-dd", new Date())}
             onChange={(value) => {
               handleChangeDatePicker("end_time", value!);
@@ -85,11 +88,11 @@ function DaterStatistics({ appointment_status }: IProps): React.ReactNode {
 
       <Grid item>
         <FormControl sx={{ minWidth: 120 }}>
-          <InputLabel>Chart type</InputLabel>
+          <InputLabel>{t("chart")}</InputLabel>
 
           <Select
             name="chart_type"
-            label="Chart type"
+            label={t("chart")}
             value={queryDataState.chart_type}
             onChange={handleChangeSelect}
             autoFocus
