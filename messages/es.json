@@ -120,13 +120,6 @@
     "row7": "Acciones",
     "edit": "Editar datos para {fullname}"
   },
-  "PageFaqs": {
-    "title": "Preguntas más frecuentes",
-    "question1": "¿Cómo puedo ver una lista de todas las personas que han visitado la rectoría hasta el día de hoy?",
-    "response1": "Para ver todas las personas que tienen programada y registrada una visita a la rectoría en la aplicación, debes ir a la sección de \"Personas\", la cual se encuentra en la barra superior de todas las secciones de la aplicación. Accede a esa opción para visualizar toda la información relevante de cada persona.",
-    "question2": "¿Cómo programar una cita para una fecha o día específico y una hora determinada?",
-    "response2": "Para programar una cita con la rectoría del ITFIP (Programar a una persona) debes ir a la sección \"Programar\", en la parte superior de la barra de opciones de la aplicación. Una vez en la vista del calendario, selecciona el día haciendo clic en el cuadro y dentro en el número del día o en la barra lateral del calendario de programación, haz clic en semana o día para programar en el día que has seleccionado y, finalmente, arrastra y suelta hasta la hora en que necesitas la cita."
-  },
   "PageEditPeople": {
     "title": "Actualizar información"
   },
@@ -173,5 +166,26 @@
     "input9": "Confirmación de contraseña",
     "back": "Atrás",
     "submit": "Registrar"
+  },
+  "PageFaqs": {
+    "title": "Preguntas más frecuentes",
+    "question1": "¿Cómo puedo ver una lista de todas las personas que han visitado la rectoría hasta el día de hoy?",
+    "question2": "¿Cómo programar una cita para una fecha o día y hora específicos?",
+    "question3": "¿Cómo programar rápidamente el día a día de una persona que llega inmediatamente a la rectoría?",
+    "question4": "¿Cómo ver estadísticas y reportes gráficos de las personas que visitaron la rectoría en una determinada fecha o mes a mes?",
+    "question5": "¿Cómo generar informes y ver una lista detallada con la información de fecha y hora de programación?",
+    "question6": "¿Cómo generar un informe en PDF con la información de las personas que visitaron la rectoría en un periodo de tiempo determinado o hasta el día de hoy?",
+    "response1": {
+      "p1": "Para ver todas las personas que están programadas y registradas en la aplicación para una visita a la rectoría, se debe ir a la sección <code>Personas</code>, que se encuentra en la barra superior de todas las secciones de la aplicación y accede a esa opción para ver toda la información relevante de cada persona."
+    },
+    "response2": {
+      "p1": "Para programar una cita con la rectoría del ITFIP (Schedule a person) debes dirigirte a la sección <code>Schedule</code>, en la parte superior de la barra de opciones de la aplicación. Una vez en la vista de calendario, selecciona el día por haciendo clic en el cuadro y dentro en el número del día o en la barra lateral del calendario de programación haga clic en semana (semana) o día (día) para programar en el día que haya seleccionado y finalmente arrastre y suelte hasta la hora que requiera la cita.",
+      "p2": "Completa el formulario de programación con todos los datos solicitados, finalmente envía el formulario para completar el proceso.",
+      "p3": "<strong>Nota:</strong> El día o semana seleccionado en el calendario de programación se puede cambiar fácil y simplemente usando las flechas que aparecen en la parte superior izquierda del calendario.",
+      "p4": "El botón hoy sirve para posicionarse fácilmente en el día actual y/o fecha actual del calendario de programación."
+    },
+    "response3": {
+      "p1": "Programar día a día significa programar a la persona en el mismo momento en que ha llegado a la Rectoría y el Rector está disponible para atenderlo en ese momento, entonces en este momento se hace la programación, para eso vaya a la opción de <code>Programar</code>, y luego completar el formulario de programación, que es el mismo excepto por la diferencia de seleccionar fecha y hora, ya que es en el mismo momento y esto se guarda automáticamente al enviar el formulario."
+    }
   }
 }

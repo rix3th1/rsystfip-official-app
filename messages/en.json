@@ -120,13 +120,6 @@
     "row7": "Actions",
     "edit": "Edit data for {fullname}"
   },
-  "PageFaqs": {
-    "title": "Frequently Asked Questions",
-    "question1": "How can I see a list of all the people who have visited the rectory up to today?",
-    "response1": "To see all the people who are scheduled and registered in the application for a visit to the rectory, you must go to the \"People\" section, which is located in the top bar of all sections of the application and access that option to see all the relevant information of each person.",
-    "question2": "How to schedule an appointment for a specific date or day and time?",
-    "response2": "To schedule an appointment with the rectory of the ITFIP (Schedule a person), you must go to the \"Schedule\" section, located at the top of the application's options bar. Once in the calendar view, select the day by clicking on the box and then on the day's number or on the sidebar of the scheduling calendar, click on week or day to schedule for the selected day. Finally, drag and drop until the time you require the appointment."
-  },
   "PageEditPeople": {
     "title": "Update Information"
   },
@@ -173,5 +166,26 @@
     "input9": "Confirm password",
     "back": "Back",
     "submit": "Register"
+  },
+  "PageFaqs": {
+    "title": "Frequently Asked Questions",
+    "question1": "How can I see a list of all the people who have visited the rectory up to today?",
+    "question2": "How to schedule an appointment for a specific date or day and time?",
+    "question3": "How to quickly schedule day-to-day, a person who arrives immediately at the rectory?",
+    "question4": "How to view statistics and graphical reports of the people who visited the rectory on a certain date or month to month?",
+    "question5": "How to generate reports and see a detailed list with the date and time information of scheduling?",
+    "question6": "How to generate a PDF report with the information of the people who visited the rectory in a certain period of time or up to today?",
+    "response1": {
+      "p1": "To see all the people who are scheduled and registered in the application for a visit to the rectory, you must go to the <code>People</code> section, which is located in the top bar of all sections of the application and access that option to see all the relevant information of each person."
+    },
+    "response2": {
+      "p1": "To schedule an appointment with the rectory of the ITFIP (Schedule a person) you must go to the <code>Schedule</code> section, at the top of the application's options bar. Once in the calendar view, select the day by clicking on the box and inside on the number of the day or on the side bar of the scheduling calendar click on week (week) or day (day) to schedule on the day you have selected and finally drag and drop until the time you require the appointment.",
+      "p2": "Complete the scheduling form with all the requested data, finally submit the form to complete the process.",
+      "p3": "<strong>Note:</strong> The selected day or week in the scheduling calendar can be changed easily and simply using the arrows that appear at the top left of the calendar.",
+      "p4": "The button today serves to easily position yourself on the current day and/or current date of the scheduling calendar."
+    },
+    "response3": {
+      "p1": "Scheduling day-to-day means scheduling the person at the same moment they have arrived at the Rectory and the Rector is available to attend to them at that moment, so at this moment the scheduling is done, for that go to the option of <code>Schedule</code>, and then complete the scheduling form, which is the same except for the difference of selecting the date and time, since it is at the same moment and this is saved automatically when submitting the form."
+    }
   }
 }
