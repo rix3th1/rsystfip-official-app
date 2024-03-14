@@ -126,24 +126,12 @@ function Faqs(): React.ReactNode {
 
           <AccordionDetails>
             <Typography>
-              {
-                "To view a graphical report and visually better and more interactive information, you must go to the"
-              }
-              <code>{" Reports "}</code>
-              {
-                "section, and click on the dropdown menu, then select the option"
-              }
-              <code>{" Graphs report scheduling "}</code>
-              {
-                "and you only need to select the date range between which you want to see the information."
-              }
+              {t.rich("response4.p1", {
+                code: (chunks) => <code>{chunks}</code>,
+              })}
             </Typography>
 
-            <Typography sx={{ mt: 2 }}>
-              {
-                "You can freely and interactively choose the type of graph to read and/or consume the information."
-              }
-            </Typography>
+            <Typography sx={{ mt: 2 }}>{t("response4.p2")}</Typography>
           </AccordionDetails>
         </Accordion>
 
@@ -161,19 +149,9 @@ function Faqs(): React.ReactNode {
 
           <AccordionDetails>
             <Typography>
-              {
-                "To generate reports and be able to view them easily, you must go to the"
-              }
-              <code>{" Reports "}</code>
-              {
-                "section, and click on the dropdown menu. then select the option"
-              }
-              <code>{" Generate scheduling report "}</code>
-              {
-                "and then select the date between which you want the report, you can also specify the type of person who visited the rectory and click on"
-              }
-              <code>{" Filter "}</code>
-              {", to get the report."}
+              {t.rich("response5.p1", {
+                code: (chunks) => <code>{chunks}</code>,
+              })}
             </Typography>
           </AccordionDetails>
         </Accordion>
@@ -192,30 +170,16 @@ function Faqs(): React.ReactNode {
 
           <AccordionDetails>
             <Typography>
-              {
-                "To generate a PDF report and save it locally on the device, you must go to the"
-              }
-              <code>{" Reports "}</code>
-              {
-                "section, and click on the dropdown menu, then select the option"
-              }
-              <code>{" Generate scheduling report "}</code>
-              {
-                ", and then complete the options you require to filter the information, then click on"
-              }
-              <code>{" Download "}</code>
-              {"or in"}
-              <code>{" View "}</code>
-              {"to view the report before downloading it."}
+              {t.rich("response6.p1", {
+                code: (chunks) => <code>{chunks}</code>,
+              })}
             </Typography>
 
             <Typography sx={{ mt: 2 }}>
-              <strong>{"Note: "}</strong>
-              {"The option"}
-              <code>{" View "}</code>
-              {
-                "only works on computers or desktop laptops, on mobile phones that run a browser different from a desktop version, it cannot be done."
-              }
+              {t.rich("response6.p2", {
+                strong: (chunks) => <strong>{chunks}</strong>,
+                code: (chunks) => <code>{chunks}</code>,
+              })}
             </Typography>
           </AccordionDetails>
         </Accordion>

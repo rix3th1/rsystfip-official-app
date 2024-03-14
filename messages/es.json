@@ -179,13 +179,24 @@
       "p1": "Para ver todas las personas que están programadas y registradas en la aplicación para una visita a la rectoría, se debe ir a la sección <code>Personas</code>, que se encuentra en la barra superior de todas las secciones de la aplicación y accede a esa opción para ver toda la información relevante de cada persona."
     },
     "response2": {
-      "p1": "Para programar una cita con la rectoría del ITFIP (Schedule a person) debes dirigirte a la sección <code>Schedule</code>, en la parte superior de la barra de opciones de la aplicación. Una vez en la vista de calendario, selecciona el día por haciendo clic en el cuadro y dentro en el número del día o en la barra lateral del calendario de programación haga clic en semana (semana) o día (día) para programar en el día que haya seleccionado y finalmente arrastre y suelte hasta la hora que requiera la cita.",
+      "p1": "Para programar una cita con la rectoría del ITFIP (Agendar a una persona) debes dirigirte a la sección <code>Agendamiento</code>, en la parte superior de la barra de opciones de la aplicación. Una vez en la vista de calendario, selecciona el día por haciendo clic en el cuadro y dentro en el número del día o en la barra lateral del calendario de programación haga clic en semana (semana) o día (día) para programar en el día que haya seleccionado y finalmente arrastre y suelte hasta la hora que requiera la cita.",
       "p2": "Completa el formulario de programación con todos los datos solicitados, finalmente envía el formulario para completar el proceso.",
       "p3": "<strong>Nota:</strong> El día o semana seleccionado en el calendario de programación se puede cambiar fácil y simplemente usando las flechas que aparecen en la parte superior izquierda del calendario.",
       "p4": "El botón hoy sirve para posicionarse fácilmente en el día actual y/o fecha actual del calendario de programación."
     },
     "response3": {
       "p1": "Programar día a día significa programar a la persona en el mismo momento en que ha llegado a la Rectoría y el Rector está disponible para atenderlo en ese momento, entonces en este momento se hace la programación, para eso vaya a la opción de <code>Programar</code>, y luego completar el formulario de programación, que es el mismo excepto por la diferencia de seleccionar fecha y hora, ya que es en el mismo momento y esto se guarda automáticamente al enviar el formulario."
+    },
+    "response4": {
+      "p1": "Para ver un informe gráfico y una información visualmente mejor y más interactiva, debes ir a la sección <code>Informes</code>, y hacer clic en el menú desplegable, luego seleccionar la opción <code>Programación de informes gráficos</code> y sólo necesitas seleccionar el rango de fechas entre las que quieres ver la información.",
+      "p2": "Puedes elegir libre e interactivamente el tipo de gráfico para leer y/o consumir la información"
+    },
+    "response5": {
+      "p1": "Para generar informes y poder verlos fácilmente, debes ir a la sección <code>Reportes</code>, y hacer clic en el menú desplegable. Luego selecciona la opción <code>Generar informe de programación</code> y luego seleccione la fecha entre la cual desea el informe, también puede especificar el tipo de persona que visitó la rectoría y hacer clic en <code>Filtro</code>, para obtener el informe."
+    },
+    "response6": {
+      "p1": "Para generar un informe en PDF y guardarlo localmente en el dispositivo, debe ir a la sección <code>Informes</code>, hacer clic en el menú desplegable, luego seleccionar la opción <code>Generar informe de programación</code> , y luego complete las opciones que requiere para filtrar la información, luego haga clic en <code>Descargar</code> o en <code>Ver</code> para ver el informe antes de descargarlo.",
+      "p2": "<strong>Nota:</strong> La opción <code>Ver</code> sólo funciona en computadoras o portátiles de escritorio; en teléfonos móviles que ejecutan un navegador diferente a la versión de escritorio, no se puede hacer."
     }
   }
 }

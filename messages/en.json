@@ -186,6 +186,17 @@
     },
     "response3": {
       "p1": "Scheduling day-to-day means scheduling the person at the same moment they have arrived at the Rectory and the Rector is available to attend to them at that moment, so at this moment the scheduling is done, for that go to the option of <code>Schedule</code>, and then complete the scheduling form, which is the same except for the difference of selecting the date and time, since it is at the same moment and this is saved automatically when submitting the form."
+    },
+    "response4": {
+      "p1": "To view a graphical report and visually better and more interactive information, you must go to the <code>Reports</code> section, and click on the dropdown menu, then select the option <code>Graphs report scheduling</code> and you only need to select the date range between which you want to see the information.",
+      "p2": "You can freely and interactively choose the type of graph to read and/or consume the information."
+    },
+    "response5": {
+      "p1": "To generate reports and be able to view them easily, you must go to the <code>Reports</code> section, and click on the dropdown menu. then select the option <code>Generate scheduling report</code> and then select the date between which you want the report, you can also specify the type of person who visited the rectory and click on <code>Filter</code>, to get the report."
+    },
+    "response6": {
+      "p1": "To generate a PDF report and save it locally on the device, you must go to the <code>Reports</code> section, and click on the dropdown menu, then select the option <code>Generate scheduling report</code>, and then complete the options you require to filter the information, then click on <code>Download</code> or in <code>View</code> to view the report before downloading it.",
+      "p2": "<strong> Note:</strong>The option <code> View </code>only works on computers or desktop laptops; on mobile phones that run a browser different from a desktop version, it cannot be done."
     }
   }
 }
