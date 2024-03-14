@@ -1,13 +1,6 @@
 "use client";
 
 import { notify } from "@/libs/notify";
-import { resetAllFormDataProgramming } from "@/redux/features/appointments/appointmentsSlice";
-import { resetQueryDataReports } from "@/redux/features/reports/reportsSlice";
-import { resetQueryDataStatistics } from "@/redux/features/statistics/statisticsSlice";
-import { destroyTemporals } from "@/redux/features/temp/tempSlice";
-import { resetFormDataAdmin } from "@/redux/features/users/usersSlice";
-import { useAppDispatch } from "@/redux/hooks";
-import { authService } from "@/services";
 import type { THandleClick } from "@/types";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import MenuIcon from "@mui/icons-material/Menu";
@@ -22,13 +15,11 @@ import Toolbar from "@mui/material/Toolbar";
 import Tooltip from "@mui/material/Tooltip";
 import Typography from "@mui/material/Typography";
 import { type Session } from "next-auth";
-import { type SignOutResponse } from "next-auth/react";
+import { signOut } from "next-auth/react";
 import { useTranslations } from "next-intl";
-import { useRouter } from "next-nprogress-bar";
 import Image from "next/image";
 import NextLink from "next/link";
 import { useState } from "react";
-import { useMutation } from "react-query";
 import ProtectedElement from "./ProtectedElement";
 
 interface IProps {
@@ -39,9 +30,6 @@ function NavBar({ session }: IProps): React.ReactNode {
   const t = useTranslations("Index");
 
   const permissions = session?.user.permissions!;
-
-  const dispatch = useAppDispatch();
-  const router = useRouter();
 
   const [anchorElNav, setAnchorElNav] = useState<null | HTMLElement>(null);
   const [anchorElUser, setAnchorElUser] = useState<null | HTMLElement>(null);
@@ -89,32 +77,12 @@ function NavBar({ session }: IProps): React.ReactNode {
     setAnchorElUser(null);
   };
 
-  const mutationDoSignOut = useMutation(authService.doSignOut, {
-    onSuccess(data: SignOutResponse) {
-      // Redirect to the sign in page
-      router.push(data.url || "/signin");
-      router.refresh();
-      notify("Session closed", { type: "success", position: "top-center" });
-
-      // Reset the Redux context
-      dispatch(resetFormDataAdmin());
-      dispatch(resetQueryDataReports());
-      dispatch(resetQueryDataStatistics());
-      dispatch(resetAllFormDataProgramming());
-      dispatch(destroyTemporals());
-    },
-    onError(error) {
-      if (error instanceof Error) {
-        notify(error.message, { type: "error" });
-      }
-    },
-  });
-
-  const handleClickSignOut = async () => {
+  const handleClickSignOut = () => {
     handleCloseUserMenu();
 
     // Close the session
-    mutationDoSignOut.mutate();
+    signOut();
+    notify("Session closed", { type: "success", position: "top-center" });
   };
 
   return (
@@ -398,10 +366,7 @@ function NavBar({ session }: IProps): React.ReactNode {
               <Typography textAlign="center">{t("changepsw")}</Typography>
             </MenuItem>
 
-            <MenuItem
-              onClick={handleClickSignOut}
-              disabled={mutationDoSignOut.isLoading}
-            >
+            <MenuItem onClick={handleClickSignOut}>
               <Typography textAlign="center">{t("signout")}</Typography>
             </MenuItem>
           </Menu>

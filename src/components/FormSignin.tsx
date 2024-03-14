@@ -15,9 +15,7 @@ import InputAdornment from "@mui/material/InputAdornment";
 import Link from "@mui/material/Link";
 import TextField from "@mui/material/TextField";
 import Typography from "@mui/material/Typography";
-import { type SignInResponse } from "next-auth/react";
 import { useTranslations } from "next-intl";
-import { useRouter } from "next-nprogress-bar";
 import NextLink from "next/link";
 import { useState } from "react";
 import { useMutation } from "react-query";
@@ -34,12 +32,8 @@ function FormSignin(): React.ReactNode {
   };
   const [formData, setFormData] = useState(formDataInitialState);
 
-  const router = useRouter();
-
   const { mutate, isLoading } = useMutation(authService.doSignIn, {
-    onSuccess(data?: SignInResponse) {
-      router.push(data?.url || "/ITFIP-Rectory/home");
-      router.refresh();
+    onSuccess() {
       notify("Welcome to ITFIP-Rectory", {
         type: "success",
         position: "top-center",
