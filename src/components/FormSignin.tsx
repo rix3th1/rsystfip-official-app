@@ -1,6 +1,7 @@
 "use client";
 
 import { notify } from "@/libs/notify";
+import { useRouter } from "next-nprogress-bar";
 import { authService } from "@/services";
 import type { THandleChangeI, THandleSubmit } from "@/types";
 import VisibilityIcon from "@mui/icons-material/Visibility";
@@ -32,8 +33,12 @@ function FormSignin(): React.ReactNode {
   };
   const [formData, setFormData] = useState(formDataInitialState);
 
+  const router = useRouter();
+
   const { mutate, isLoading } = useMutation(authService.doSignIn, {
     onSuccess() {
+      router.push("/ITFIP-Rectory/home");
+      router.refresh();
       notify(t("onsignin"), {
         type: "success",
         position: "top-center",
