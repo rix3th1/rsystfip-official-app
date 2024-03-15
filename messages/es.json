@@ -36,17 +36,26 @@
   },
   "PageNotFound": {
     "title": "Error 404",
+    "metadata": {
+      "title": "No encontrado"
+    },
     "subtitle": "¡Ups! La página que estás buscando no existe.",
     "back": "Ir a atrás"
   },
   "PageRecoverPassword": {
     "title": "Recuperación de contraseña",
+    "metadata": {
+      "title": "Recuperar contraseña"
+    },
     "back": "Volver atrás",
     "placeholder": "Correo@itfip.edu.co",
     "submit": "Enviar correo"
   },
   "PageHome": {
     "title": "Bienvenido(a)",
+    "metadata": {
+      "title": "Inicio"
+    },
     "button1": "Agendamiento Diario",
     "button2": "Agendamiento Programado"
   },
@@ -60,6 +69,9 @@
   },
   "PageChangePassword": {
     "title": "Correo del usuario:",
+    "metadata": {
+      "title": "Cambiar contraseña"
+    },
     "input1": "Contraseña actual",
     "input2": "Nueva contraseña",
     "input3": "Confirmación nueva contraseña",
@@ -72,10 +84,16 @@
     "signin": "Iniciar sesión"
   },
   "PageAppointments": {
-    "title": "Ver agendamientos programados"
+    "title": "Ver agendamientos programados",
+    "matadata": {
+      "title": "Agendamientos"
+    }
   },
   "PageScheduleScheduling": {
-    "title": "Realizar Agendamiento programado"
+    "title": "Realizar Agendamiento programado",
+    "metadata": {
+      "title": "Agendamiento programado"
+    }
   },
   "Statistics": {
     "title": "Estadísticas de agendamiento {type}",
@@ -90,6 +108,9 @@
   },
   "PageReportsPeople": {
     "title": "Reportes mensuales",
+    "metadata": {
+      "title": "Reportes"
+    },
     "start": "Fecha de inicio",
     "end": "Fecha final",
     "category": "Categoría",
@@ -111,6 +132,9 @@
   },
   "PageHistoryPeople": {
     "title": "Personas agendadas",
+    "metadata": {
+      "title": "Historial de personas agendadas"
+    },
     "row1": "ID",
     "row2": "Nombre completo",
     "row3": "Identificación",
@@ -121,10 +145,16 @@
     "edit": "Editar datos para {fullname}"
   },
   "PageEditPeople": {
-    "title": "Actualizar información"
+    "title": "Actualizar información",
+    "metadata": {
+      "title": "Editar datos de la persona"
+    }
   },
   "PageDailyScheduling": {
-    "title": "Realizar Agendamiento diario"
+    "title": "Realizar Agendamiento diario",
+    "metadata": {
+      "title": "Agendamiento diario"
+    }
   },
   "FormSchedulePeople": {
     "input1": "Categoría",

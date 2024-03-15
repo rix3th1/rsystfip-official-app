@@ -6,7 +6,6 @@ import { getTranslations } from "next-intl/server";
 
 export async function generateMetadata(): Promise<Metadata> {
   const t = await getTranslations("Index");
-
   return {
     applicationName: pkg.name,
     title: `RSystfip | ${t("title")}`,

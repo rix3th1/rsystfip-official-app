@@ -36,17 +36,26 @@
   },
   "PageNotFound": {
     "title": "404 Error",
+    "metadata": {
+      "title": "Not found"
+    },
     "subtitle": "Oops! The page you're looking for doesn't exist.",
     "back": "Go back"
   },
   "PageRecoverPassword": {
     "title": "Password Recovery",
+    "metadata": {
+      "title": "Recover password"
+    },
     "back": "Back",
     "placeholder": "Mail@itfip.edu.co",
     "submit": "Send Email"
   },
   "PageHome": {
     "title": "Welcome",
+    "metadata": {
+      "title": "Home"
+    },
     "button1": "Daily scheduling",
     "button2": "Schedule scheduling"
   },
@@ -60,6 +69,9 @@
   },
   "PageChangePassword": {
     "title": "User email:",
+    "metadata": {
+      "title": "Change password"
+    },
     "input1": "Current password",
     "input2": "New password",
     "input3": "Confirm new password",
@@ -72,10 +84,16 @@
     "signin": "Sign In"
   },
   "PageAppointments": {
-    "title": "View scheduled appointments"
+    "title": "View scheduled appointments",
+    "matadata": {
+      "title": "Appointments"
+    }
   },
   "PageScheduleScheduling": {
-    "title": "Scheduled Scheduling"
+    "title": "Scheduled Scheduling",
+    "metadata": {
+      "title": "Scheduled Scheduling"
+    }
   },
   "Statistics": {
     "title": "{type} scheduling statistics",
@@ -90,6 +108,9 @@
   },
   "PageReportsPeople": {
     "title": "Monthly Reports",
+    "metadata": {
+      "title": "Reports"
+    },
     "start": "Start time",
     "end": "End time",
     "category": "Category",
@@ -111,6 +132,9 @@
   },
   "PageHistoryPeople": {
     "title": "Scheduled People",
+    "metadata": {
+      "title": "Scheduled people history"
+    },
     "row1": "ID",
     "row2": "Full name",
     "row3": "Identification",
@@ -121,10 +145,16 @@
     "edit": "Edit data for {fullname}"
   },
   "PageEditPeople": {
-    "title": "Update Information"
+    "title": "Update Information",
+    "metadata": {
+      "title": "Edit people"
+    }
   },
   "PageDailyScheduling": {
-    "title": "Daily Scheduling"
+    "title": "Daily Scheduling",
+    "metadata": {
+      "title": "Daily Scheduling"
+    }
   },
   "FormSchedulePeople": {
     "input1": "Category",

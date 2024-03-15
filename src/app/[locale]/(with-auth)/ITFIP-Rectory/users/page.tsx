@@ -8,9 +8,12 @@ import { type Metadata } from "next";
 import { getTranslations } from "next-intl/server";
 import NextLink from "next/link";
 
-export const metadata: Metadata = {
-  title: "RSystfip | Users",
-};
+export async function generateMetadata(): Promise<Metadata> {
+  const t = await getTranslations("PageUsers");
+  return {
+    title: `RSystfip | ${t("title")}`,
+  };
+}
 
 async function PageUsers(): Promise<React.ReactElement> {
   const t = await getTranslations("PageUsers");

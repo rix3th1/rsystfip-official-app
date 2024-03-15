@@ -12,7 +12,6 @@ import { redirect } from "next/navigation";
 
 export async function generateMetadata(): Promise<Metadata> {
   const t = await getTranslations("PageSignin");
-
   return {
     title: `RSystfip | ${t("title")}`,
   };

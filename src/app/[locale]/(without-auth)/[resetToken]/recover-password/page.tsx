@@ -1,10 +1,14 @@
 import { RecoveryLinkPassword } from "@/components";
 import Container from "@mui/material/Container";
 import { type Metadata } from "next";
+import { getTranslations } from "next-intl/server";
 
-export const metadata: Metadata = {
-  title: "RSystfip | Recover password",
-};
+export async function generateMetadata(): Promise<Metadata> {
+  const t = await getTranslations("PageRecoverPassword");
+  return {
+    title: `RSystfip | ${t("metadata.title")}`,
+  };
+}
 
 function PageLinkRecoveryPsw(): React.ReactNode {
   return (

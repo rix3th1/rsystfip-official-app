@@ -6,9 +6,12 @@ import { type Metadata } from "next";
 import { getTranslations } from "next-intl/server";
 import Image from "next/image";
 
-export const metadata: Metadata = {
-  title: "RSystfip | Not found",
-};
+export async function generateMetadata(): Promise<Metadata> {
+  const t = await getTranslations("PageNotFound");
+  return {
+    title: `RSystfip | ${t("metadata.title")}`,
+  };
+}
 
 async function PageNotFound(): Promise<React.ReactElement> {
   const t = await getTranslations("PageNotFound");

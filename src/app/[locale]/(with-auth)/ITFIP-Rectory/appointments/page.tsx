@@ -4,9 +4,12 @@ import Typography from "@mui/material/Typography";
 import { type Metadata } from "next";
 import { getTranslations } from "next-intl/server";
 
-export const metadata: Metadata = {
-  title: "RSystfip | Appointments",
-};
+export async function generateMetadata(): Promise<Metadata> {
+  const t = await getTranslations("PageAppointments");
+  return {
+    title: `RSystfip | ${t("matadata.title")}`,
+  };
+}
 
 async function PageAppointments(): Promise<React.ReactElement> {
   const t = await getTranslations("PageAppointments");

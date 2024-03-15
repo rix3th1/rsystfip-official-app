@@ -9,9 +9,12 @@ import { getServerSession } from "next-auth";
 import { getTranslations } from "next-intl/server";
 import NextLink from "next/link";
 
-export const metadata: Metadata = {
-  title: "RSystfip | Home",
-};
+export async function generateMetadata(): Promise<Metadata> {
+  const t = await getTranslations("PageHome");
+  return {
+    title: `RSystfip | ${t("metadata.title")}`,
+  };
+}
 
 async function PageHome(): Promise<React.ReactElement> {
   const session = await getServerSession(authOptions);
