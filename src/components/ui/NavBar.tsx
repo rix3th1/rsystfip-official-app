@@ -82,7 +82,7 @@ function NavBar({ session }: IProps): React.ReactNode {
 
     // Close the session
     signOut();
-    notify("Session closed", { type: "success", position: "top-center" });
+    notify(t("onsignout"), { type: "success", position: "top-center" });
   };
 
   return (

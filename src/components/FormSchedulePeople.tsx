@@ -233,7 +233,7 @@ function FormSchedulePeople({
         facultieSelectRef.current.className = "form-control border-0 bg-white";
       }
 
-      notify("The data deans has been auto-completed", {
+      notify(t("autocompletedeans"), {
         type: "info",
         position: "top-left",
       });

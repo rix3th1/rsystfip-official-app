@@ -34,7 +34,7 @@ function FormSignin(): React.ReactNode {
 
   const { mutate, isLoading } = useMutation(authService.doSignIn, {
     onSuccess() {
-      notify("Welcome to ITFIP-Rectory", {
+      notify(t("onsignin"), {
         type: "success",
         position: "top-center",
       });

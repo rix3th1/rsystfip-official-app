@@ -20,7 +20,8 @@
     "profilemenu": "Open profile options",
     "help": "Help",
     "changepsw": "Change password",
-    "signout": "Sign Out"
+    "signout": "Sign Out",
+    "onsignout": "Session closed"
   },
   "PageSignin": {
     "title": "Sign in",
@@ -32,7 +33,8 @@
     "password": "Password",
     "submit": "Sign In",
     "forgot": "Forgot password?",
-    "copyright": "Copyright"
+    "copyright": "Copyright",
+    "onsignin": "Welcome to ITFIP-Rectory"
   },
   "PageNotFound": {
     "title": "404 Error",
@@ -169,7 +171,8 @@
     "input10": "Appointment color",
     "back": "Back",
     "update": "Update",
-    "submit": "Register"
+    "submit": "Register",
+    "autocompletedeans": "The data deans has been auto-completed"
   },
   "ModalCancellPersonConfirmation": {
     "title": "Cancel appointment",
@@ -228,5 +231,9 @@
       "p1": "To generate a PDF report and save it locally on the device, you must go to the <code>Reports</code> section, and click on the dropdown menu, then select the option <code>Generate scheduling report</code>, and then complete the options you require to filter the information, then click on <code>Download</code> or in <code>View</code> to view the report before downloading it.",
       "p2": "<strong> Note:</strong>The option <code> View </code>only works on computers or desktop laptops; on mobile phones that run a browser different from a desktop version, it cannot be done."
     }
+  },
+  "FullCalendar": {
+    "unavailable": "Schedules not available at that time.",
+    "timeout": "It cannot be scheduled on a date that has already passed."
   }
 }

@@ -19,7 +19,7 @@ import interactionPlugin from "@fullcalendar/interaction";
 import FullCalendar from "@fullcalendar/react";
 import TableContainer from "@mui/material/TableContainer";
 import { format } from "date-fns";
-import { useLocale } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import { useCallback, useEffect, useState } from "react";
 import { useQuery } from "react-query";
 import ModalCancellPersonConfirmation from "./ModalCancellPersonConfirmation";
@@ -39,6 +39,7 @@ function FullCalendarScheduling({
   initialView,
   plugins,
 }: IProps): React.ReactNode {
+  const t = useTranslations("FullCalendar");
   const locale = useLocale();
   const FCLocale = locale === "en" ? "en" : "es-us";
 
@@ -128,7 +129,7 @@ function FullCalendarScheduling({
             const now = new Date();
             if (start < now) {
               view.calendar.unselect();
-              notify("No se puede agendar en una fecha que ya ha pasado.", {
+              notify(t("timeout"), {
                 type: "warning",
               });
               return;
@@ -141,7 +142,7 @@ function FullCalendarScheduling({
             ) {
               // The selection is out of allow range, cancel
               view.calendar.unselect();
-              notify("Agendamientos no disponible en ese horario.", {
+              notify(t("unavailable"), {
                 type: "warning",
               });
               return;

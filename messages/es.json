@@ -20,7 +20,8 @@
     "profilemenu": "Abrir opciones de perfíl",
     "help": "Ayuda",
     "changepsw": "Cambiar contraseña",
-    "signout": "Cerrar sesión"
+    "signout": "Cerrar sesión",
+    "onsignout": "La sesión ha sido cerrada"
   },
   "PageSignin": {
     "title": "Iniciar Sesión",
@@ -32,7 +33,8 @@
     "password": "Contraseña",
     "submit": "Iniciar Sesión",
     "forgot": "Olvidaste la contraseña?",
-    "copyright": "Todos los derechos reservados"
+    "copyright": "Todos los derechos reservados",
+    "onsignin": "Bienvenido a la Rectoría del ITFIP"
   },
   "PageNotFound": {
     "title": "Error 404",
@@ -169,7 +171,8 @@
     "input10": "Color de agendamiento",
     "back": "Atrás",
     "update": "Actualizar",
-    "submit": "Agendar"
+    "submit": "Agendar",
+    "autocompletedeans": "Los datos del decano han sido autocompletados"
   },
   "ModalCancellPersonConfirmation": {
     "title": "Cancelar agendamiento",
@@ -228,5 +231,9 @@
       "p1": "Para generar un informe en PDF y guardarlo localmente en el dispositivo, debe ir a la sección <code>Informes</code>, hacer clic en el menú desplegable, luego seleccionar la opción <code>Generar informe de programación</code> , y luego complete las opciones que requiere para filtrar la información, luego haga clic en <code>Descargar</code> o en <code>Ver</code> para ver el informe antes de descargarlo.",
       "p2": "<strong>Nota:</strong> La opción <code>Ver</code> sólo funciona en computadoras o portátiles de escritorio; en teléfonos móviles que ejecutan un navegador diferente a la versión de escritorio, no se puede hacer."
     }
+  },
+  "FullCalendar": {
+    "unavailable": "Agendamientos no disponible en ese horario.",
+    "timeout": "No se puede agendar en una fecha que ya ha pasado."
   }
 }
