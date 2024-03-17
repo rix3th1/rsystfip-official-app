@@ -1,3 +1,5 @@
+"use client";
+
 import LinearProgress, {
   linearProgressClasses,
   type LinearProgressProps,

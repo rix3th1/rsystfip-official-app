@@ -1,8 +1,10 @@
 import Typography, { type TypographyOwnProps } from "@mui/material/Typography";
-import { useTranslations } from "next-intl";
+import { getTranslations } from "next-intl/server";
 
-function Copyright(props: TypographyOwnProps): React.ReactNode {
-  const t = useTranslations("PageSignin");
+async function Copyright(
+  props: TypographyOwnProps
+): Promise<React.ReactElement> {
+  const t = await getTranslations("PageSignin");
 
   return (
     <Typography

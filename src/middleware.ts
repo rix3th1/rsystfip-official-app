@@ -1,4 +1,4 @@
-import rolesMiddleware from "@/middlewares/rolesMiddlewares";
+// import rolesMiddleware from "@/middlewares/rolesMiddlewares";
 import { locales } from "@/navigation";
 import { withAuth } from "next-auth/middleware";
 import createIntlMiddleware from "next-intl/middleware";
@@ -18,7 +18,7 @@ const authMiddleware = withAuth(
   // the `authorized` callback has returned `true`
   // and not for pages listed in `pages`.
   (req) => {
-    intlMiddleware(req);
+    return intlMiddleware(req);
     // rolesMiddleware(req);
   }
 );

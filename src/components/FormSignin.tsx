@@ -1,7 +1,6 @@
 "use client";
 
 import { notify } from "@/libs/notify";
-import { useRouter } from "next-nprogress-bar";
 import { authService } from "@/services";
 import type { THandleChangeI, THandleSubmit } from "@/types";
 import VisibilityIcon from "@mui/icons-material/Visibility";
@@ -17,10 +16,10 @@ import Link from "@mui/material/Link";
 import TextField from "@mui/material/TextField";
 import Typography from "@mui/material/Typography";
 import { useTranslations } from "next-intl";
+import { useRouter } from "next-nprogress-bar";
 import NextLink from "next/link";
 import { useState } from "react";
 import { useMutation } from "react-query";
-import { Copyright } from "./ui";
 
 function FormSignin(): React.ReactNode {
   const t = useTranslations("PageSignin");
@@ -174,8 +173,6 @@ function FormSignin(): React.ReactNode {
           </Link>
         </Grid>
       </Grid>
-
-      <Copyright sx={{ mt: 5 }} />
     </Box>
   );
 }

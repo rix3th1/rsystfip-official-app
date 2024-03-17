@@ -1,4 +1,5 @@
 import { FormSignin } from "@/components";
+import { Copyright } from "@/components/ui";
 import authOptions from "@/libs/authOptions";
 import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";
@@ -83,6 +84,7 @@ async function PageSignin(): Promise<React.ReactElement> {
           </Typography>
 
           <FormSignin />
+          <Copyright sx={{ mt: 5 }} />
         </Box>
       </Grid>
     </Grid>
