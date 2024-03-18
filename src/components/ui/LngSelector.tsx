@@ -20,6 +20,7 @@ function LngSelector() {
   const handleChange = ({ target: { value: lng } }: SelectChangeEvent) => {
     setLng(lng);
     router.push(`/${lng + pathname}`);
+    router.refresh();
   };
 
   return (
