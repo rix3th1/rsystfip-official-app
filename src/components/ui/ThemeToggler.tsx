@@ -8,6 +8,7 @@ import Tooltip from "@mui/material/Tooltip";
 import { useTheme as useMUITheme } from "@mui/material/styles";
 import { useTranslations } from "next-intl";
 import { useTheme } from "next-themes";
+import LngSelector from "./LngSelector";
 
 function ThemeToggler(): React.ReactNode {
   const t = useTranslations("Index");
@@ -24,6 +25,8 @@ function ThemeToggler(): React.ReactNode {
       sx={{ position: "fixed", bottom: 16, right: 16 }}
       zIndex={100}
     >
+      <LngSelector />
+
       <Tooltip title={t("toggleTheme")}>
         <IconButton
           sx={{ ml: 1 }}

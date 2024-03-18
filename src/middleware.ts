@@ -10,7 +10,7 @@ const publicPages = [
 
 const intlMiddleware = createIntlMiddleware({
   locales,
-  localePrefix: "always",
+  localePrefix: "never",
   defaultLocale: "es",
   localeDetection: true,
 });

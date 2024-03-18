@@ -247,5 +247,10 @@
     "submit": "Continuar",
     "back": "Atrás",
     "signin": "Iniciar sesión"
+  },
+  "LngSelector": {
+    "label": "Idioma",
+    "en": "🇺🇸 Inglés",
+    "es": "🇨🇴 Español"
   }
 }
