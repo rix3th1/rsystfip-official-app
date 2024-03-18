@@ -35,6 +35,7 @@ import { useRouter } from "next-nprogress-bar";
 import { useEffect } from "react";
 import { useMutation, useQuery } from "react-query";
 import { PasswordMeter } from "./ui";
+import genderItems from "@/utils/genderItems.json";
 
 function FormUserAdd(): React.ReactNode {
   const t = useTranslations("PageRegisterUser");
@@ -160,13 +161,35 @@ function FormUserAdd(): React.ReactNode {
           />
         </Grid>
 
-        <Grid item md={6}>
+        <Grid item md={4}>
           <FormControl fullWidth sx={{ minWidth: 120, mt: 1 }}>
             <InputLabel>{t("input4")}</InputLabel>
 
             <Select
-              name="document_id"
+              name="gender"
               label={t("input4")}
+              value={formDataState.gender}
+              onChange={handleChange}
+            >
+              <MenuItem value="">
+                <em>No seleccionado</em>
+              </MenuItem>
+              {genderItems.map(({ id, gender }) => (
+                <MenuItem key={crypto.randomUUID()} value={id}>
+                  {gender}
+                </MenuItem>
+              ))}
+            </Select>
+          </FormControl>
+        </Grid>
+
+        <Grid item md={4}>
+          <FormControl fullWidth sx={{ minWidth: 120, mt: 1 }}>
+            <InputLabel>{t("input5")}</InputLabel>
+
+            <Select
+              name="document_id"
+              label={t("input5")}
               value={formDataState.document_id}
               onChange={handleChange}
               onOpen={() => {
@@ -192,13 +215,13 @@ function FormUserAdd(): React.ReactNode {
           </FormControl>
         </Grid>
 
-        <Grid item md={6}>
+        <Grid item md={4}>
           <TextField
             margin="normal"
             required
             fullWidth
             name="document_number"
-            label={t("input5")}
+            label={t("input6")}
             onChange={handleChange}
             value={formDataState.document_number}
             type="text"
@@ -214,7 +237,7 @@ function FormUserAdd(): React.ReactNode {
             required
             fullWidth
             name="email"
-            label={t("input6")}
+            label={t("input7")}
             onChange={handleChange}
             value={formDataState.email}
             type="email"
@@ -230,7 +253,7 @@ function FormUserAdd(): React.ReactNode {
             required
             fullWidth
             name="phone_number"
-            label={t("input7")}
+            label={t("input8")}
             onChange={handleChange}
             value={formDataState.phone_number}
             type="text"
@@ -246,7 +269,7 @@ function FormUserAdd(): React.ReactNode {
             required
             fullWidth
             name="password"
-            label={t("input8")}
+            label={t("input9")}
             onChange={handleChange}
             value={formDataState.password}
             type={tempsData.passwordVisible ? "text" : "password"}
@@ -287,7 +310,7 @@ function FormUserAdd(): React.ReactNode {
             required
             fullWidth
             name="password2"
-            label={t("input9")}
+            label={t("input10")}
             onChange={handleChange}
             value={formDataState.password2}
             type={tempsData.passwordVisible ? "text" : "password"}

@@ -32,6 +32,7 @@ export async function POST(request: Request) {
       document_number: value.document_number,
       first_name: value.first_name,
       last_name: value.last_name,
+      gender: value.gender,
       role_id: value.role_id,
       phone_number: value.phone_number,
       email: value.email,

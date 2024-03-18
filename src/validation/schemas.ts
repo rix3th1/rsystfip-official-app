@@ -128,6 +128,7 @@ export const userSchema = emailItfipSchema.keys({
   role_id: Joi.string().length(1).required(),
   first_name: Joi.string().min(3).max(25).required(),
   last_name: Joi.string().min(3).max(25).required(),
+  gender: Joi.string().length(1).required(),
   document_id: Joi.string().length(1).required(),
   document_number: Joi.string()
     .regex(/^[0-9]+$/)

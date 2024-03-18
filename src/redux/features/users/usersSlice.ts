@@ -12,6 +12,7 @@ export interface FormData {
   role_id: string;
   first_name: string;
   last_name: string;
+  gender: string;
   document_id: string;
   document_number: string;
   email: string;
@@ -36,6 +37,7 @@ const initialState: AdminState = {
     role_id: "",
     first_name: "",
     last_name: "",
+    gender: "",
     document_id: "",
     document_number: "",
     email: "",
