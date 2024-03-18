@@ -1,6 +1,8 @@
 import pkg from "@/../package.json";
 import "@/app/globals.scss";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import { type Metadata } from "next";
+import { Analytics } from "@vercel/analytics/react";
 
 export const metadata: Metadata = {
   applicationName: pkg.name,
@@ -14,5 +16,11 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  return <>{children}</>;
+  return (
+    <>
+      {children}
+      <Analytics />
+      <SpeedInsights />
+    </>
+  );
 }
