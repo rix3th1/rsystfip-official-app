@@ -27,7 +27,7 @@ function MUIThemeProvider({
       ? setCurrentTheme(makeMUITheme("dark", MUILocale))
       : setCurrentTheme(makeMUITheme("light", MUILocale));
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [theme]);
+  }, [theme, MUILocale]);
 
   return (
     <ThemeProvider theme={{ ...currentTheme }}>

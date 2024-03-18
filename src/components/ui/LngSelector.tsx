@@ -6,7 +6,6 @@ import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
 import Select, { type SelectChangeEvent } from "@mui/material/Select";
 import { useLocale, useTranslations } from "next-intl";
-import { useTheme } from "next-themes";
 import { useState } from "react";
 
 function LngSelector() {
@@ -17,13 +16,11 @@ function LngSelector() {
 
   const router = useRouter();
   const pathname = usePathname();
-  const { theme, setTheme } = useTheme();
 
   const handleChange = ({ target: { value: lng } }: SelectChangeEvent) => {
     setLng(lng);
     router.push(`/${lng + pathname}`);
     router.refresh();
-    setTheme(`${theme}`);
   };
 
   return (
