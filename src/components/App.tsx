@@ -14,6 +14,8 @@ import ProgressProvider from "@/providers/ProgressProvider";
 import QueryClientProvider from "@/providers/QueryClientProvider";
 import ReduxProvider from "@/providers/ReduxProvider";
 import { AppRouterCacheProvider } from "@mui/material-nextjs/v14-appRouter";
+import { Analytics } from "@vercel/analytics/react";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import { getServerSession } from "next-auth";
 import { getLocale, getMessages, getTimeZone } from "next-intl/server";
 
@@ -44,6 +46,9 @@ async function App({
 
                   {/* Pages rendering */}
                   {children}
+
+                  <SpeedInsights />
+                  <Analytics />
 
                   <ProtectedElement isAllowed={isAllowed}>
                     <Footer />
