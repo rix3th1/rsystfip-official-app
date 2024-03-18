@@ -55,6 +55,7 @@ const authOptions: NextAuthOptions = {
           id: `${userFound.id}`,
           first_name: userFound.first_name,
           last_name: userFound.last_name,
+          gender: userFound.gender,
           email: userFound.email,
           role_name: userFound.role_name,
           permissions: userFound.permissions,

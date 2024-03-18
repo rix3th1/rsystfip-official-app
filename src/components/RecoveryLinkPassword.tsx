@@ -5,13 +5,13 @@ import { accountService } from "@/services";
 import LinearProgress from "@mui/material/LinearProgress";
 import Paper from "@mui/material/Paper";
 import Typography from "@mui/material/Typography";
+import { useTranslations } from "next-intl";
 import { useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
 import { useQuery } from "react-query";
 import FormChangePswForget from "./FormChangePswForget";
 import ResetTokenInvalid from "./ResetTokenInvalid";
 import { Loader } from "./ui";
-import { useTranslations } from "next-intl";
 
 function RecoveryLinkPassword(): React.ReactNode {
   const t = useTranslations("PageLinkRecoveryPsw");
@@ -43,8 +43,10 @@ function RecoveryLinkPassword(): React.ReactNode {
         ) : (
           dataUserVerified.email && (
             <>
-              {t("title")}
-              <b>{dataUserVerified.email}</b>
+              {t.rich("title", {
+                email: dataUserVerified.email,
+                strong: (chunks) => <strong>{chunks}</strong>,
+              })}
             </>
           )
         )}

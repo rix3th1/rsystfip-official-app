@@ -34,7 +34,7 @@
     "submit": "Iniciar Sesión",
     "forgot": "Olvidaste la contraseña?",
     "copyright": "Todos los derechos reservados",
-    "onsignin": "Bienvenido a la Rectoría del ITFIP"
+    "onsignin": "Bienvenido(a) a la Rectoría del ITFIP"
   },
   "PageNotFound": {
     "title": "Error 404",
@@ -54,7 +54,7 @@
     "submit": "Enviar correo"
   },
   "PageHome": {
-    "title": "Bienvenido(a)",
+    "title": "{gender, select, F {Bienvenida Sra.} M {Bienvenido Sr.} other {Hola}} <strong>{role_name}</strong>: {fullname}",
     "metadata": {
       "title": "Inicio"
     },
@@ -70,7 +70,7 @@
     "delete": "Eliminar permantemente {role_name} {email}"
   },
   "PageChangePassword": {
-    "title": "Correo del usuario:",
+    "title": "Correo del usuario: <strong>{email}</strong>",
     "metadata": {
       "title": "Cambiar contraseña"
     },
@@ -241,7 +241,7 @@
     "subtitle": "El enlace que has ingresado es incorrecto o ha expirado."
   },
   "PageLinkRecoveryPsw": {
-    "title": "Correo del usuario:",
+    "title": "Correo del usuario: <strong>{email}</strong>",
     "input1": "Nueva contraseña",
     "input2": "Confirmación nueva contraseña",
     "submit": "Continuar",

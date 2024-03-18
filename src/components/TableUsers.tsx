@@ -76,19 +76,25 @@ function TableUsers(): React.ReactNode {
             </IconButton>
           </Tooltip>
 
-          <Tooltip title={t("delete", { role_name, email })}>
-            <IconButton
-              color="error"
-              onClick={() => handleClick(id)}
-              disabled={id === 3}
-            >
+          {id === 3 ? (
+            <IconButton color="error" onClick={() => handleClick(id)} disabled>
               {loadingButtons.has(id) ? (
                 <CircularProgress size={24} />
               ) : (
                 <DeleteIcon />
               )}
             </IconButton>
-          </Tooltip>
+          ) : (
+            <Tooltip title={t("delete", { role_name, email })}>
+              <IconButton color="error" onClick={() => handleClick(id)}>
+                {loadingButtons.has(id) ? (
+                  <CircularProgress size={24} />
+                ) : (
+                  <DeleteIcon />
+                )}
+              </IconButton>
+            </Tooltip>
+          )}
         </>
       ),
     },

@@ -42,8 +42,10 @@ function FetcherDataForChangePsw(): React.ReactNode {
       <Typography component="h1" variant="h5" gutterBottom align="center">
         {tempDataStateForChangePsw.email && !isLoading ? (
           <>
-            {t("title")}
-            <b>{` ${tempDataStateForChangePsw.email}`}</b>
+            {t.rich("title", {
+              email: tempDataStateForChangePsw.email,
+              strong: (chunks) => <strong>{chunks}</strong>,
+            })}
           </>
         ) : (
           <CircularProgress size={20} />

@@ -31,8 +31,14 @@ async function PageHome(): Promise<React.ReactElement> {
         gutterBottom
         marginTop={{ xs: "1rem", sm: "2rem", md: "3rem" }}
       >
-        {t("title")} <b>{session?.user.role_name}:</b>
-        {` ${session?.user.first_name} ${session?.user.last_name}`}
+        {t.rich("title", {
+          role_name: session?.user.role_name[0]
+            .toUpperCase()
+            .concat(session?.user.role_name.slice(1)),
+          fullname: `${session?.user.first_name} ${session?.user.last_name}`,
+          gender: session?.user.gender,
+          strong: (chunks) => <strong>{chunks}</strong>,
+        })}
       </Typography>
 
       <ButtonGroup variant="outlined">

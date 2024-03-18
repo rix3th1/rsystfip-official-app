@@ -54,7 +54,7 @@
     "submit": "Send Email"
   },
   "PageHome": {
-    "title": "Welcome",
+    "title": "{gender, select, F {Welcome Mrs.} M {Welcome Sir.} other {Hello}} <strong>{role_name}</strong>: {fullname}",
     "metadata": {
       "title": "Home"
     },
@@ -70,7 +70,7 @@
     "delete": "Delete permanently {role_name} {email}"
   },
   "PageChangePassword": {
-    "title": "User email:",
+    "title": "User email: <strong>{email}</strong>",
     "metadata": {
       "title": "Change password"
     },
@@ -241,7 +241,7 @@
     "subtitle": "The link you have entered is invalid or has expired."
   },
   "PageLinkRecoveryPsw": {
-    "title": "User email:",
+    "title": "User email: <strong>{email}</strong>",
     "input1": "New password",
     "input2": "Confirm new password",
     "submit": "Continue",

@@ -9,7 +9,7 @@ export async function getUser(
   const conn = connect();
   if (!conn) return null;
   const [rows] = await conn.query<Array<RowDataPacket>>(
-    "SELECT U.id, U.first_name, U.last_name, U.email, U.password, R.role_name, R.permissions FROM Users U INNER JOIN Roles R ON U.role_id = R.id WHERE U.email = ? OR U.id = ?",
+    "SELECT U.id, U.first_name, U.last_name, U.gender, U.email, U.password, R.role_name, R.permissions FROM Users U INNER JOIN Roles R ON U.role_id = R.id WHERE U.email = ? OR U.id = ?",
     [email, id]
   );
   await conn.end();
@@ -20,7 +20,7 @@ export async function getUsers(): Promise<Array<IUser> | null> {
   const conn = connect();
   if (!conn) return null;
   const [rows] = await conn.query<Array<RowDataPacket>>(
-    "SELECT U.id, U.first_name, U.last_name, U.document_number, D.document_name, U.phone_number, U.email, U.role_id, U.authorized, R.role_name FROM Users U INNER JOIN Roles R ON U.role_id = R.id INNER JOIN Documents D ON U.document_id = D.id"
+    "SELECT U.id, U.first_name, U.last_name, U.gender, U.document_number, D.document_name, U.phone_number, U.email, U.role_id, R.role_name FROM Users U INNER JOIN Roles R ON U.role_id = R.id INNER JOIN Documents D ON U.document_id = D.id"
   );
   await conn.end();
   return rows as Array<IUser>;

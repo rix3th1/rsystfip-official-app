@@ -4,6 +4,7 @@ export interface IUser {
   id: string;
   first_name: string;
   last_name: string;
+  gender: "M" | "F";
   document_id: number;
   document_number: string;
   phone_number: string;
