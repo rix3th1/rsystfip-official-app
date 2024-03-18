@@ -1,10 +1,14 @@
 import { TableUsers } from "@/components";
+import type { TPermission } from "@/interfaces";
+import authOptions from "@/libs/authOptions";
+import { redirect } from "@/navigation";
 import AddIcon from "@mui/icons-material/Add";
 import Container from "@mui/material/Container";
 import Fab from "@mui/material/Fab";
 import Tooltip from "@mui/material/Tooltip";
 import Typography from "@mui/material/Typography";
 import { type Metadata } from "next";
+import { getServerSession } from "next-auth";
 import { getTranslations } from "next-intl/server";
 import NextLink from "next/link";
 
@@ -16,6 +20,15 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 async function PageUsers(): Promise<React.ReactElement> {
+  const session = await getServerSession(authOptions);
+  const permissions = session?.user.permissions! as TPermission[];
+
+  const isAllowed = permissions.includes("admin");
+
+  if (!isAllowed) {
+    redirect("/ITFIP-Rectory/home");
+  }
+
   const t = await getTranslations("PageUsers");
 
   return (

@@ -235,5 +235,17 @@
   "FullCalendar": {
     "unavailable": "Schedules not available at that time.",
     "timeout": "It cannot be scheduled on a date that has already passed."
+  },
+  "ResetTokenInvalid": {
+    "title": "Invalid Link",
+    "subtitle": "The link you have entered is invalid or has expired."
+  },
+  "PageLinkRecoveryPsw": {
+    "title": "User email:",
+    "input1": "New password",
+    "input2": "Confirm new password",
+    "submit": "Continue",
+    "back": "Back",
+    "signin": "Sign In"
   }
 }

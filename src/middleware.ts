@@ -1,10 +1,12 @@
-// import rolesMiddleware from "@/middlewares/rolesMiddlewares";
 import { locales } from "@/navigation";
-import { withAuth } from "next-auth/middleware";
+import { NextRequestWithAuth, withAuth } from "next-auth/middleware";
 import createIntlMiddleware from "next-intl/middleware";
-import { type NextRequest } from "next/server";
 
-const publicPages = ["/signin", "/recover-password"];
+const publicPages = [
+  "/signin",
+  "/recover-password",
+  "/recover-password/change",
+];
 
 const intlMiddleware = createIntlMiddleware({
   locales,
@@ -17,13 +19,10 @@ const authMiddleware = withAuth(
   // Note that this callback is only invoked if
   // the `authorized` callback has returned `true`
   // and not for pages listed in `pages`.
-  (req) => {
-    return intlMiddleware(req);
-    // rolesMiddleware(req);
-  }
+  (req) => intlMiddleware(req)
 );
 
-export default function middleware(req: NextRequest) {
+export default function middleware(req: NextRequestWithAuth) {
   const publicPathnameRegex = RegExp(
     `^(/(${locales.join("|")}))?(${publicPages
       .flatMap((p) => (p === "/" ? ["", "/"] : p))
@@ -43,15 +42,3 @@ export const config = {
   // Skip all paths that should not be internationalized
   matcher: ["/((?!api|_next|.*\\..*).*)"],
 };
-
-// export const config = {
-//   matcher: [
-//     // Match only internationalized pathnames
-//     "/",
-//     "/(es|en)/:path*",
-
-//     // RSystfip App
-//     "/api/:path*",
-//     "/ITFIP-Rectory/:path*",
-//   ],
-// };

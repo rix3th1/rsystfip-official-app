@@ -1,6 +1,7 @@
 import { FormSignin } from "@/components";
 import { Copyright } from "@/components/ui";
 import authOptions from "@/libs/authOptions";
+import { redirect } from "@/navigation";
 import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";
 import Paper from "@mui/material/Paper";
@@ -9,7 +10,6 @@ import { type Metadata } from "next";
 import { getServerSession } from "next-auth";
 import { getTranslations } from "next-intl/server";
 import Image from "next/image";
-import { redirect } from "next/navigation";
 
 export async function generateMetadata(): Promise<Metadata> {
   const t = await getTranslations("PageSignin");

@@ -19,8 +19,11 @@ import { useParams } from "next/navigation";
 import { useState } from "react";
 import { useMutation } from "react-query";
 import { PasswordMeter, ProtectedElement } from "./ui";
+import { useTranslations } from "next-intl";
 
 function FormChangePswForget(): React.ReactNode {
+  const t = useTranslations("PageLinkRecoveryPsw");
+
   const formDataInitialState = {
     password: "",
     password2: "",
@@ -84,7 +87,7 @@ function FormChangePswForget(): React.ReactNode {
         margin="normal"
         fullWidth
         name="password"
-        label="New password"
+        label={t("input1")}
         onChange={handleChange}
         value={formData.password}
         type={formData.passwordVisible ? "text" : "password"}
@@ -124,7 +127,7 @@ function FormChangePswForget(): React.ReactNode {
         margin="normal"
         fullWidth
         name="password2"
-        label="Confirm password"
+        label={t("input2")}
         onChange={handleChange}
         value={formData.password2}
         type={formData.passwordVisible ? "text" : "password"}
@@ -165,7 +168,7 @@ function FormChangePswForget(): React.ReactNode {
           onClick={() => router.back()}
           sx={{ mt: 3, ml: 1 }}
         >
-          {"Back"}
+          {t("back")}
         </Button>
 
         <ProtectedElement isAllowed={!hasChanged}>
@@ -174,7 +177,7 @@ function FormChangePswForget(): React.ReactNode {
             loading={isLoading}
             sx={{ mt: 3, ml: 1 }}
           >
-            {"Continue"}
+            {t("submit")}
           </LoadingButton>
         </ProtectedElement>
 
@@ -184,7 +187,7 @@ function FormChangePswForget(): React.ReactNode {
             onClick={() => signOut({ callbackUrl: "/signin" })}
             sx={{ mt: 3, ml: 1 }}
           >
-            {"Sign In"}
+            {t("signin")}
           </Button>
         </ProtectedElement>
       </Box>

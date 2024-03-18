@@ -5,15 +5,19 @@ import { accountService } from "@/services";
 import LinearProgress from "@mui/material/LinearProgress";
 import Paper from "@mui/material/Paper";
 import Typography from "@mui/material/Typography";
-import { useParams } from "next/navigation";
+import { useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
 import { useQuery } from "react-query";
 import FormChangePswForget from "./FormChangePswForget";
 import ResetTokenInvalid from "./ResetTokenInvalid";
 import { Loader } from "./ui";
+import { useTranslations } from "next-intl";
 
 function RecoveryLinkPassword(): React.ReactNode {
-  const params = useParams<{ resetToken: string }>();
+  const t = useTranslations("PageLinkRecoveryPsw");
+
+  const searchParams = useSearchParams();
+  const token = searchParams.get("token");
 
   const [dataUserVerified, setDataUserVerified] = useState({
     tokenIsValid: false,
@@ -22,7 +26,7 @@ function RecoveryLinkPassword(): React.ReactNode {
 
   const { data, isLoading, error } = useQuery<any, any>(
     "verifyJwtForRecoverPsw",
-    () => accountService.verifyJwtForRecoverPsw(params.resetToken),
+    () => accountService.verifyJwtForRecoverPsw(token || ""),
     { refetchOnWindowFocus: false }
   );
 
@@ -39,7 +43,7 @@ function RecoveryLinkPassword(): React.ReactNode {
         ) : (
           dataUserVerified.email && (
             <>
-              {"User email: "}
+              {t("title")}
               <b>{dataUserVerified.email}</b>
             </>
           )

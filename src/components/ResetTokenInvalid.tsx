@@ -1,10 +1,15 @@
+"use client";
+
 import Box from "@mui/material/Box";
 import Container from "@mui/material/Container";
 import Typography from "@mui/material/Typography";
+import { useTranslations } from "next-intl";
 import Image from "next/image";
 import { GoHome } from "./ui";
 
 function ResetTokenInvalid(): React.ReactNode {
+  const t = useTranslations("ResetTokenInvalid");
+
   return (
     <Container component="main" maxWidth="xs">
       <Box
@@ -25,11 +30,11 @@ function ResetTokenInvalid(): React.ReactNode {
           />
         </Box>
         <Typography component="h1" variant="h3" gutterBottom>
-          {"Invalid Link"}
+          {t("title")}
         </Typography>
 
-        <Typography variant="body1" gutterBottom>
-          {"The link to change your password is invalid!"}
+        <Typography variant="body1" gutterBottom textAlign="center">
+          {t("subtitle")}
         </Typography>
 
         <GoHome />

@@ -235,5 +235,17 @@
   "FullCalendar": {
     "unavailable": "Agendamientos no disponible en ese horario.",
     "timeout": "No se puede agendar en una fecha que ya ha pasado."
+  },
+  "ResetTokenInvalid": {
+    "title": "Enlace inválido",
+    "subtitle": "El enlace que has ingresado es incorrecto o ha expirado."
+  },
+  "PageLinkRecoveryPsw": {
+    "title": "Correo del usuario:",
+    "input1": "Nueva contraseña",
+    "input2": "Confirmación nueva contraseña",
+    "submit": "Continuar",
+    "back": "Atrás",
+    "signin": "Iniciar sesión"
   }
 }
