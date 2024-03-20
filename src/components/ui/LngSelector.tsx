@@ -24,7 +24,7 @@ function LngSelector() {
   };
 
   return (
-    <FormControl sx={{ mx: 1, minW2idth: 120 }} size="small">
+    <FormControl sx={{ mx: 1, minW2idth: 120, zIndex: 100 }} size="small">
       <InputLabel id="lng-selector-label">{t("label")}</InputLabel>
       <Select
         labelId="lng-selector-label"
