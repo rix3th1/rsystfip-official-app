@@ -349,6 +349,7 @@ function NavBar({ session }: IProps): React.ReactNode {
             }}
             open={Boolean(anchorElUser)}
             onClose={handleCloseUserMenu}
+            disableScrollLock
           >
             <MenuItem
               component={NextLink}

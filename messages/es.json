@@ -2,7 +2,7 @@
   "Index": {
     "title": "Agendamiento Citas Rectoría ITFIP",
     "toggleTheme": "Alternar tema",
-    "team": "Tecnología en gestión informática",
+    "team": "Tecnología en Gestión Informática 2024",
     "home": "Inicio",
     "faqs": "FAQs",
     "about": "Nosotros",
@@ -33,7 +33,7 @@
     "password": "Contraseña",
     "submit": "Iniciar Sesión",
     "forgot": "Olvidaste la contraseña?",
-    "copyright": "Todos los derechos reservados",
+    "address": "Calle 18 Carrera 1ª Barrio/Arkabal Espinal, Tolima - Colombia, Rectoría <strong>ITFIP</strong>",
     "onsignin": "Bienvenido(a) a la Rectoría del ITFIP"
   },
   "PageNotFound": {

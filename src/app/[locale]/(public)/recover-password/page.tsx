@@ -1,5 +1,5 @@
 import { RecoveryPassword } from "@/components";
-import { Copyright } from "@/components/ui";
+import { RectoryAddress } from "@/components/ui";
 import Container from "@mui/material/Container";
 import { type Metadata } from "next";
 import { getTranslations } from "next-intl/server";
@@ -16,7 +16,7 @@ function PageRecoverPassword(): React.ReactNode {
     <Container component="main" maxWidth="sm" sx={{ mb: 4 }}>
       <RecoveryPassword />
 
-      <Copyright sx={{ mt: 5 }} />
+      <RectoryAddress sx={{ mt: 5 }} />
     </Container>
   );
 }

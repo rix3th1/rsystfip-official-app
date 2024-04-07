@@ -1,5 +1,4 @@
 import authOptions from "@/libs/authOptions";
-import CodeIcon from "@mui/icons-material/Code";
 import Box from "@mui/material/Box";
 import Container from "@mui/material/Container";
 import Grid from "@mui/material/Grid";
@@ -27,8 +26,7 @@ async function Footer(): Promise<React.ReactElement> {
         >
           <Grid item xs={12} md={4}>
             <Typography variant="body2" color="textSecondary">
-              {`© ${new Date().getFullYear()} ${t("team")} `}
-              <CodeIcon fontSize="small" sx={{ my: -0.5 }} />
+              {t("team")}
             </Typography>
           </Grid>
 

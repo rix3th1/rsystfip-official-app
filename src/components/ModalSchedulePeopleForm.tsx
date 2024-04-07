@@ -30,7 +30,11 @@ function ModalSchedulePeopleForm({
   );
 
   return (
-    <Dialog open={stateModalScheduling} onClose={closeModalScheduling}>
+    <Dialog
+      open={stateModalScheduling}
+      onClose={closeModalScheduling}
+      disableScrollLock
+    >
       <DialogTitle>{t("title")}</DialogTitle>
 
       <DialogContent>

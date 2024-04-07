@@ -1,5 +1,5 @@
 import { FormSignin } from "@/components";
-import { Copyright } from "@/components/ui";
+import { RectoryAddress } from "@/components/ui";
 import authOptions from "@/libs/authOptions";
 import { redirect } from "@/navigation";
 import Box from "@mui/material/Box";
@@ -66,25 +66,36 @@ async function PageSignin(): Promise<React.ReactElement> {
             <Image
               alt="RSystfip logotype"
               src="/rsystfip_logotype.svg"
-              width={40}
-              height={32}
+              width={60}
+              height={52}
               quality={100}
               priority
             />
           </Box>
 
-          <Typography component="h1" variant="h5">
+          <Typography
+            component="h1"
+            variant="h5"
+            fontSize={35}
+            marginTop={2}
+            marginBottom={4}
+          >
             {t("title")}
           </Typography>
 
-          <Typography component="h1" variant="subtitle1" align="center">
+          <Typography
+            component="h1"
+            variant="subtitle1"
+            align="center"
+            fontSize={18}
+          >
             {t("subtitle")}
             <b>{" ITFIP"}</b>
             {"."}
           </Typography>
 
           <FormSignin />
-          <Copyright sx={{ mt: 5 }} />
+          <RectoryAddress sx={{ mt: 5 }} />
         </Box>
       </Grid>
     </Grid>

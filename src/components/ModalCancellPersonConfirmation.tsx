@@ -30,7 +30,11 @@ function ModalCancellPersonConfirmation({
   );
 
   return (
-    <Dialog open={stateModalCancell} onClose={closeModalCancell}>
+    <Dialog
+      open={stateModalCancell}
+      onClose={closeModalCancell}
+      disableScrollLock
+    >
       <DialogTitle>{t("title")}</DialogTitle>
 
       <DialogContent>
