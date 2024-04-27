@@ -10,12 +10,12 @@
     "lint": "next lint"
   },
   "author": {
-    "name": "Ricardo Andrés Rojas Rico",
+    "name": "Richard A. Rich",
     "email": "rojasricor@gmail.com"
   },
   "contributors": [
     {
-      "name": "José Manuel Mendoza Vásquez",
+      "name": "Anonymous69code",
       "email": "unknow69007@gmail.com"
     }
   ],
@@ -34,7 +34,6 @@
     "@mui/x-data-grid": "latest",
     "@mui/x-date-pickers": "latest",
     "@reduxjs/toolkit": "latest",
-    "@sendgrid/mail": "latest",
     "axios": "latest",
     "bcryptjs": "latest",
     "chart.js": "latest",
@@ -42,24 +41,26 @@
     "date-fns": "latest",
     "joi": "latest",
     "mysql2": "latest",
-    "net": "latest",
+    "net": "^1.0.2",
     "next": "latest",
     "next-auth": "latest",
     "next-intl": "latest",
     "next-nprogress-bar": "latest",
     "next-themes": "latest",
+    "nodemailer": "^6.9.13",
     "pdfmake": "latest",
     "react": "latest",
     "react-dom": "latest",
     "react-query": "latest",
     "react-redux": "latest",
     "react-toastify": "latest",
-    "tls": "latest"
+    "tls": "^0.0.1"
   },
   "devDependencies": {
     "@types/bcryptjs": "latest",
     "@types/mysql2": "github:types/mysql2",
     "@types/node": "latest",
+    "@types/nodemailer": "^6.4.14",
     "@types/pdfmake": "latest",
     "@types/react": "latest",
     "@types/react-dom": "latest",

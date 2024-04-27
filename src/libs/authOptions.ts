@@ -35,9 +35,13 @@ const authOptions: NextAuthOptions = {
           throw new Error(error.message);
         }
 
+        const domain = "@itfip.edu.co";
+
         const userFound = await UserService.getUser(
           undefined,
-          `${value.username}@itfip.edu.co`
+          value.username.includes(domain)
+            ? value.username
+            : `${value.username}${domain}`
         );
         if (!userFound) {
           throw new Error("Bad credentials");
