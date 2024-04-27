@@ -50,6 +50,10 @@ function FormUserAdd(): React.ReactNode {
 
   const router = useRouter();
 
+  const goBack = () => {
+    window.length > 1 ? router.back() : router.push("/");
+  };
+
   const handleClickTogglePassword = () => {
     dispatch(
       setTemps({
@@ -347,11 +351,7 @@ function FormUserAdd(): React.ReactNode {
       </Grid>
 
       <Box sx={{ display: "flex", justifyContent: "space-between" }}>
-        <Button
-          type="button"
-          onClick={() => router.back()}
-          sx={{ mt: 3, ml: 1 }}
-        >
+        <Button type="button" onClick={goBack} sx={{ mt: 3, ml: 1 }}>
           {t("back")}
         </Button>
 

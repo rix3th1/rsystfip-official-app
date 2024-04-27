@@ -32,7 +32,7 @@ async function Footer(): Promise<React.ReactElement> {
 
           <Grid item xs={12} md={4}>
             <Link
-              href="#"
+              href=""
               component={NextLink}
               underline="none"
               sx={{
@@ -78,7 +78,7 @@ async function Footer(): Promise<React.ReactElement> {
               </Link>
 
               <Link
-                href="#"
+                href=""
                 component={NextLink}
                 variant="body2"
                 color="textSecondary"

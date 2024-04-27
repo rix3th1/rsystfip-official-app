@@ -19,7 +19,7 @@ import { useTranslations } from "next-intl";
 import { useRouter } from "next-nprogress-bar";
 import { useState } from "react";
 import { useMutation } from "react-query";
-import { PasswordMeter, ProtectedElement } from "./ui";
+import { Loader, PasswordMeter, ProtectedElement } from "./ui";
 
 interface IProps {
   userId: IUserBase["id"];
@@ -38,6 +38,10 @@ function FormChangePsw({ userId }: IProps): React.ReactNode {
   const [hasChanged, setHasChanged] = useState(false);
 
   const router = useRouter();
+
+  const goBack = () => {
+    window.length > 1 ? router.back() : router.push("/");
+  };
 
   const { mutate, isLoading } = useMutation(accountService.changePassword, {
     onSuccess(data) {
@@ -85,6 +89,10 @@ function FormChangePsw({ userId }: IProps): React.ReactNode {
 
   return (
     <Box component="form" onSubmit={handleSubmit}>
+      <ProtectedElement isAllowed={isLoading}>
+        <Loader />
+      </ProtectedElement>
+
       <TextField
         margin="normal"
         required
@@ -197,11 +205,7 @@ function FormChangePsw({ userId }: IProps): React.ReactNode {
       />
 
       <Box sx={{ display: "flex", justifyContent: "space-between" }}>
-        <Button
-          type="button"
-          onClick={() => router.back()}
-          sx={{ mt: 3, ml: 1 }}
-        >
+        <Button type="button" onClick={goBack} sx={{ mt: 3, ml: 1 }}>
           {t("back")}
         </Button>
 

@@ -20,6 +20,7 @@ import { useRouter } from "next-nprogress-bar";
 import NextLink from "next/link";
 import { useState } from "react";
 import { useMutation } from "react-query";
+import { Loader, ProtectedElement } from "./ui";
 
 function FormSignin(): React.ReactNode {
   const t = useTranslations("PageSignin");
@@ -83,6 +84,10 @@ function FormSignin(): React.ReactNode {
 
   return (
     <Box component="form" onSubmit={handleSubmit} sx={{ mt: 1 }}>
+      <ProtectedElement isAllowed={isLoading}>
+        <Loader />
+      </ProtectedElement>
+
       <TextField
         margin="normal"
         required

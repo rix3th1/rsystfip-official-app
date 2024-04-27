@@ -16,9 +16,13 @@ function FooterFormPeople({ isEdit, isLoading }: IProps): React.ReactNode {
 
   const router = useRouter();
 
+  const goBack = () => {
+    window.length > 1 ? router.back() : router.push("/");
+  };
+
   return (
     <Box sx={{ display: "flex", justifyContent: "space-between" }}>
-      <Button type="button" onClick={() => router.back()} sx={{ mt: 3, ml: 1 }}>
+      <Button type="button" onClick={goBack} sx={{ mt: 3, ml: 1 }}>
         {t("back")}
       </Button>
 

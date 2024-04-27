@@ -14,12 +14,12 @@ import InputAdornment from "@mui/material/InputAdornment";
 import TextField from "@mui/material/TextField";
 import { isAxiosError } from "axios";
 import { signOut } from "next-auth/react";
+import { useTranslations } from "next-intl";
 import { useRouter } from "next-nprogress-bar";
-import { useParams } from "next/navigation";
+import { useSearchParams } from "next/navigation";
 import { useState } from "react";
 import { useMutation } from "react-query";
-import { PasswordMeter, ProtectedElement } from "./ui";
-import { useTranslations } from "next-intl";
+import { Loader, PasswordMeter, ProtectedElement } from "./ui";
 
 function FormChangePswForget(): React.ReactNode {
   const t = useTranslations("PageLinkRecoveryPsw");
@@ -31,9 +31,15 @@ function FormChangePswForget(): React.ReactNode {
   };
   const [formData, setFormData] = useState(formDataInitialState);
   const [hasChanged, setHasChanged] = useState(false);
-  const params = useParams<{ resetToken: string }>();
+
+  const searchParams = useSearchParams();
+  const resetToken = searchParams.get("token");
 
   const router = useRouter();
+
+  const goBack = () => {
+    window.length > 1 ? router.back() : router.push("/");
+  };
 
   const { mutate, isLoading } = useMutation(
     accountService.changePasswordWithJwt,
@@ -59,7 +65,7 @@ function FormChangePswForget(): React.ReactNode {
     e.preventDefault();
 
     const payload = {
-      resetToken: params.resetToken,
+      resetToken,
       password: formData.password,
       password2: formData.password2,
     };
@@ -83,6 +89,10 @@ function FormChangePswForget(): React.ReactNode {
 
   return (
     <Box component="form" onSubmit={handleSubmit}>
+      <ProtectedElement isAllowed={isLoading}>
+        <Loader />
+      </ProtectedElement>
+
       <TextField
         margin="normal"
         fullWidth
@@ -122,7 +132,6 @@ function FormChangePswForget(): React.ReactNode {
           variant: "determinate",
         }}
       />
-
       <TextField
         margin="normal"
         fullWidth
@@ -154,20 +163,14 @@ function FormChangePswForget(): React.ReactNode {
         }}
         required
       />
-
       <PasswordMeter
         value={formData.password2}
         LinearProgressProps={{
           variant: "determinate",
         }}
       />
-
       <Box sx={{ display: "flex", justifyContent: "space-between" }}>
-        <Button
-          type="button"
-          onClick={() => router.back()}
-          sx={{ mt: 3, ml: 1 }}
-        >
+        <Button type="button" onClick={goBack} sx={{ mt: 3, ml: 1 }}>
           {t("back")}
         </Button>
 

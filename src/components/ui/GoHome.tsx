@@ -10,9 +10,13 @@ function GoHome(): React.ReactNode {
 
   const router = useRouter();
 
+  const goBack = () => {
+    window.length > 1 ? router.back() : router.push("/");
+  };
+
   return (
     <Button
-      onClick={() => router.back()}
+      onClick={goBack}
       variant="contained"
       size="large"
       startIcon={<ArrowBackIcon />}

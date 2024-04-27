@@ -6,6 +6,7 @@ import type { NextAuthOptions } from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
 
 const authOptions: NextAuthOptions = {
+  debug: process.env.NODE_ENV === "development",
   providers: [
     CredentialsProvider({
       id: "rsystfip-credentials",
@@ -77,7 +78,6 @@ const authOptions: NextAuthOptions = {
     strategy: "jwt",
   },
   secret: process.env.NEXTAUTH_SECRET,
-  debug: process.env.NODE_ENV === "development",
   callbacks: {
     jwt({ token, user }) {
       if (user) {
