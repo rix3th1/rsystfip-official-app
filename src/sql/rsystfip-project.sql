@@ -1,5 +1,4 @@
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-START TRANSACTION;
 SET time_zone = "+00:00";
 
 CREATE TABLE `Appointments` (
@@ -140,16 +139,19 @@ INSERT INTO `Users` (`id`, `first_name`, `last_name`, `gender`, `document_id`, `
 
 
 ALTER TABLE `Appointments`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `person_id` (`person_id`);
 
 ALTER TABLE `CanceledAppointments`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `person_id` (`person_id`);
 
 ALTER TABLE `Categories`
   ADD PRIMARY KEY (`id`);
 
 ALTER TABLE `Deans`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `faculty_id` (`faculty_id`);
 
 ALTER TABLE `Documents`
   ADD PRIMARY KEY (`id`);
@@ -158,13 +160,18 @@ ALTER TABLE `Faculties`
   ADD PRIMARY KEY (`id`);
 
 ALTER TABLE `People`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `document_id` (`document_id`),
+  ADD KEY `category_id` (`category_id`,`faculty_id`),
+  ADD KEY `faculty_id` (`faculty_id`);
 
 ALTER TABLE `Roles`
   ADD PRIMARY KEY (`id`);
 
 ALTER TABLE `Users`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `document_id` (`document_id`),
+  ADD KEY `role_id` (`role_id`);
 
 
 ALTER TABLE `Appointments`
@@ -190,4 +197,21 @@ ALTER TABLE `Roles`
 
 ALTER TABLE `Users`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT COMMENT 'Campo que guarda el id de los usuarios del aplicativo, con acceso permitido (unique).', AUTO_INCREMENT=4;
-COMMIT;
+
+
+ALTER TABLE `Appointments`
+  ADD CONSTRAINT `Appointments_ibfk_1` FOREIGN KEY (`person_id`) REFERENCES `People` (`id`);
+
+ALTER TABLE `CanceledAppointments`
+  ADD CONSTRAINT `CanceledAppointments_ibfk_1` FOREIGN KEY (`person_id`) REFERENCES `People` (`id`);
+
+ALTER TABLE `Deans`
+  ADD CONSTRAINT `Deans_ibfk_1` FOREIGN KEY (`faculty_id`) REFERENCES `Faculties` (`id`);
+
+ALTER TABLE `People`
+  ADD CONSTRAINT `People_ibfk_1` FOREIGN KEY (`faculty_id`) REFERENCES `Faculties` (`id`),
+  ADD CONSTRAINT `People_ibfk_2` FOREIGN KEY (`category_id`) REFERENCES `Categories` (`id`);
+
+ALTER TABLE `Users`
+  ADD CONSTRAINT `Users_ibfk_1` FOREIGN KEY (`document_id`) REFERENCES `Documents` (`id`),
+  ADD CONSTRAINT `Users_ibfk_2` FOREIGN KEY (`role_id`) REFERENCES `Roles` (`id`);
